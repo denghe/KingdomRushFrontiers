@@ -1,4 +1,4 @@
-#ifndef _PLAYER_STATE_MENU_H_
+ï»¿#ifndef _PLAYER_STATE_MENU_H_
 #define _PLAYER_STATE_MENU_H_
 
 #include "cocos2d.h"
@@ -28,12 +28,12 @@ public:
 	Label* goldLabel;
 	Label* waveLabel;
 
-	//zhanglei-begin - ¶¨ÒåÀ×Ê¯£¬É¡±ø£¬½õÄÒÈı¸ö¾«Áé
+	//zhanglei-begin - å®šä¹‰é›·çŸ³ï¼Œä¼å…µï¼Œé”¦å›Šä¸‰ä¸ªç²¾çµ
 	Sprite* thunderStoneSprite;
 	Sprite* paratrooperSprite;
 	Sprite* packSprite;
 	Sprite* backPackSprite;
-	//ÁùÏÀ
+	//å…­ä¾ 
 	Sprite* backPack_icons_Sprite[6];
 	std::string stringForSkillFileName;
 	void updateStoneProgress(float Dt);

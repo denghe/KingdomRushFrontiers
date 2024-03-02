@@ -1,4 +1,4 @@
-#ifndef _SMOEKE_H_
+﻿#ifndef _SMOEKE_H_
 #define _SMOEKE_H_
 
 #include "cocos2d.h"

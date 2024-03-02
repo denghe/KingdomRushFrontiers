@@ -1,4 +1,4 @@
-#include "Level3.h"
+ï»¿#include "Level3.h"
 USING_NS_CC;
 
 Level3::Level3()
@@ -16,7 +16,7 @@ bool Level3::initWithDifficulty(int difficulty)
 	setLevel(3);
 	this->difficulty = difficulty;
 	initMap();
-	//ROAD1ÓÒ±ß0×ó±ß
+	//ROAD1å³è¾¹0å·¦è¾¹
 	std::vector<Point> points;
 	points.push_back(Point(40,243));
 	points.push_back(Point(1139,200));

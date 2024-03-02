@@ -1,4 +1,4 @@
-#ifndef _GAMEVIEW_MENU_H_
+﻿#ifndef _GAMEVIEW_MENU_H_
 #define _GAMEVIEW_MENU_H_
 
 #include "cocos2d.h"

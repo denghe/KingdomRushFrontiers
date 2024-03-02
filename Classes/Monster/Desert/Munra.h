@@ -1,4 +1,4 @@
-#ifndef _MUNRA_H_
+﻿#ifndef _MUNRA_H_
 #define _MUNRA_H_
 
 #include "Monster/BaseMonster.h"

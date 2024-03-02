@@ -1,4 +1,4 @@
-#ifndef _SHIT_H_
+﻿#ifndef _SHIT_H_
 #define _SHIT_H_
 
 #include "Bullet/Bullet.h"

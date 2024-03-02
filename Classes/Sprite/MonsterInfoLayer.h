@@ -1,4 +1,4 @@
-#ifndef _MONSTER_INFO_LAYER_H_
+﻿#ifndef _MONSTER_INFO_LAYER_H_
 #define _MONSTER_INFO_LAYER_H_
 
 #include "cocos2d.h"

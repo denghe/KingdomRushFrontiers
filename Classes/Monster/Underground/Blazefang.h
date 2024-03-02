@@ -1,4 +1,4 @@
-#ifndef _BLAZEFANG_H_
+﻿#ifndef _BLAZEFANG_H_
 #define _BLAZEFANG_H_
 
 #include "Monster/BaseMonster.h"

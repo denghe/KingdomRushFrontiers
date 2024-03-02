@@ -1,4 +1,4 @@
-#include "Information.h"
+ï»¿#include "Information.h"
 #include "Scene/WelcomeScene.h"
 
 USING_NS_CC;
@@ -11,7 +11,7 @@ Scene* Information::createScene()
     return scene;
 }
 
-//³õÊ¼»¯
+//åˆå§‹åŒ–
    bool Information::init()
   {
     if ( !Layer::init() )
@@ -29,8 +29,8 @@ Scene* Information::createScene()
    {
        SpriteFrameCache::getInstance()->addSpriteFramesWithFile("credits_scene-hd.plist"); 
 	 
-	   Size size = Director::getInstance()->getVisibleSize(); //»ñÈ¡ÆÁÄ»´óÐ¡ /
-////////////////////±³¾°
+	   Size size = Director::getInstance()->getVisibleSize(); //èŽ·å–å±å¹•å¤§å° /
+////////////////////èƒŒæ™¯
 	   auto tileTopSprite = Sprite::createWithSpriteFrameName("credits_tileTop.png");
 	   tileTopSprite->setPosition(size.width*0.5,size.height*0.6);
 	   tileTopSprite->setScaleX(0.5);
@@ -40,12 +40,12 @@ Scene* Information::createScene()
 	   tileSprite->setPosition(size.width*0.5,size.height*0.3);
 	   tileSprite->setScaleX(0.5);
 	   addChild(tileSprite,0); 
-  //////////////////×óÉÏ½ÇµÄ½£
+  //////////////////å·¦ä¸Šè§’çš„å‰‘
 	   auto swordSprite = Sprite::createWithSpriteFrameName("credits_sword.png");
 	   swordSprite->setPosition(size.width*0.9,size.height*0.8);
 	   swordSprite->setScale(0.5);
 	   addChild(swordSprite,1); 
-//////////////////·µ»Ø°´Å¥
+//////////////////è¿”å›žæŒ‰é’®
 	   auto sprite1 = Sprite::createWithSpriteFrameName("credits_back_0001.png");
 	   sprite1->setScale(0.5);
 
@@ -55,12 +55,12 @@ Scene* Information::createScene()
 	   auto item = MenuItemSprite::create(sprite1,sprite2,CC_CALLBACK_1(Information::callBackMenu,this));
 	   item->setPosition(Point(size.width*0.2,size.height*0.25));
 
-	   Menu *menu1 = Menu::create(item,NULL);  //ÊµÏÖÈýÕßÖ®¼äµÄË³ÐòÇÐ»»  
+	   Menu *menu1 = Menu::create(item,NULL);  //å®žçŽ°ä¸‰è€…ä¹‹é—´çš„é¡ºåºåˆ‡æ¢  
 	   menu1->setPosition(Vec2::ZERO);
        this->addChild(menu1,1);  
 
 
-	   /////////////////×ÖÌå
+	   /////////////////å­—ä½“
 
 	   auto label = Label::createWithTTF("Kingdom Rush ", "SohoGothicProMedium.ttf", 36);
 	   label->setPosition(Point(size.width*0.5, size.height*0.75));

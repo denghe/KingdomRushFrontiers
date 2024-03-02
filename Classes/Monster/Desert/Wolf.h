@@ -1,4 +1,4 @@
-#ifndef _WOLF_H_
+﻿#ifndef _WOLF_H_
 #define _WOLF_H_
 
 #include "Monster/BaseMonster.h"

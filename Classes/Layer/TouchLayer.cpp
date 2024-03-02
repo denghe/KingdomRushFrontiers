@@ -1,4 +1,4 @@
-#include "Layer/TouchLayer.h"
+ï»¿#include "Layer/TouchLayer.h"
 #include "Data/GameManager.h"
 #include "PlayerStateMenu.h"
 #include "Bullet/FireBall.h"
@@ -55,34 +55,34 @@ bool TouchLayer::init()
 
 void TouchLayer::setFireBallTouchShield()
 {
-	//µ÷ÓÃ´Ë·½·¨´´½¨ÔÉÊ¯¼¼ÄÜ´¥ÃşÊ±¼ä
+	//è°ƒç”¨æ­¤æ–¹æ³•åˆ›å»ºé™¨çŸ³æŠ€èƒ½è§¦æ‘¸æ—¶é—´
 	FiereBalllistener = EventListenerTouchOneByOne::create();
 	FiereBalllistener->onTouchBegan = CC_CALLBACK_2(TouchLayer::onFireBallTouchBegan, this);
 	FiereBalllistener->onTouchEnded = CC_CALLBACK_2(TouchLayer::onFireBallTouchEnded, this);
 	FiereBalllistener->setSwallowTouches(true);
-	//ÉèÖÃ±ÈÒÆ¶¯´¥ÃşÊÂ¼ş¸ß¼´¿É
+	//è®¾ç½®æ¯”ç§»åŠ¨è§¦æ‘¸äº‹ä»¶é«˜å³å¯
 	//_eventDispatcher->addEventListenerWithFixedPriority(FiereBalllistener,1);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(FiereBalllistener,this);
 }
 
 void TouchLayer::removeFireBallTouchShield()
 {
-	//Ê¹ÓÃ¼¼ÄÜÍê±ÏÈ¥³ı´Ë¼àÌıÊ±¼ä
+	//ä½¿ç”¨æŠ€èƒ½å®Œæ¯•å»é™¤æ­¤ç›‘å¬æ—¶é—´
 	if(FiereBalllistener!=NULL)
 		_eventDispatcher->removeEventListener(FiereBalllistener);
 }
 
 bool TouchLayer::onFireBallTouchBegan(Touch* touch, Event* event)
 {
-	//Ö±½Ó·µ»ØTRUE£¬À¹½ØÆäËûÊ±¼ä
+	//ç›´æ¥è¿”å›TRUEï¼Œæ‹¦æˆªå…¶ä»–æ—¶é—´
 	return true;
 }
 
 void TouchLayer::onFireBallTouchEnded(Touch* touch, Event* event)
 {
-	//²¥·ÅÒôĞ§
+	//æ’­æ”¾éŸ³æ•ˆ
 	SoundManager::playFireballUnleash();
-	//´´½¨3¸öÔÉÊ¯
+	//åˆ›å»º3ä¸ªé™¨çŸ³
 	auto fireBall1 = FireBall::create();
 	addChild(fireBall1);
 	fireBall1->shoot(static_cast<TouchLayer*>(event->getCurrentTarget())->convertTouchToNodeSpace(touch)+Point(-30,300));
@@ -92,9 +92,9 @@ void TouchLayer::onFireBallTouchEnded(Touch* touch, Event* event)
 	auto fireBall3 = FireBall::create();
 	addChild(fireBall3);
 	fireBall3->shoot(static_cast<TouchLayer*>(event->getCurrentTarget())->convertTouchToNodeSpace(touch)+Point(30,280));
-	//ÔÉÊ¯×¹ÂäÖ®ºó»ñÈ¡¸¸ÀàµÄÍæ¼Ò×´Ì¬²ã£¬µ÷ÓÃstartStone,ÖØĞÂ¿ªÊ¼¼ÆÊ±²¢ÇÒÖØÖÃProgressTimerÕÚ¸Ç²ã
+	//é™¨çŸ³å è½ä¹‹åè·å–çˆ¶ç±»çš„ç©å®¶çŠ¶æ€å±‚ï¼Œè°ƒç”¨startStone,é‡æ–°å¼€å§‹è®¡æ—¶å¹¶ä¸”é‡ç½®ProgressTimeré®ç›–å±‚
 	static_cast<BaseMap*>(this->getParent())->playerState->startStone();
-	//ÒÆ³ı´Ë¼àÌıÊÂ¼ş
+	//ç§»é™¤æ­¤ç›‘å¬äº‹ä»¶
 	removeFireBallTouchShield();
 }
 
@@ -286,24 +286,24 @@ void TouchLayer::onTouchEnded(Touch* touch, Event* event)
 
 void TouchLayer::onTouchMoved(Touch* touch, Event* event)
 {
-        // ¼ÆËã»¬¶¯¹ı³ÌÖĞµÄ»¬¶¯ÔöÁ¿
+        // è®¡ç®—æ»‘åŠ¨è¿‡ç¨‹ä¸­çš„æ»‘åŠ¨å¢é‡
         auto diff = touch->getDelta(); 
 
-		//ÊÖÖ¸ÒÆ¶¯ĞŞÕı£¬ÒòÎªÊÖÖ¸´¥Ãş²»ÏñÊó±ê´¥ÃşÄÇÃ´¹Ì¶¨
+		//æ‰‹æŒ‡ç§»åŠ¨ä¿®æ­£ï¼Œå› ä¸ºæ‰‹æŒ‡è§¦æ‘¸ä¸åƒé¼ æ ‡è§¦æ‘¸é‚£ä¹ˆå›ºå®š
 		if(abs(diff.x) >5|| abs(diff.y) >5){
 			isMoved = true;
 		}
-			// µÃµ½µ±Ç°bgSpriteµÄÎ»ÖÃ
+			// å¾—åˆ°å½“å‰bgSpriteçš„ä½ç½®
 			auto currentPos = this->getParent()->getPosition();
-			// µÃµ½»¬¶¯ºóbgSpriteÓ¦¸ÃËùÔÚµÄÎ»ÖÃ
+			// å¾—åˆ°æ»‘åŠ¨åbgSpriteåº”è¯¥æ‰€åœ¨çš„ä½ç½®
 			auto pos = currentPos + diff;
 
-			//±ß½ç¿ØÖÆ£¬Ô¼ÊøposµÄÎ»ÖÃ
+			//è¾¹ç•Œæ§åˆ¶ï¼Œçº¦æŸposçš„ä½ç½®
 			pos.x = MIN(pos.x, 0);
 			pos.x = MAX(pos.x, -1200 + winSize.width);
 			pos.y = MIN(pos.y, 0);
 			pos.y = MAX(pos.y, -1000 + winSize.height);
-			// ÖØÉèbgSpriteÎ»ÖÃ
+			// é‡è®¾bgSpriteä½ç½®
 
 			this->getParent()->setPosition(pos);
 }

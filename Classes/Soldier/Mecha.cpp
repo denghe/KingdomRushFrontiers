@@ -1,4 +1,4 @@
-#include "Mecha.h"
+﻿#include "Mecha.h"
 #include "Data/GameManager.h"
 #include "Bullet/Missile.h"
 #include "Bullet/Shit.h"
@@ -124,7 +124,7 @@ void Mecha::runToLocation(Point point)
 	baseSprite->stopAllActions();
 	unschedule(schedule_selector(Mecha::bombMonster));
 	if((point.x - this->getPositionX())>0){
-		baseSprite->setFlippedX(false);//�ұ�
+		baseSprite->setFlippedX(false);//右边
 	}else{
 		baseSprite->setFlippedX(true);
 	}

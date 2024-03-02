@@ -1,4 +1,4 @@
-#ifndef __Enemy_SCENE_H__
+ï»¿#ifndef __Enemy_SCENE_H__
 #define __Enemy_SCENE_H__
 
 #include "cocos2d.h"
@@ -11,7 +11,7 @@ class Enemy : public cocos2d::Layer
 		static cocos2d::Scene* createScene();
 	bool init() override;
 
-		//·­Ò³
+		//ç¿»é¡µ
 		void lastPage(Ref* pSender);
 		void nextPage(Ref* pSender);
 
@@ -28,7 +28,7 @@ class Enemy : public cocos2d::Layer
 		Label* labelPage;
 
 		Label* labelName;
-		//Áù¸öÊôÐÔ
+		//å…­ä¸ªå±žæ€§
 		Label* labelBloodValue;
 		Label* labelAttackValue;
 		Label* labelDefenseValue;
@@ -39,7 +39,7 @@ class Enemy : public cocos2d::Layer
 		
 		Label* labelNotice;
 
-		//Áù¸öÖµ
+		//å…­ä¸ªå€¼
 		Label* labelBloodValue1;
 		Label* labelAttackValue1;
 		Label* labelDefenseValue1;
@@ -50,7 +50,7 @@ class Enemy : public cocos2d::Layer
 
 		Label* labelNotice1;
 
-		//¸¡¶¯¿ò¿ò
+		//æµ®åŠ¨æ¡†æ¡†
 		Sprite* creepFrame;
 
 		Size visibleSize;

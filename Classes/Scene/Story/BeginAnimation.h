@@ -1,4 +1,4 @@
-#ifndef _BEGIN_ANIMATION_H_
+﻿#ifndef _BEGIN_ANIMATION_H_
 #define _BEGIN_ANIMATION_H_
 
 #include "cocos2d.h"

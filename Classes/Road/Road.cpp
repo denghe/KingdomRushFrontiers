@@ -1,4 +1,4 @@
-#include "Road/Road.h"
+﻿#include "Road/Road.h"
 #include "Data/GameManager.h"
 
 Road::~Road(){}
@@ -78,7 +78,7 @@ bool Road::init()
 
 void Road::setRoadReady()
 {
-	int hasDone = UserDefault::getInstance()->getIntegerForKey(GameManager::getInstance()->SLOTX_DOWNCOUNT,0);//��ʾ�Ѿ�ͨ����
+	int hasDone = UserDefault::getInstance()->getIntegerForKey(GameManager::getInstance()->SLOTX_DOWNCOUNT,0);//表示已经通关数
 	if(hasDone!=0){
 		for(int i=0;i<=hasDone-1;i++)
 		{

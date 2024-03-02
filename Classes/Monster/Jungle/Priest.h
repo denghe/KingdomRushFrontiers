@@ -1,4 +1,4 @@
-#ifndef _PRIEST_H_
+﻿#ifndef _PRIEST_H_
 #define _PRIEST_H_
 
 #include "Monster/BaseMonster.h"

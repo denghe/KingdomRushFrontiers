@@ -1,4 +1,4 @@
-#ifndef _LAVA_H_
+﻿#ifndef _LAVA_H_
 #define _LAVA_H_
 
 #include "cocos2d.h"

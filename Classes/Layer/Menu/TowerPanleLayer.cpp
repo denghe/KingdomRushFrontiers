@@ -1,4 +1,4 @@
-#include "TowerPanleLayer.h"
+ï»¿#include "TowerPanleLayer.h"
 #include "Data/GameManager.h"
 #include "Map/BaseMap.h"
 #include "Tower/BaseBarracksTower.h"
@@ -153,20 +153,20 @@ bool TowerPanleLayer::onTouchBegan(Touch *touch, Event *event)
 	Rect rect = Rect(0-size.width/2, 0-size.height/2, size.width, size.height);
     if (rect.containsPoint(locationInNode))
     {
-		if(target->getIsSelected())//Èç¹ûÒÑ¾­Ñ¡ÖĞ£¨µÚ¶ş´Î°´ÏÂ£©
+		if(target->getIsSelected())//å¦‚æœå·²ç»é€‰ä¸­ï¼ˆç¬¬äºŒæ¬¡æŒ‰ä¸‹ï¼‰
 		{
-			if(target->getIsAble())//Èç¹ûÇ®¹»ÓÃ
+			if(target->getIsAble())//å¦‚æœé’±å¤Ÿç”¨
 			{
 				int i = target->getType();
 				addTower(target->getType());
 			}
-		}else{//µÚÒ»´Î°´ÏÂ
+		}else{//ç¬¬ä¸€æ¬¡æŒ‰ä¸‹
 			archerIcon->setNotSelected();
 			artilleryIcon->setNotSelected();
 			barracksIcon->setNotSelected();
 			magicIcon->setNotSelected();
 
-			target->setSelected();//ÉèÖÃÎªÑ¡ÖĞ×´Ì¬
+			target->setSelected();//è®¾ç½®ä¸ºé€‰ä¸­çŠ¶æ€
 			addTempTower(target->getType());
 		}
         return true;

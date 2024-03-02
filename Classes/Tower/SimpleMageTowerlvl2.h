@@ -1,4 +1,4 @@
-#ifndef _SIMPLE_MAGE_TOWER_LVL2_H_
+﻿#ifndef _SIMPLE_MAGE_TOWER_LVL2_H_
 #define _SIMPLE_MAGE_TOWER_LVL2_H_
 
 #include "cocos2d.h"

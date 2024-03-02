@@ -1,4 +1,4 @@
-#include "SimplePanleLayerWithFlag.h"
+ï»¿#include "SimplePanleLayerWithFlag.h"
 #include "Data/GameManager.h"
 #include "Layer/TouchLayer.h"
 
@@ -87,15 +87,15 @@ bool SimplePanleLayerWithFlag::onTouchBegan(Touch *touch, Event *event)
 	Rect rect = Rect(0-size.width/2, 0-size.height/2, size.width, size.height);
     if (rect.containsPoint(locationInNode))
     {
-		if(target->getIsSelected())//Èç¹ûÒÑ¾­Ñ¡ÖĞ£¨µÚ¶ş´Î°´ÏÂ£©
+		if(target->getIsSelected())//å¦‚æœå·²ç»é€‰ä¸­ï¼ˆç¬¬äºŒæ¬¡æŒ‰ä¸‹ï¼‰
 		{
 			SoundManager::playTowerSell();
 			GameManager::getInstance()->MONEY = GameManager::getInstance()->MONEY+ (tower->getBuildMoney()/2);
 			tower->sellTower();
 			this->setVisible(false);
 			isBuilt = true;
-		}else{//µÚÒ»´Î°´ÏÂ
-			target->setSelected();//ÉèÖÃÎªÑ¡ÖĞ×´Ì¬
+		}else{//ç¬¬ä¸€æ¬¡æŒ‰ä¸‹
+			target->setSelected();//è®¾ç½®ä¸ºé€‰ä¸­çŠ¶æ€
 		}
         return true;
     }

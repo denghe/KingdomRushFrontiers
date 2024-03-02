@@ -1,4 +1,4 @@
-#include "SlotMenu.h"
+ï»¿#include "SlotMenu.h"
 #include "Scene/GameView.h"
 #include "Scene/TransitionGame.h"
 #include "SimpleAudioEngine.h" 
@@ -20,7 +20,7 @@ bool SlotMenu::initWithNum(int num)
 		return false;
 	}
 	setNum(num);
-	//Ìí¼Ó±³¾°Í¼Æ¬
+	//æ·»åŠ èƒŒæ™¯å›¾ç‰‡
 	savelot = Sprite::createWithSpriteFrameName("mainmenu_saveslot_0001.png");
 	addChild(savelot);
 	button_Savelot_Delete = MenuItemSprite::create(Sprite::createWithSpriteFrameName("mainmenu_saveslot_delete_0001.png"),

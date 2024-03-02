@@ -1,4 +1,4 @@
-#include "ChooseDifficulty.h"
+ï»¿#include "ChooseDifficulty.h"
 #include "Scene/GameScene.h"
 #include "Scene/TransitionGame.h"
 #include "Data/GameManager.h"
@@ -9,7 +9,7 @@ USING_NS_CC;
 
 Scene* ChooseDifficulty::createSceneWithLevel(int level)
 {
-    //´´½¨Ò»¸ö×ÔÊÍ·ÅµÄ³¡¾°¶ÔÏó
+    //åˆ›å»ºä¸€ä¸ªè‡ªé‡Šæ”¾çš„åœºæ™¯å¯¹è±¡
     auto scene = Scene::create();
     auto layer = ChooseDifficulty::create();
 	layer->initWithLevel(level);
@@ -17,7 +17,7 @@ Scene* ChooseDifficulty::createSceneWithLevel(int level)
     return scene;
 }
 
-// // ³¡¾°³õÊ¼»¯·½·¨
+// // åœºæ™¯åˆå§‹åŒ–æ–¹æ³•
 bool ChooseDifficulty::init()
 {
 
@@ -27,7 +27,7 @@ bool ChooseDifficulty::init()
     }
 	visibleSize = Director::getInstance()->getVisibleSize();
 	difficulty = 0;
-	 //»ñÈ¡Õû¸öÊÖ»ú¿ÉÊÓÆÁÄ»³ß´ç
+	 //è·å–æ•´ä¸ªæ‰‹æœºå¯è§†å±å¹•å°ºå¯¸
     
 
 	/***********************************************************************************************/
@@ -40,47 +40,47 @@ bool ChooseDifficulty::init()
 		}
 	}
 	/***********************************************************************************************/
-	//µÚ¶ş²ã±³¾°Í¼Æ¬ µØÍ¼
+	//ç¬¬äºŒå±‚èƒŒæ™¯å›¾ç‰‡ åœ°å›¾
 
 	auto bgSprite2 = Sprite::createWithSpriteFrameName("LevelSelect_Bg.png");
-	bgSprite2->setPosition(Point(visibleSize.width*0.5,visibleSize.height*0.5));//µãÊÇÕû¸öÆÁÄ»µÄÖĞ¼äÎ»ÖÃ
+	bgSprite2->setPosition(Point(visibleSize.width*0.5,visibleSize.height*0.5));//ç‚¹æ˜¯æ•´ä¸ªå±å¹•çš„ä¸­é—´ä½ç½®
 	//bgSprite2->setScaleX(scaleX);
 	this->addChild(bgSprite2,1);
 
 	/***********************************************************************************************/
-	//µÚÈı²ã±³¾°Í¼Æ¬ 
-	//·Å´ó¾µ
+	//ç¬¬ä¸‰å±‚èƒŒæ™¯å›¾ç‰‡ 
+	//æ”¾å¤§é•œ
 	auto loupeSprite = Sprite::createWithSpriteFrameName("LevelSelect_loupe.png");
 	loupeSprite->setPosition(Point(visibleSize.width*0.21,390));
 	//loupeSprite->setScale(scaleX);
 	this->addChild(loupeSprite,2);
 
-	//¹Ø±Õ°´Å¥
+	//å…³é—­æŒ‰é’®
 	auto closeSprite =MenuItemSprite::create(Sprite::createWithSpriteFrameName("LevelSelect_Back_0001.png"),
 	Sprite::createWithSpriteFrameName("LevelSelect_Back_0002.png"),CC_CALLBACK_1(ChooseDifficulty::menuCallback,this));  
-    Menu *closeMenu = Menu::create(closeSprite,NULL);  //ÊµÏÖÈıÕßÖ®¼äµÄË³ĞòÇĞ»»  
+    Menu *closeMenu = Menu::create(closeSprite,NULL);  //å®ç°ä¸‰è€…ä¹‹é—´çš„é¡ºåºåˆ‡æ¢  
     closeSprite->setPosition(Point(visibleSize.width*0.87,580));  
 	closeMenu->setPosition(Vec2::ZERO);
     this->addChild(closeMenu,2);  
 
-	//½øÈëÕ½¶·µÄ°´Å¥
+	//è¿›å…¥æˆ˜æ–—çš„æŒ‰é’®
 	auto startModeSprite =MenuItemSprite::create(Sprite::createWithSpriteFrameName("levelSelect_startMode_0001.png"),
 	Sprite::createWithSpriteFrameName("levelSelect_startMode_0002.png"),CC_CALLBACK_1(ChooseDifficulty::menuCallnext,this));  
-    Menu *startModeMenu = Menu::create(startModeSprite,NULL);  //ÊµÏÖÈıÕßÖ®¼äµÄË³ĞòÇĞ»»  
+    Menu *startModeMenu = Menu::create(startModeSprite,NULL);  //å®ç°ä¸‰è€…ä¹‹é—´çš„é¡ºåºåˆ‡æ¢  
     startModeSprite->setPosition(Point(visibleSize.width*0.8,100));  
 	startModeMenu->setPosition(Vec2::ZERO);
     this->addChild(startModeMenu,2); 
 
  
- //=======================·Å´ó¾µÉÏĞ¡ĞÇĞÇµÈµÄÉèÖÃ======================================================================================//
-	//µÚÒ»¸öĞ¡ĞÇĞÇ
+ //=======================æ”¾å¤§é•œä¸Šå°æ˜Ÿæ˜Ÿç­‰çš„è®¾ç½®======================================================================================//
+	//ç¬¬ä¸€ä¸ªå°æ˜Ÿæ˜Ÿ
 	 star1 = Sprite::createWithSpriteFrameName("levelSelect_badges_0002.png");
 	 star1->setPosition(Point(210,580));
 	 //star1->setScale(scaleX);
 	 star1->setRotation(-30.0f);
 	 addChild(star1,9);
 
-//--------------------------//µÚ¶ş¸öĞ¡ĞÇĞÇ-----------------------------------------------------------------------------------------------------------//
+//--------------------------//ç¬¬äºŒä¸ªå°æ˜Ÿæ˜Ÿ-----------------------------------------------------------------------------------------------------------//
 
 	 star2 = Sprite::createWithSpriteFrameName("levelSelect_badges_0002.png");
 	 star2->setPosition(Point(260,600));
@@ -88,20 +88,20 @@ bool ChooseDifficulty::init()
 	 star2->setRotation(-15.0f);
 	 addChild(star2,9);
 
-//-------------------------------//µÚÈı¸öĞ¡ĞÇĞÇ------------------------------------------------------------------------------------------------------//
+//-------------------------------//ç¬¬ä¸‰ä¸ªå°æ˜Ÿæ˜Ÿ------------------------------------------------------------------------------------------------------//
 
 	 star3 = Sprite::createWithSpriteFrameName("levelSelect_badges_0002.png");
 	 star3->setPosition(Point(310,605));
 	// star3->setScale(scaleX);
 	 addChild(star3,9);
-//-------------------------------//¶ÜÅÆ------------------------------------------------------------------------------------------------------//
+//-------------------------------//ç›¾ç‰Œ------------------------------------------------------------------------------------------------------//
 	 star4 = Sprite::createWithSpriteFrameName("levelSelect_badges_0004.png");
 	 star4->setPosition(Point(360,600));
 	// star4->setScale(scaleX);
 	 star4->setRotation(15.0f);
 	 addChild(star4,9);
 
-//-------------------------------//È­Í·------------------------------------------------------------------------------------------------------//
+//-------------------------------//æ‹³å¤´------------------------------------------------------------------------------------------------------//
 
 	star5 = Sprite::createWithSpriteFrameName("levelSelect_badges_0006.png");
 	star5->setPosition(Point(410,580));
@@ -112,22 +112,22 @@ bool ChooseDifficulty::init()
    /**********************************************************************************************************/
 
 	/*****************************
-	**½øÈë¹Ø¿¨Ç°½éÉÜ-¿ªÊ¼
-	**ºÚÉ«×ÖÌå£¨Î»ÓÚÀ¶É«×ÖÌåÖ®ÏÂ£©
+	**è¿›å…¥å…³å¡å‰ä»‹ç»-å¼€å§‹
+	**é»‘è‰²å­—ä½“ï¼ˆä½äºè“è‰²å­—ä½“ä¹‹ä¸‹ï¼‰
 	******************************/
 	
-	//¶ÁÈ¡xmlÎÄµµ,·ÅÈëValueVectorÖĞ
+	//è¯»å–xmlæ–‡æ¡£,æ”¾å…¥ValueVectorä¸­
 	
 
 	/*****************************
-	**½øÈë¹Ø¿¨Ç°½éÉÜ-½áÊø
+	**è¿›å…¥å…³å¡å‰ä»‹ç»-ç»“æŸ
 	*****************************/
 
-	/**********************************É³Ä®ÂÌÖŞ£¨×ÖÌåµÄÉèÖÃ*******************************************************************/
+	/**********************************æ²™æ¼ ç»¿æ´²ï¼ˆå­—ä½“çš„è®¾ç½®*******************************************************************/
 
 	
 
-////////////---------------------------°´Å¥1--------------------------------------------------------------------------------
+////////////---------------------------æŒ‰é’®1--------------------------------------------------------------------------------
 	auto imgNormal1 = MenuItemSprite::create(Sprite::createWithSpriteFrameName("levelSelect_butModes_0005.png"),Sprite::createWithSpriteFrameName("levelSelect_butModes_0001.png"));  
     auto imgSelect1 = MenuItemSprite::create(Sprite::createWithSpriteFrameName("levelSelect_butModes_0001.png"),Sprite::createWithSpriteFrameName("levelSelect_butModes_0005.png"));  
 
@@ -139,9 +139,9 @@ bool ChooseDifficulty::init()
 	
 	toggleItem1->setTag(1); 
     toggleItem1->setPosition(Point(visibleSize.width*0.12,20)); 
-    toggleItem1->setSelectedIndex(0);   // ÎÒÃÇ¸Õ½øÈëµÄÊ±ºòÎäÆ÷±êÇ©ÊÇ±»Ñ¡ÖĞµÄ  
-    toggleItem1->setEnabled(false); // Ñ¡ÖĞµÄ±êÇ©²»ÄÜÔÙµã»÷  
-   //////////////////////////----------------------------°´Å¥2------------------------------------------------
+    toggleItem1->setSelectedIndex(0);   // æˆ‘ä»¬åˆšè¿›å…¥çš„æ—¶å€™æ­¦å™¨æ ‡ç­¾æ˜¯è¢«é€‰ä¸­çš„  
+    toggleItem1->setEnabled(false); // é€‰ä¸­çš„æ ‡ç­¾ä¸èƒ½å†ç‚¹å‡»  
+   //////////////////////////----------------------------æŒ‰é’®2------------------------------------------------
     auto imgNormal2 = MenuItemSprite::create(Sprite::createWithSpriteFrameName("levelSelect_butModes_0006.png"),Sprite::createWithSpriteFrameName("levelSelect_butModes_0006.png"));  
     auto imgSelect2 = MenuItemSprite::create(Sprite::createWithSpriteFrameName("levelSelect_butModes_0002.png"),Sprite::createWithSpriteFrameName("levelSelect_butModes_0002.png")); 
 	auto imgDisable2 =MenuItemSprite::create(Sprite::createWithSpriteFrameName("levelSelect_butModes_0004.png"),Sprite::createWithSpriteFrameName("levelSelect_butModes_0004.png"));
@@ -156,7 +156,7 @@ bool ChooseDifficulty::init()
 	toggleItem2->setEnabled(false);
 	toggleItem2->setPosition(Point(visibleSize.width*0.24,20)); 
  
-	 //////////////----------------------°´Å¥3--------------------------------------------------------------------------
+	 //////////////----------------------æŒ‰é’®3--------------------------------------------------------------------------
 	auto imgNormal3 = MenuItemSprite::create(Sprite::createWithSpriteFrameName("levelSelect_butModes_0007.png"),Sprite::createWithSpriteFrameName("levelSelect_butModes_0007.png"));  
 	auto imgSelect3 = MenuItemSprite::create(Sprite::createWithSpriteFrameName("levelSelect_butModes_0003.png"),Sprite::createWithSpriteFrameName("levelSelect_butModes_0003.png"));  
 	auto imgDisable3 =MenuItemSprite::create(Sprite::createWithSpriteFrameName("levelSelect_butModes_0004.png"),Sprite::createWithSpriteFrameName("levelSelect_butModes_0004.png"));
@@ -187,8 +187,8 @@ void ChooseDifficulty::initWithLevel(int level)
 		FileUtils::getInstance()->getValueVectorFromFile(__String::createWithFormat("level%d_description.xml",level)->getCString());
 	int i = 0;
 	for( auto& e : txt_description){
-		auto txt_map = txt_description.at(i).asValueMap();//½«¼üÖµ×ª»¯³ÉMap¸ñÊ½£¬·ÅÈëtxt_mapÖĞ
-		int id_int = txt_map.at("id").asInt();//»ñÈ¡id
+		auto txt_map = txt_description.at(i).asValueMap();//å°†é”®å€¼è½¬åŒ–æˆMapæ ¼å¼ï¼Œæ”¾å…¥txt_mapä¸­
+		int id_int = txt_map.at("id").asInt();//è·å–id
 		if(id_int == i){
 			blueStrTop = txt_map.at("blueStrTop").asString();
 			blackStr[0] = txt_map.at("blackStr1").asString();
@@ -207,7 +207,7 @@ void ChooseDifficulty::initWithLevel(int level)
 	label1->setAnchorPoint(Point(0,1));
     this->addChild(label1, 1);
 
-	/**********************************À¶É«×ÖÌå:ÌôÕ½¡¢Ó¢ĞÛÄ£Ê½¡¢¸ÖÌúÄ£Ê½********************************************************/
+	/**********************************è“è‰²å­—ä½“:æŒ‘æˆ˜ã€è‹±é›„æ¨¡å¼ã€é’¢é“æ¨¡å¼********************************************************/
 
 	blueLabel = Label::createWithTTF(blueStr[0], "Marker Felt.ttf", 30);
 	blueLabel->setPosition(Point(visibleSize.width*0.5, 570));
@@ -240,10 +240,10 @@ void ChooseDifficulty::onKeyReleased(EventKeyboard::KeyCode keycode, Event* even
 {
     switch (keycode)
     {
-	case EventKeyboard::KeyCode::KEY_BACK:   //·µ»Ø¼üÌı
+	case EventKeyboard::KeyCode::KEY_BACK:   //è¿”å›é”®å¬
 		Director::getInstance()->popScene();
         break;
-    case EventKeyboard::KeyCode::KEY_MENU:      //²Ëµ¥¼àÌı
+    case EventKeyboard::KeyCode::KEY_MENU:      //èœå•ç›‘å¬
         break;
     case::EventKeyboard::KeyCode::KEY_HOME:
         break;
@@ -323,21 +323,21 @@ void ChooseDifficulty::setBadges(int star)
 }
 
 
-//¹Ø±Õ°´Å¥·µ»ØÉÏÒ»³¡¾°
+//å…³é—­æŒ‰é’®è¿”å›ä¸Šä¸€åœºæ™¯
 void ChooseDifficulty::menuCallback(Ref* pSpender){
 
 	SoundManager::playClickEffect();
 	Director::getInstance()->popScene();
 }
 
-//¿ªÊ¼Õ½¶·°´Å¥½øÈëÏÂÒ»³¡¾°
+//å¼€å§‹æˆ˜æ–—æŒ‰é’®è¿›å…¥ä¸‹ä¸€åœºæ™¯
 void ChooseDifficulty::menuCallnext(Ref* pSpender)
 {     
 	SoundManager::playClickEffect();
 	Director::getInstance()->replaceScene(TransitionGame::create(2.0f, GameScene::playGame(level,difficulty)));      
 }
 
-//Éı¼¶1
+//å‡çº§1
 void ChooseDifficulty::starMenuCallback1(Ref* pSpender)
 {
 	SoundManager::playClickEffect();

@@ -1,4 +1,4 @@
-#include "Scene/Story/BeginAnimation.h"
+ï»¿#include "Scene/Story/BeginAnimation.h"
 #include "Map/BaseMap.h"
 
 USING_NS_CC;
@@ -32,12 +32,12 @@ bool BeginAnimation::init()
 }
 
 
-//ÓÎÏ·¿ªÊ¼Ç°µÄ½çÃæ1
+//æ¸¸æˆå¼€å§‹å‰çš„ç•Œé¢1
 void BeginAnimation::startAnimation1() 
  {     
 	
 	   //--------------------------------------------------------------------------------------------------------	 
-	 Size size = Director::getInstance()->getVisibleSize(); //»ñÈ¡ÆÁÄ»´óÐ¡ 
+	 Size size = Director::getInstance()->getVisibleSize(); //èŽ·å–å±å¹•å¤§å° 
 
      sp1 = Sprite::createWithSpriteFrameName("1_1.png");
      sp1->setPosition(Point(0,size.height*0.5));//size.width*0.13
@@ -99,12 +99,12 @@ void BeginAnimation::startAnimation1()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener,continue_btn);
  }
 
-////ÓÎÏ·¿ªÊ¼Ç°µÄ½çÃæ1£¬Ìø×ªÒ³Ãæ
+////æ¸¸æˆå¼€å§‹å‰çš„ç•Œé¢1ï¼Œè·³è½¬é¡µé¢
 void BeginAnimation::startAnimation2() 
  {     
 	 continue_btn->removeFromParent();
 	//--------------------------------------------------------------------------------------------------------	 
-	 Size size = Director::getInstance()->getVisibleSize(); //»ñÈ¡ÆÁÄ»´óÐ¡ 
+	 Size size = Director::getInstance()->getVisibleSize(); //èŽ·å–å±å¹•å¤§å° 
      auto sp11 = Sprite::createWithSpriteFrameName("1_4.png");
      sp11->setPosition(Point(size.width*0.33,size.height*1.0));//size.width*0.13
      addChild(sp11,2);

@@ -1,4 +1,4 @@
-#ifndef _SCORPION_H_
+﻿#ifndef _SCORPION_H_
 #define _SCORPION_H_
 
 #include "Monster/BaseMonster.h"

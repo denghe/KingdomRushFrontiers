@@ -1,4 +1,4 @@
-#include "EncyclopediaScene.h"
+ï»¿#include "EncyclopediaScene.h"
 #include "EncyclopaediaTips.h"
 #include "EnemyScene.h"
 #include "TowerScene.h"
@@ -7,7 +7,7 @@
 USING_NS_CC;
 
 
-//´´½¨³¡¾°
+//åˆ›å»ºåœºæ™¯
 Scene* EncyclopediaScene::createScene()
 {
     auto scene = Scene::create();
@@ -16,25 +16,25 @@ Scene* EncyclopediaScene::createScene()
     return scene;
 }
 
-// // ³¡¾°³õÊ¼»¯·½·¨
+// // åœºæ™¯åˆå§‹åŒ–æ–¹æ³•
 bool EncyclopediaScene::init()
 {
     //////////////////////////////
-    // 1.Ê×ÏÈ½øĞĞ¸¸Àà³õÊ¼»¯
+    // 1.é¦–å…ˆè¿›è¡Œçˆ¶ç±»åˆå§‹åŒ–
     if ( !Layer::init() )
     {
-		 //Èç¹û³õÊ¼»¯¸¸ÀàÊ§°Ü·µ»Øfalse
+		 //å¦‚æœåˆå§‹åŒ–çˆ¶ç±»å¤±è´¥è¿”å›false
         return false;
     }
 
 	 Size visibleSize = Director::getInstance()->getVisibleSize();
-		//µ¼Èëplist
+		//å¯¼å…¥plist
 
 
 /*****************************************************************************************************************/
-	//µÚÒ»²ãÍ¼Æ¬Ìí¼Ó ¼´±³¾°Í¼Æ¬
-   //// addImage ¼ÓÔØÎÆÀíÍ¼Æ¬  ¿ÉÊµÏÖÍ¼Æ¬µÄ·Å´ó
-// Ö§³ÖÍ¼Æ¬¸ñÊ½: .png, .bmp, .tiff, .jpeg, .pvr
+	//ç¬¬ä¸€å±‚å›¾ç‰‡æ·»åŠ  å³èƒŒæ™¯å›¾ç‰‡
+   //// addImage åŠ è½½çº¹ç†å›¾ç‰‡  å¯å®ç°å›¾ç‰‡çš„æ”¾å¤§
+// æ”¯æŒå›¾ç‰‡æ ¼å¼: .png, .bmp, .tiff, .jpeg, .pvr
 	for(int i = 0;i<4;i++){
 		for(int j =0;j<5;j++){
 			auto sprite = Sprite::createWithSpriteFrameName("encyclopedia_bgTile.png");
@@ -44,58 +44,58 @@ bool EncyclopediaScene::init()
 		}
 	}
 
-//µÚ¶ş²ãÍ¼Æ¬=====¼´Í¼Æ¬µÄÇĞ»»=================================================================================================
-	//·ÀÓùËş
+//ç¬¬äºŒå±‚å›¾ç‰‡=====å³å›¾ç‰‡çš„åˆ‡æ¢=================================================================================================
+	//é˜²å¾¡å¡”
 
     auto sprite11 = Sprite::createWithSpriteFrameName("encyclopedia_button_towers_0001.png");
 	sprite11->setScale(0.95f);
 
 	auto sprite1 = MenuItemSprite::create(Sprite::createWithSpriteFrameName("encyclopedia_button_towers_0001.png"),sprite11,
 		CC_CALLBACK_1(EncyclopediaScene::menuNextCallback2,this));  
-    auto ccmenuu1 = Menu::create(sprite1,NULL);  //ÊµÏÖÈıÕßÖ®¼äµÄË³ĞòÇĞ»»  
+    auto ccmenuu1 = Menu::create(sprite1,NULL);  //å®ç°ä¸‰è€…ä¹‹é—´çš„é¡ºåºåˆ‡æ¢  
     sprite1->setPosition(Point(visibleSize.width*0.23,visibleSize.height*0.65));  
 	ccmenuu1->setPosition(Vec2::ZERO);
     this->addChild(ccmenuu1,2); 
 
-	//°Ù¿Æ µĞÈË
-	//ËõÍ¼
+	//ç™¾ç§‘ æ•Œäºº
+	//ç¼©å›¾
 	auto sprite21 = Sprite::createWithSpriteFrameName("encyclopedia_button_enemies_0001.png");
 	sprite21->setScale(0.95f);
 
 	auto sprite2 = MenuItemSprite::create(Sprite::createWithSpriteFrameName("encyclopedia_button_enemies_0001.png"),
 	sprite21,CC_CALLBACK_1(EncyclopediaScene::menuNextCallback3,this));  
-    auto ccmenuu2 = Menu::create(sprite2,NULL);  //ÊµÏÖÇĞ»»  
+    auto ccmenuu2 = Menu::create(sprite2,NULL);  //å®ç°åˆ‡æ¢  
     sprite2->setPosition(Point(visibleSize.width*0.57,visibleSize.height*0.5));  
 	ccmenuu2->setPosition(Vec2::ZERO);
     this->addChild(ccmenuu2,2); 
 
-	//°Ù¿Æ ÌáÊ¾
-	//Ô­Í¼
+	//ç™¾ç§‘ æç¤º
+	//åŸå›¾
 	auto sprite31 = Sprite::createWithSpriteFrameName("encyclopedia_button_tips_0001.png");
 	sprite31->setScale(0.8f);
-   //ËõÍ¼
+   //ç¼©å›¾
 	auto sprite32 = Sprite::createWithSpriteFrameName("encyclopedia_button_tips_0001.png");
 	sprite32->setScale(0.75f);
 	
 	auto sprite3 =MenuItemSprite::create(sprite31,sprite32,CC_CALLBACK_1(EncyclopediaScene::menuNextCallback1,this));  
-    auto ccmenuu3 = Menu::create(sprite3,NULL);  //ÊµÏÖÇĞ»»  
+    auto ccmenuu3 = Menu::create(sprite3,NULL);  //å®ç°åˆ‡æ¢  
     sprite3->setPosition(Point(visibleSize.width*0.86,visibleSize.height*0.3));  
 	ccmenuu3->setPosition(Vec2::ZERO);
     this->addChild(ccmenuu3,2); 
 
 	
-	//°Ù¿Æ Õ½¶·¹¥ÂÔ
+	//ç™¾ç§‘ æˆ˜æ–—æ”»ç•¥
 	auto sprite4 =Sprite::createWithSpriteFrameName("encyclopedia_button_strategyGuide_0001.png");
     sprite4->setPosition(Point(visibleSize.width*0.22,visibleSize.height*0.2));  
 	sprite4->setScale(0.9f);
     this->addChild(sprite4,1); 
 
-	//°Ù¿Æ ¹Ø±Õ°´Å¥
+	//ç™¾ç§‘ å…³é—­æŒ‰é’®
 	//auto sprite51 = Sprite::createWithSpriteFrameName("encyclopedia_little_button_close_0001.png");
 	auto sprite5 = MenuItemSprite::create(Sprite::createWithSpriteFrameName("encyclopedia_button_close_0001.png"), Sprite::createWithSpriteFrameName("encyclopedia_button_close_0001.png"),
 		CC_CALLBACK_1(EncyclopediaScene::menuNextCallback4,this));  
 
-    auto ccmenuu5 = Menu::create(sprite5,NULL);  //ÊµÏÖÇĞ»»  
+    auto ccmenuu5 = Menu::create(sprite5,NULL);  //å®ç°åˆ‡æ¢  
     sprite5->setPosition(Point(visibleSize.width*0.87,visibleSize.height*0.83));  
 	ccmenuu5->setPosition(Vec2::ZERO);
     this->addChild(ccmenuu5,2); 
@@ -106,25 +106,25 @@ bool EncyclopediaScene::init()
 
 //============================================================================================================================//
 
-////µã»÷°Ù¿ÆÌáÊ¾°´Å¥£¬³¡¾°ÇĞ»»
+////ç‚¹å‡»ç™¾ç§‘æç¤ºæŒ‰é’®ï¼Œåœºæ™¯åˆ‡æ¢
 void EncyclopediaScene::menuNextCallback1(Ref *pSender ){
 	SoundManager::playClickEffect();
     Director::getInstance()->pushScene(EncyclopaediaTips::createScene());
   }
 
-//µã»÷°Ù¿Æ·ÀÓùËş°´Å¥£¬³¡¾°ÇĞ»»
+//ç‚¹å‡»ç™¾ç§‘é˜²å¾¡å¡”æŒ‰é’®ï¼Œåœºæ™¯åˆ‡æ¢
 void EncyclopediaScene::menuNextCallback2(Ref *pSender ){
 	SoundManager::playClickEffect();
 	Director::getInstance()->pushScene(Tower::createScene());
  }
 
-//µã»÷°Ù¿ÆµĞÈË°´Å¥£¬³¡¾°ÇĞ»»
+//ç‚¹å‡»ç™¾ç§‘æ•ŒäººæŒ‰é’®ï¼Œåœºæ™¯åˆ‡æ¢
 void EncyclopediaScene::menuNextCallback3(Ref *pSender ){
 	SoundManager::playClickEffect();
 	Director::getInstance()->pushScene(Enemy::createScene());
  }
 
-//µã»÷°Ù¿Æ¹Ø±Õ°´Å¥£¬³¡¾°ÇĞ»»
+//ç‚¹å‡»ç™¾ç§‘å…³é—­æŒ‰é’®ï¼Œåœºæ™¯åˆ‡æ¢
 void EncyclopediaScene::menuNextCallback4(Ref *pSender ){
 	SoundManager::playClickEffect();
 	Director::getInstance()->popScene();

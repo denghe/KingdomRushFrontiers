@@ -1,4 +1,4 @@
-#ifndef _NIGHTSCALE_H_
+﻿#ifndef _NIGHTSCALE_H_
 #define _NIGHTSCALE_H_
 
 #include "Monster/BaseMonster.h"

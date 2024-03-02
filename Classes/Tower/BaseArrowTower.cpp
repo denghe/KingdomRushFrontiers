@@ -1,4 +1,4 @@
-#include "BaseArrowTower.h"
+ï»¿#include "BaseArrowTower.h"
 #include "Data/GameManager.h"
 
 void BaseArrowTower::initTower(int level)
@@ -55,24 +55,24 @@ void BaseArrowTower::shoot(float dt)
         float angleRadians=atan(pVectr.y/pVectr.x);
         float angleDegrees = CC_RADIANS_TO_DEGREES(angleRadians);
 		
-		if(shootVector.x - currBullet->getPosition().x<=0)//Ïò×ó¹¥»÷
+		if(shootVector.x - currBullet->getPosition().x<=0)//å‘å·¦æ”»å‡»
 		{
-			startAngle = startAngle + abs(angleDegrees);//³õÊ¼¹­¼ý½Ç¶È
-			endAngle = -90;//½áÊø½Ç¶È
-			if(shootTag == 1)//ÂÖµ½1ºÅ¹­¼ýÊÖ
+			startAngle = startAngle + abs(angleDegrees);//åˆå§‹å¼“ç®­è§’åº¦
+			endAngle = -90;//ç»“æŸè§’åº¦
+			if(shootTag == 1)//è½®åˆ°1å·å¼“ç®­æ‰‹
 			{
-				currBullet->setPosition(Point(0,30));//×Óµ¯ÉèÖÃÔÚ¹­¼ýÊÖËùÔÚÎ»ÖÃ	
+				currBullet->setPosition(Point(0,30));//å­å¼¹è®¾ç½®åœ¨å¼“ç®­æ‰‹æ‰€åœ¨ä½ç½®	
 				shooter_1->setFlippedX(true);
 				if(shootVector.y - currBullet->getPosition().y<=0)
 				{
-					//¹¥»÷¶¯»­
+					//æ”»å‡»åŠ¨ç”»
 					shooter_1->runAction(Animate::create(AnimationCache::getInstance()->getAnimation(temp1)));
 				}else{
 					shooter_1->runAction(Animate::create(AnimationCache::getInstance()->getAnimation(temp2)));
 				}
 				shootTag = 2;
 			}
-			else//ÂÖµ½2ºÅ¹­¼ýÊÖ
+			else//è½®åˆ°2å·å¼“ç®­æ‰‹
 			{
 				currBullet->setPosition(Point(10,30));		
 				shooter_2->setFlippedX(true);
@@ -113,19 +113,19 @@ void BaseArrowTower::shoot(float dt)
 				shootTag = 1;
 			}
 		}
-		//»¡Ïß
+		//å¼§çº¿
 		ccBezierConfig bezier;
 		if(shootTag == 1)
 			SoundManager::playArrowShoot1();
 		else
 			SoundManager::playArrowShoot2();
-		//Á½¸ö¿ØÖÆµã
+		//ä¸¤ä¸ªæŽ§åˆ¶ç‚¹
 		bezier.controlPoint_1 = Point(currBullet->getPosition().x,currBullet->getPosition().y+200); 
 		bezier.controlPoint_2 = Point(shootVector.x,shootVector.y+200);; 
 		bezier.endPosition = shootVector;
 
 		auto action = Spawn::create(BezierTo::create(0.5f, bezier),RotateTo::create(0.5f,endAngle),NULL);
-		//¹¥»÷ÊôÐÔ¸ø¹­¼ý
+		//æ”»å‡»å±žæ€§ç»™å¼“ç®­
 		currBullet->setBulletAction(action);
 		currBullet->shoot();
 		currBullet = NULL;

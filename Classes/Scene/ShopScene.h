@@ -1,4 +1,4 @@
-#ifndef _STORE_SCENE_H_
+ï»¿#ifndef _STORE_SCENE_H_
 #define _STORE_SCENE_H_
 
 #include "cocos2d.h"
@@ -23,7 +23,7 @@ protected:
 	void onKeyReleased(EventKeyboard::KeyCode keycode, Event* event) override;
 
 
-	int count[6];//¹ºÂòÓÃÆ·µÄÊıÁ¿
+	int count[6];//è´­ä¹°ç”¨å“çš„æ•°é‡
 
 	Vector<Sprite*> backpackIcons;
 	Vector<ShopIcon*> shopIcons;
@@ -35,7 +35,7 @@ protected:
 	std::string str_name[6];
 	int str_gem[6];
 	Sprite* borad;
-	int gem;//±¦Ê¯µÄÊıÁ¿
+	int gem;//å®çŸ³çš„æ•°é‡
 	void buySth(int i);
     CREATE_FUNC(ShopScene);
 };

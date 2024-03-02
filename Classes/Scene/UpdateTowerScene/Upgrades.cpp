@@ -1,4 +1,4 @@
-#include "Upgrades.h"
+ï»¿#include "Upgrades.h"
 #include "Icons.h"
 #include "Data/GameManager.h"
 #include "Data/SoundManager.h"
@@ -71,15 +71,15 @@ bool Upgrades::init()
 
 	initalOriginalSta();
 	startAll = UserDefault::getInstance()->getIntegerForKey(GameManager::getInstance()->SLOTX_STAR,0);
-	//Ê£ÏÂ
+	//å‰©ä¸‹
 	startLeft = UserDefault::getInstance()->getIntegerForKey(GameManager::getInstance()->SLOTX_STARLEFT,startAll);
-	//×Ü
+	//æ€»
 
 
-	//³õÊ¼»¯5*6µÄ¶şÎ¬¾ØÕó±£´æÍ¼Æ¬×´Ì¬
+	//åˆå§‹åŒ–5*6çš„äºŒç»´çŸ©é˜µä¿å­˜å›¾ç‰‡çŠ¶æ€
 	
 
-	//»ñÈ¡ÆÁÄ»´óĞ¡
+	//è·å–å±å¹•å¤§å°
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 
 	for(int i = 0;i<4;i++){
@@ -93,10 +93,10 @@ bool Upgrades::init()
 
 	
 
-	//µ¼Èë×ó²àÑ¡ÔñÀ¸±³¾°
-	auto bg2TileRtSprite = Sprite::createWithSpriteFrameName("upgrades_bg2_tileRight.png");//ÓÒ±ß¿ò
-	auto bg2TileLtSprite = Sprite::createWithSpriteFrameName("upgrades_bg2_tileRight.png");//×ó±ß¿ò
-	bg2TileLtSprite->setFlippedX(true);//×ó±ß¿ò·­×ª
+	//å¯¼å…¥å·¦ä¾§é€‰æ‹©æ èƒŒæ™¯
+	auto bg2TileRtSprite = Sprite::createWithSpriteFrameName("upgrades_bg2_tileRight.png");//å³è¾¹æ¡†
+	auto bg2TileLtSprite = Sprite::createWithSpriteFrameName("upgrades_bg2_tileRight.png");//å·¦è¾¹æ¡†
+	bg2TileLtSprite->setFlippedX(true);//å·¦è¾¹æ¡†ç¿»è½¬
 	bg2TileLtSprite->setPosition(Point(visibleSize.width*0.05,visibleSize.height*0.5));
 	for(int i = 1;i<14;i++){
 		auto by2TileMidSprite = Sprite::createWithSpriteFrameName("upgrades_bg2_tileMid.png");
@@ -114,7 +114,7 @@ bool Upgrades::init()
 
 
 
-	//µ¼Èë×ó²àÑ¡¼ş °´¾ØÕóÅÅÁĞ
+	//å¯¼å…¥å·¦ä¾§é€‰ä»¶ æŒ‰çŸ©é˜µæ’åˆ—
 		//0101
 	auto bgIcon0101=Sprite::createWithSpriteFrameName("upgrades_bg_icons_0001.png");
 	bgIcon0101->setPosition(Point(visibleSize.width*0.08,visibleSize.height*0.1));
@@ -142,11 +142,11 @@ bool Upgrades::init()
 
 
 
-	//ÉèÖÃ×ó²à¾ØÕó¼àÌıÆ÷
+	//è®¾ç½®å·¦ä¾§çŸ©é˜µç›‘å¬å™¨
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->onTouchBegan = CC_CALLBACK_2(Upgrades::onIconTouchBegan, this);
 	listener->onTouchEnded = CC_CALLBACK_2(Upgrades::onTouchEnded, this);
-	//¾ØÕó¶¯Ì¬Í¼Æ¬³õÊ¼»¯
+	//çŸ©é˜µåŠ¨æ€å›¾ç‰‡åˆå§‹åŒ–
 		//0201
 	icons[0][0]=Icons::createNewIcons("upgrades_icons_0001.png","upgrades_icons_off_0001.png","IMPROVED AIM","INCREASES MARKSMEN ATTACK DAMAGE.",1,Icons::eIconOff,0,0);
 	icons[0][0]->setPosition(Point(visibleSize.width*0.08,visibleSize.height*0.25));
@@ -303,12 +303,12 @@ bool Upgrades::init()
 	initalState();
 
 
-	//µ¼ÈëÓÒ²àÑ¡¿ò
+	//å¯¼å…¥å³ä¾§é€‰æ¡†
 	auto rtSysShow=Sprite::createWithSpriteFrameName("upgrades_info.png");
 	rtSysShow->setPosition(Point(visibleSize.width*0.82,visibleSize.height*0.66));
 	addChild(rtSysShow,1);
 
-	//¹ºÂò°´Å¥
+	//è´­ä¹°æŒ‰é’®
 	auto buyButlistener = EventListenerTouchOneByOne::create();
 	buyButlistener->onTouchBegan = CC_CALLBACK_2(Upgrades::onBuyButTouchBegan, this);
 	buyButlistener->onTouchEnded = CC_CALLBACK_2(Upgrades::onBuyButTouchEnded, this);
@@ -318,7 +318,7 @@ bool Upgrades::init()
 	addChild(buyButten,1);
 	showBuyBut(lastSelectedIcon);
 
-	//ÖØÖÃ°´Å¥
+	//é‡ç½®æŒ‰é’®
 	auto resetListener= EventListenerTouchOneByOne::create();
 	resetListener->onTouchBegan = CC_CALLBACK_2(Upgrades::resetSta, this);
 	resetListener->onTouchEnded = CC_CALLBACK_2(Upgrades::resetStaEnded, this);
@@ -336,13 +336,13 @@ bool Upgrades::init()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(sureListener,sure);
 	addChild(sure,01);
 
-	//Ê£ÓàµÄĞÇĞÇÏÔÊ¾(±êÇ©)
+	//å‰©ä½™çš„æ˜Ÿæ˜Ÿæ˜¾ç¤º(æ ‡ç­¾)
 	lastStartLabel = Label::createWithSystemFont(__String::createWithFormat("%d",startLeft)->getCString(),"Arial",50);
 	//labelLastStart->setColor(ccc3(20,50,50));
     lastStartLabel->setPosition(Point(visibleSize.width*0.85, visibleSize.height*0.91));
     addChild(lastStartLabel, 2);
 	
-	//ÏÔÊ¾Éı¼¶ËùĞèÒªµÄĞÇĞÇ(±êÇ©)
+	//æ˜¾ç¤ºå‡çº§æ‰€éœ€è¦çš„æ˜Ÿæ˜Ÿ(æ ‡ç­¾)
 
 
 	
@@ -351,7 +351,7 @@ bool Upgrades::init()
 	upNeedStartLabel->setPosition(Point(visibleSize.width*0.92, visibleSize.height*0.75));
 	addChild(upNeedStartLabel,2);
 
-	//Í¼Æ¬Õ¹Ê¾
+	//å›¾ç‰‡å±•ç¤º
 	iconDisplay=Sprite::create();
 	iconDisplay->setSpriteFrame(lastSelectedIcon->icon->getSpriteFrame());
 	iconDisplay->setPosition(Point(visibleSize.width*0.82, visibleSize.height*0.70));
@@ -359,7 +359,7 @@ bool Upgrades::init()
 
 
 
-	//ÏÔÊ¾½éÉÜÎÄ×Ö(±êÇ©)
+	//æ˜¾ç¤ºä»‹ç»æ–‡å­—(æ ‡ç­¾)
 	iconNameLabel=Label::createWithSystemFont(lastSelectedIcon->iconName,"Arial",25);
 	iconNameLabel->setColor(Color3B(150,0,0));
 	iconNameLabel->setPosition(Point(visibleSize.width*0.82, visibleSize.height*0.60));
@@ -475,10 +475,10 @@ void Upgrades::onKeyReleased(EventKeyboard::KeyCode keycode, Event* event)
 {
     switch (keycode)
     {
-	case EventKeyboard::KeyCode::KEY_BACK:   //·µ»Ø¼üÌı
+	case EventKeyboard::KeyCode::KEY_BACK:   //è¿”å›é”®å¬
 		Director::getInstance()->popScene();
         break;
-    case EventKeyboard::KeyCode::KEY_MENU:      //²Ëµ¥¼àÌı
+    case EventKeyboard::KeyCode::KEY_MENU:      //èœå•ç›‘å¬
         break;
     case::EventKeyboard::KeyCode::KEY_HOME:
         break;

@@ -1,4 +1,4 @@
-#include "Scene/TransitionGame.h"
+ï»¿#include "Scene/TransitionGame.h"
 #include "SimpleAudioEngine.h" 
 
 using namespace CocosDenshion;
@@ -48,7 +48,7 @@ TransitionGame::~TransitionGame()
 void TransitionGame::onEnter()
 {
 	
-	//ÒªÇĞÈëµÄ³¡¾°
+	//è¦åˆ‡å…¥çš„åœºæ™¯
 	_inScene->setVisible(false);
 	TransitionScene::onEnter();
 	Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -86,9 +86,9 @@ void TransitionGame::onEnter()
 	pLeft->addChild(pLeft2);
 	pRight->addChild(pRight2);
 	auto pActionLeft = MoveTo::create(_duration / 3, stLeftEnd);
-    //ÓÒ±ßµÄÏò×óÒÆ¶¯»î¶¯
+    //å³è¾¹çš„å‘å·¦ç§»åŠ¨æ´»åŠ¨
     auto pActionRight = MoveTo::create(_duration / 3, stRightEnd);
-    //Ô­µØ²»¶¯
+    //åŸåœ°ä¸åŠ¨
     auto pActionLeft1 = MoveTo::create(_duration / 3, stLeftEnd);
     auto pActionRight1 = MoveTo::create(_duration / 3, stRightEnd);
         
@@ -115,7 +115,7 @@ void TransitionGame::onEnter()
 
 void TransitionGame::LRFinish(void)
 {
-	//ËùÒÔµÄ»î¶¯Íê³Éºó£¬ÒªÖ´ĞĞ³¡ĞĞµÄFinish
+	//æ‰€ä»¥çš„æ´»åŠ¨å®Œæˆåï¼Œè¦æ‰§è¡Œåœºè¡Œçš„Finish
 	TransitionScene::finish();
 }
 

@@ -1,4 +1,4 @@
-#ifndef _ASSASSIN_H_
+﻿#ifndef _ASSASSIN_H_
 #define _ASSASSIN_H_
 
 #include "BaseSoldier.h"

@@ -1,4 +1,4 @@
-#include "cocos2d.h"
+ï»¿#include "cocos2d.h"
 
 USING_NS_CC;
 
@@ -7,17 +7,17 @@ class EncyclopaediaTips : public Layer
 public:
     static Scene* createScene();
 	bool init() override;
-	void menuCallback(Ref *pSender); //ÇĞ»»³¡¾°
+	void menuCallback(Ref *pSender); //åˆ‡æ¢åœºæ™¯
 
-   void starMenuCallback1(Ref* pSender); //°´Å¥¿ØÖÆÊı×ÖµÄÇĞ»»
+   void starMenuCallback1(Ref* pSender); //æŒ‰é’®æ§åˆ¶æ•°å­—çš„åˆ‡æ¢
 
-   void starMenuCallback2(Ref* pSender);//°´Å¥¿ØÖÆÎÄ×ÖµÄÇĞ»»
+   void starMenuCallback2(Ref* pSender);//æŒ‰é’®æ§åˆ¶æ–‡å­—çš„åˆ‡æ¢
    void leftChange(Ref *pSender);
   
 private :
 	 int i;
-	 Label* ch;//ÉùÃ÷ÎÄ×Ö
-     Label* lb;//ÉùÃ÷Êı×Ö
+	 Label* ch;//å£°æ˜æ–‡å­—
+     Label* lb;//å£°æ˜æ•°å­—
 
 	 MenuItemSprite *sprite29;
 	 MenuItemSprite *sprite30;

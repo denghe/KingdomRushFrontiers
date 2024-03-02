@@ -1,4 +1,4 @@
-#ifndef _TWISTER_H_
+﻿#ifndef _TWISTER_H_
 #define _TWISTER_H_
 
 #include "cocos2d.h"

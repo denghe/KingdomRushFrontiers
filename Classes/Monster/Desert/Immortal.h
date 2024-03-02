@@ -1,4 +1,4 @@
-#ifndef _IMMORTAL_H_
+﻿#ifndef _IMMORTAL_H_
 #define _IMMORTAL_H_
 
 #include "Monster/BaseMonster.h"

@@ -1,4 +1,4 @@
-#ifndef _RADIER_H_
+﻿#ifndef _RADIER_H_
 #define _RADIER_H_
 
 #include "Monster/BaseMonster.h"

@@ -1,4 +1,4 @@
-#include "BaseSoldier.h"
+ï»¿#include "BaseSoldier.h"
 #include "Data/GameManager.h"
 
 void BaseSoldier::createAndSetHpBar()
@@ -20,10 +20,10 @@ void BaseSoldier::createAndSetHpBar()
 void BaseSoldier::runToMonster()
 {
 	Point destination;
-	if (!checkDirectionForMonster()){//¹ÖÔÚÓÒ±ß
+	if (!checkDirectionForMonster()){//æ€ªåœ¨å³è¾¹
 		destination.x = nearestMonster->baseSprite->getPositionX() + nearestMonster->baseSprite->getContentSize().width/2 - this->getParent()->getParent()->getPositionX()- this->baseSprite->getContentSize().width/2;
 		destination.y = nearestMonster->baseSprite->getPositionY() - this->getParent()->getParent()->getPositionY() - this->baseSprite->getContentSize().height/4;
-	}else{//×ó±ß
+	}else{//å·¦è¾¹
 		destination.x = nearestMonster->baseSprite->getPositionX() - nearestMonster->baseSprite->getContentSize().width/2 - this->getParent()->getParent()->getPositionX()+ this->baseSprite->getContentSize().width/2;
 		destination.y = nearestMonster->baseSprite->getPositionY() - this->getParent()->getParent()->getPositionY() - this->baseSprite->getContentSize().height/4;
 	}
@@ -39,7 +39,7 @@ void BaseSoldier::runToLocation(Point point)
 		scheduleUpdate();
 		stopAllActions();
 		if((point.x - this->getPositionX())>0){
-			baseSprite->setFlippedX(false);//ÓÒ±ß
+			baseSprite->setFlippedX(false);//å³è¾¹
 		}else{
 			baseSprite->setFlippedX(true);
 		}

@@ -1,4 +1,4 @@
-#ifndef _UPDATE_ICON_H
+﻿#ifndef _UPDATE_ICON_H
 #define _UPDATE_ICON_H
 
 #include "cocos2d.h"

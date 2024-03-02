@@ -1,4 +1,4 @@
-#include "EnemyScene.h"
+ï»¿#include "EnemyScene.h"
 #include "Data/SoundManager.h"
 
 USING_NS_CC;
@@ -14,19 +14,19 @@ bool Enemy::init(){
     if ( !Layer::init() ){
         return false;
     }
-	//ÉùÃ÷¼àÌıÊÂ¼şÀàĞÍ²¢°ó¶¨Ö´ĞĞº¯Êı
+	//å£°æ˜ç›‘å¬äº‹ä»¶ç±»å‹å¹¶ç»‘å®šæ‰§è¡Œå‡½æ•°
 	auto touchListener = EventListenerTouchOneByOne::create();
-	//touchListener->setSwallowTouches(true);//ÖØµş¾«Áé
+	//touchListener->setSwallowTouches(true);//é‡å ç²¾çµ
 	touchListener->onTouchBegan = CC_CALLBACK_2(Enemy::onTouchBegan, this);
 	touchListener->onTouchEnded = CC_CALLBACK_2(Enemy::onTouchEnded, this);
 	
 
-    //È¡µÃÆÁÄ»´óĞ¡
+    //å–å¾—å±å¹•å¤§å°
 	visibleSize = Director::getInstance()->getVisibleSize();
-	//»ñÈ¡ÊÖ»ú¿ÉÊÓÆÁÔ­µãµÄ×ø±ê
+	//è·å–æ‰‹æœºå¯è§†å±åŸç‚¹çš„åæ ‡
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	// µÚ¶ş²ãÁË£¬ÏÔÊ¾Êé±¾Í¼±ê-É¾µôµ×²ã£¬Ö±½ÓÏÔÊ¾ÊéÆ¤
+	// ç¬¬äºŒå±‚äº†ï¼Œæ˜¾ç¤ºä¹¦æœ¬å›¾æ ‡-åˆ æ‰åº•å±‚ï¼Œç›´æ¥æ˜¾ç¤ºä¹¦çš®
 	for(int i = 0;i<4;i++){
 		for(int j =0;j<5;j++){
 			auto sprite = Sprite::createWithSpriteFrameName("encyclopedia_bgTile.png");
@@ -36,28 +36,28 @@ bool Enemy::init(){
 		}
 	}
 
-	// ±³¾°-Êé-ÓÒ±ß
+	// èƒŒæ™¯-ä¹¦-å³è¾¹
     auto sprite1 = Sprite::createWithSpriteFrameName("encyclopedia_book_pg.png");
     sprite1->setPosition(Vec2(visibleSize.width * 3/4 + origin.x, visibleSize.height/2 + origin.y));
 
-	//Êé-×ó±ß
+	//ä¹¦-å·¦è¾¹
     auto sprite2 = Sprite::createWithSpriteFrameName("encyclopedia_book_pg.png");
     sprite2->setPosition(Vec2(visibleSize.width/4 + origin.x, visibleSize.height/2 + origin.y));
 
-	//Ğı×ª
+	//æ—‹è½¬
 	sprite2->setFlippedX(true);
     sprite2->setRotation(360);
 
-	// Ìí¼ÓÍ¼Æ¬¾«Áéµ½»­Ãæ²ãs
+	// æ·»åŠ å›¾ç‰‡ç²¾çµåˆ°ç”»é¢å±‚s
     this->addChild(sprite1, 1);
 	this->addChild(sprite2, 1);
 
-	//¹Ø±Õ²æ²æ
+	//å…³é—­å‰å‰
 	auto sprite3 = MenuItemSprite::create(Sprite::createWithSpriteFrameName("encyclopedia_tow_creep_close_0001.png"),Sprite::createWithSpriteFrameName("encyclopedia_tow_creep_close_0001.png"));
 	sprite3->setPosition(Vec2(visibleSize.width - sprite3->getContentSize().width * 3 / 2  + origin.x, 
 								visibleSize.height + origin.y - sprite3->getContentSize().height / 2));
 
-	//¿ò¿ò
+	//æ¡†æ¡†
 	sprite3->setCallback([&](Ref *pSender){
 		SoundManager::playClickEffect();
 		Director::getInstance()->popScene();		
@@ -70,13 +70,13 @@ bool Enemy::init(){
     creepFrame->setPosition(Point(visibleSize.width * 0.17, visibleSize.height * 0.75));
 	this->addChild(creepFrame,3); 
 
-	//´´½¨×óÓÒ·­Ò³¾«Áé
+	//åˆ›å»ºå·¦å³ç¿»é¡µç²¾çµ
 	auto spriteRight = Sprite::createWithSpriteFrameName("encyclopedia_tow_creep_arrow_0003.png");
 	auto spriteLeft = Sprite::createWithSpriteFrameName("encyclopedia_tow_creep_arrow_0003.png");
-	//ÎŞĞ§Í¼±ê
+	//æ— æ•ˆå›¾æ ‡
 	auto spriteRightNull = Sprite::createWithSpriteFrameName("encyclopedia_tow_creep_arrow_0001.png");
 	auto spriteLeftNull = Sprite::createWithSpriteFrameName("encyclopedia_tow_creep_arrow_0001.png");
-	//Á½¸öĞ¡·­Ò³
+	//ä¸¤ä¸ªå°ç¿»é¡µ
 	auto spriteRightLittle = Sprite::createWithSpriteFrameName("encyclopedia_tow_creep_arrow_0003.png");
 	auto spriteLeftLittle = Sprite::createWithSpriteFrameName("encyclopedia_tow_creep_arrow_0003.png");
 
@@ -87,10 +87,10 @@ bool Enemy::init(){
 	spriteLeftLittle->setFlippedX(true);
 	spriteLeftLittle->setRotation(360);
 
-	//ÎŞĞ§µÄÄ´Ö¸Í¼±ê
+	//æ— æ•ˆçš„æ‹‡æŒ‡å›¾æ ‡
 	auto spriteCreepThumbNull = Sprite::createWithSpriteFrameName("encyclopedia_tower_thumbs_0121.png");
 
-	//³õÊ¼»¯Ä´Ö¸Í¼±ê48¸ö
+	//åˆå§‹åŒ–æ‹‡æŒ‡å›¾æ ‡48ä¸ª
 	for(int i = 0; i < 48; i ++)
 	{
 		std::string temp1 = "encyclopedia_creep_thumbs_02";
@@ -111,11 +111,11 @@ bool Enemy::init(){
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener->clone(), enemyDesc[i]);
 		enemyDesc[i]->enemyThumbFileName = temp1;
 		enemyDesc[i]->enemyDescFileName = temp2;
-		//³õÊ¼»¯ÓÎ±ê
+		//åˆå§‹åŒ–æ¸¸æ ‡
 		enemyDesc[i]->num = i;	
 	}
 	
-	//°ÚÕı²Ëµ¥¾«ÁéÎ»ÖÃ
+	//æ‘†æ­£èœå•ç²¾çµä½ç½®
 	for(int i = 0 ; i < 3 ; i ++){
 		ccmenuCreep[i] = Layer::create();
 		ccmenuCreep[i]->setPosition(Vec2::ZERO);
@@ -124,127 +124,127 @@ bool Enemy::init(){
 		}
 		this->addChild(ccmenuCreep[i],2);
 	}
-	//³õÊ¼»¯²Ëµ¥¿É¼ûĞÔ
+	//åˆå§‹åŒ–èœå•å¯è§æ€§
 	ccmenuCreep[0]->setVisible(true);
 	ccmenuCreep[1]->setVisible(false);
 	ccmenuCreep[2]->setVisible(false);
 
-	//³õÊ¼»¯ËµÃ÷´óÍ¼
+	//åˆå§‹åŒ–è¯´æ˜å¤§å›¾
 	bigSprite = Sprite::createWithSpriteFrameName(enemyDesc[0]->enemyDescFileName);
 	bigSprite->setPosition(Vec2(visibleSize.width * 0.7,visibleSize.height * 0.75));
 	this->addChild(bigSprite,2);
 
-	//µã»÷×ó·­Ò³ & ¶¯»­
+	//ç‚¹å‡»å·¦ç¿»é¡µ & åŠ¨ç”»
 	spriteLeftButton = MenuItemSprite::create(spriteLeft,spriteLeftLittle,spriteLeftNull,
 		CC_CALLBACK_1(Enemy::lastPage,this));  
-    auto ccmenuLeft = Menu::create(spriteLeftButton,NULL);  //ÊµÏÖÈıÕßÖ®¼äµÄË³ĞòÇĞ»»  
+    auto ccmenuLeft = Menu::create(spriteLeftButton,NULL);  //å®ç°ä¸‰è€…ä¹‹é—´çš„é¡ºåºåˆ‡æ¢  
     spriteLeftButton->setPosition(Point(visibleSize.width * 0.2, visibleSize.height * 1 / 7));  
 	ccmenuLeft->setPosition(Vec2::ZERO);
     this->addChild(ccmenuLeft,2); 
 	spriteLeftButton->setEnabled(false);
 
-	//µã»÷ÓÒ·­Ò³ & ¶¯»­
+	//ç‚¹å‡»å³ç¿»é¡µ & åŠ¨ç”»
 	spriteRightButton = MenuItemSprite::create(spriteRight,spriteRightLittle,spriteRightNull,
 		CC_CALLBACK_1(Enemy::nextPage,this));  
-    auto ccmenuRight = Menu::create(spriteRightButton,NULL);  //ÊµÏÖÈıÕßÖ®¼äµÄË³ĞòÇĞ»»  
+    auto ccmenuRight = Menu::create(spriteRightButton,NULL);  //å®ç°ä¸‰è€…ä¹‹é—´çš„é¡ºåºåˆ‡æ¢  
     spriteRightButton->setPosition(Point(visibleSize.width*0.4,visibleSize.height * 1 / 7));  
 	ccmenuRight->setPosition(Vec2::ZERO);
     this->addChild(ccmenuRight,2); 
 
-	//×Ö-µĞÈË
+	//å­—-æ•Œäºº
     auto labelTitle = Label::createWithTTF("ENEMIES", "Marker Felt.ttf", 24);
     labelTitle->setPosition(Vec2(visibleSize.width * 0.3, visibleSize.height * 6 / 7));
 	labelTitle->setColor(Color3B(0,0,0));
     this->addChild(labelTitle, 2);
 
-	//×Ö-Ò³Êı
+	//å­—-é¡µæ•°
 	enemyId = 0;
 	labelPage = Label::createWithTTF(__String::createWithFormat("%d",enemyId + 1)->getCString(), "Marker Felt.ttf", 24);
-    // ÉèÖÃlabelÔÚÆÁÄ»ÖĞµÄÏÔÊ¾Î»ÖÃ
+    // è®¾ç½®labelåœ¨å±å¹•ä¸­çš„æ˜¾ç¤ºä½ç½®
     labelPage->setPosition(Vec2(visibleSize.width * 0.3, visibleSize.height * 1 / 7));
 	labelPage->setColor(Color3B(0,0,0));
-    // °ÑlabelÌí¼Óµ½»­Ãæ²ã
+    // æŠŠlabelæ·»åŠ åˆ°ç”»é¢å±‚
     this->addChild(labelPage, 2);
 
 	////////////////////////////////////////////////
-	///Ò»´ó¶Ñlabel-¿ªÊ¼
+	///ä¸€å¤§å †label-å¼€å§‹
 	///////////////////////////////////////////////
-	//¹ÖÎïÃû³Æ
+	//æ€ªç‰©åç§°
 	labelName = Label::createWithTTF("", "Marker Felt.ttf", 24);
-    // ÉèÖÃlabelÔÚÆÁÄ»ÖĞµÄÏÔÊ¾Î»ÖÃ
+    // è®¾ç½®labelåœ¨å±å¹•ä¸­çš„æ˜¾ç¤ºä½ç½®
     labelName->setPosition(Vec2(visibleSize.width * 0.7, visibleSize.height * 0.60));
 	labelName->setColor(Color3B(0,0,0));
-    // °ÑlabelÌí¼Óµ½»­Ãæ²ã
+    // æŠŠlabelæ·»åŠ åˆ°ç”»é¢å±‚
     this->addChild(labelName, 2);
 
-	//¹ÖÎïÑªÖµ
+	//æ€ªç‰©è¡€å€¼
 	labelBloodValue = Label::createWithTTF("", "Marker Felt.ttf", 16);
-    // ÉèÖÃlabelÔÚÆÁÄ»ÖĞµÄÏÔÊ¾Î»ÖÃ
+    // è®¾ç½®labelåœ¨å±å¹•ä¸­çš„æ˜¾ç¤ºä½ç½®
     labelBloodValue->setPosition(Vec2(visibleSize.width * 0.65, visibleSize.height * 0.50));
 	labelBloodValue->setColor(Color3B(0,0,0));
-    // °ÑlabelÌí¼Óµ½»­Ãæ²ã
+    // æŠŠlabelæ·»åŠ åˆ°ç”»é¢å±‚
     this->addChild(labelBloodValue, 2);
 
-	//¹ÖÎï¹¥»÷Á¦
+	//æ€ªç‰©æ”»å‡»åŠ›
 	labelAttackValue = Label::createWithTTF("", "Marker Felt.ttf", 16);
-    // ÉèÖÃlabelÔÚÆÁÄ»ÖĞµÄÏÔÊ¾Î»ÖÃ
+    // è®¾ç½®labelåœ¨å±å¹•ä¸­çš„æ˜¾ç¤ºä½ç½®
     labelAttackValue->setPosition(Vec2(visibleSize.width * 0.65, visibleSize.height * 0.45));
 	labelAttackValue->setColor(Color3B(0,0,0));
-    // °ÑlabelÌí¼Óµ½»­Ãæ²ã
+    // æŠŠlabelæ·»åŠ åˆ°ç”»é¢å±‚
     this->addChild(labelAttackValue, 2);
 
-	//¹ÖÎïÎïÀí·ÀÓùÁ¦
+	//æ€ªç‰©ç‰©ç†é˜²å¾¡åŠ›
 	labelDefenseValue = Label::createWithTTF("", "Marker Felt.ttf", 16);
-    // ÉèÖÃlabelÔÚÆÁÄ»ÖĞµÄÏÔÊ¾Î»ÖÃ
+    // è®¾ç½®labelåœ¨å±å¹•ä¸­çš„æ˜¾ç¤ºä½ç½®
     labelDefenseValue->setPosition(Vec2(visibleSize.width * 0.65, visibleSize.height * 0.40));
 	labelDefenseValue->setColor(Color3B(0,0,0));
-    // °ÑlabelÌí¼Óµ½»­Ãæ²ã
+    // æŠŠlabelæ·»åŠ åˆ°ç”»é¢å±‚
     this->addChild(labelDefenseValue, 2);
 
-	//¹ÖÎïÄ§·¨·ÀÓùÁ¦
+	//æ€ªç‰©é­”æ³•é˜²å¾¡åŠ›
 	labelMagicDefenseValue = Label::createWithTTF("", "Marker Felt.ttf", 16);
-    // ÉèÖÃlabelÔÚÆÁÄ»ÖĞµÄÏÔÊ¾Î»ÖÃ
+    // è®¾ç½®labelåœ¨å±å¹•ä¸­çš„æ˜¾ç¤ºä½ç½®
     labelMagicDefenseValue->setPosition(Vec2(visibleSize.width * 0.65, visibleSize.height * 0.30));
 	labelMagicDefenseValue->setColor(Color3B(0,0,0));
-    // °ÑlabelÌí¼Óµ½»­Ãæ²ã
+    // æŠŠlabelæ·»åŠ åˆ°ç”»é¢å±‚
     this->addChild(labelMagicDefenseValue, 2);
 
-	//¹ÖÎïÒÆ¶¯ËÙ¶È
+	//æ€ªç‰©ç§»åŠ¨é€Ÿåº¦
 	labelMovementSpeed = Label::createWithTTF("", "Marker Felt.ttf", 16);
-    // ÉèÖÃlabelÔÚÆÁÄ»ÖĞµÄÏÔÊ¾Î»ÖÃ
+    // è®¾ç½®labelåœ¨å±å¹•ä¸­çš„æ˜¾ç¤ºä½ç½®
     labelMovementSpeed->setPosition(Vec2(visibleSize.width * 0.65, visibleSize.height * 0.25));
 	labelMovementSpeed->setColor(Color3B(0,0,0));
-    // °ÑlabelÌí¼Óµ½»­Ãæ²ã
+    // æŠŠlabelæ·»åŠ åˆ°ç”»é¢å±‚
     this->addChild(labelMovementSpeed, 2);
 
-	//¹ÖÎïÉúÃüÊıÁ¿
+	//æ€ªç‰©ç”Ÿå‘½æ•°é‡
 	labelLifeNumber= Label::createWithTTF("", "Marker Felt.ttf", 16);
-    // ÉèÖÃlabelÔÚÆÁÄ»ÖĞµÄÏÔÊ¾Î»ÖÃ
+    // è®¾ç½®labelåœ¨å±å¹•ä¸­çš„æ˜¾ç¤ºä½ç½®
     labelLifeNumber->setPosition(Vec2(visibleSize.width * 0.65, visibleSize.height * 0.20));
 	labelLifeNumber->setColor(Color3B(0,0,0));
-    // °ÑlabelÌí¼Óµ½»­Ãæ²ã
+    // æŠŠlabelæ·»åŠ åˆ°ç”»é¢å±‚
     this->addChild(labelLifeNumber, 2);
 	
-	//¹ÖÎïÊôĞÔ²¹³äËµÃ÷
+	//æ€ªç‰©å±æ€§è¡¥å……è¯´æ˜
     labelNotice = Label::createWithTTF("*", "Marker Felt.ttf", 16);
-    // ÉèÖÃlabelÔÚÆÁÄ»ÖĞµÄÏÔÊ¾Î»ÖÃ
+    // è®¾ç½®labelåœ¨å±å¹•ä¸­çš„æ˜¾ç¤ºä½ç½®
     labelNotice->setPosition(Vec2(visibleSize.width * 0.7, visibleSize.height * 0.15));
 	labelNotice->setColor(Color3B(0,0,0));
-    // °ÑlabelÌí¼Óµ½»­Ãæ²ã
+    // æŠŠlabelæ·»åŠ åˆ°ç”»é¢å±‚
     this->addChild(labelNotice, 2);
 
 	/*****************************
-	**ÏÔÊ¾ÖĞÎÄÉè¼ÆÄ£¿é-¿ªÊ¼
+	**æ˜¾ç¤ºä¸­æ–‡è®¾è®¡æ¨¡å—-å¼€å§‹
 	******************************/
 	
-	//¶ÁÈ¡xmlÎÄµµ,·ÅÈëValueVectorÖĞ
+	//è¯»å–xmlæ–‡æ¡£,æ”¾å…¥ValueVectorä¸­
 	ValueVector txt_vec = FileUtils::getInstance()->getValueVectorFromFile("creep.xml");
 	int i = 0;
 	for( auto& e : txt_vec){
-		auto txt_map = txt_vec.at(i).asValueMap();//½«¼üÖµ×ª»¯³ÉMap¸ñÊ½£¬·ÅÈëtxt_mapÖĞ
-		int id_int = txt_map.at("id").asInt();//»ñÈ¡id
+		auto txt_map = txt_vec.at(i).asValueMap();//å°†é”®å€¼è½¬åŒ–æˆMapæ ¼å¼ï¼Œæ”¾å…¥txt_mapä¸­
+		int id_int = txt_map.at("id").asInt();//è·å–id
 		if(id_int == i){
-			//auto label_str = txt_map.at("info").asString();//»ñÈ¡infoµÄÖµ
+			//auto label_str = txt_map.at("info").asString();//è·å–infoçš„å€¼
 			enemyDesc[i]->enemyName = txt_map.at("EnemyName").asString();
 			enemyDesc[i]->bloodValue = txt_map.at("BloodValue").asString();
 			enemyDesc[i]->attackValue = txt_map.at("AttackValue").asString();
@@ -261,69 +261,69 @@ bool Enemy::init(){
 			labelMovementSpeed->setString(txt_map.at("MovementSpeed").asString());
 			labelLifeNumber->setString(txt_map.at("LifeNumber").asString());
 		}
-		i ++; //ÏÂÒ»¸ö¹ÖÎï	
+		i ++; //ä¸‹ä¸€ä¸ªæ€ªç‰©	
 	}
 
 	/*****************************
-	**ÏÔÊ¾ÖĞÎÄÉè¼ÆÄ£¿é-½áÊø
+	**æ˜¾ç¤ºä¸­æ–‡è®¾è®¡æ¨¡å—-ç»“æŸ
 	*****************************/
 
-	//ÏÂÃæÊÇÊôĞÔÖµ
-	//¹ÖÎïÑªÖµ1
+	//ä¸‹é¢æ˜¯å±æ€§å€¼
+	//æ€ªç‰©è¡€å€¼1
 	labelBloodValue1 = Label::createWithTTF("", "Marker Felt.ttf", 16);
-    // ÉèÖÃlabelÔÚÆÁÄ»ÖĞµÄÏÔÊ¾Î»ÖÃ
+    // è®¾ç½®labelåœ¨å±å¹•ä¸­çš„æ˜¾ç¤ºä½ç½®
     labelBloodValue1->setPosition(Vec2(visibleSize.width * 0.75, visibleSize.height * 0.50));
 	labelBloodValue1->setColor(Color3B(0,0,0));
-    // °ÑlabelÌí¼Óµ½»­Ãæ²ã
+    // æŠŠlabelæ·»åŠ åˆ°ç”»é¢å±‚
     this->addChild(labelBloodValue1, 2);
 
-	//¹ÖÎï¹¥»÷Á¦
+	//æ€ªç‰©æ”»å‡»åŠ›
 	labelAttackValue1 = Label::createWithTTF("", "Marker Felt.ttf", 16);
-    // ÉèÖÃlabelÔÚÆÁÄ»ÖĞµÄÏÔÊ¾Î»ÖÃ
+    // è®¾ç½®labelåœ¨å±å¹•ä¸­çš„æ˜¾ç¤ºä½ç½®
     labelAttackValue1->setPosition(Vec2(visibleSize.width * 0.75, visibleSize.height * 0.45));
 	labelAttackValue1->setColor(Color3B(0,0,0));
-    // °ÑlabelÌí¼Óµ½»­Ãæ²ã
+    // æŠŠlabelæ·»åŠ åˆ°ç”»é¢å±‚
     this->addChild(labelAttackValue1, 2);
 
-	//¹ÖÎïÎïÀí·ÀÓùÁ¦
+	//æ€ªç‰©ç‰©ç†é˜²å¾¡åŠ›
 	labelDefenseValue1 = Label::createWithTTF("", "Marker Felt.ttf", 16);
-    // ÉèÖÃlabelÔÚÆÁÄ»ÖĞµÄÏÔÊ¾Î»ÖÃ
+    // è®¾ç½®labelåœ¨å±å¹•ä¸­çš„æ˜¾ç¤ºä½ç½®
     labelDefenseValue1->setPosition(Vec2(visibleSize.width * 0.75, visibleSize.height * 0.40));
 	labelDefenseValue1->setColor(Color3B(0,0,0));
-    // °ÑlabelÌí¼Óµ½»­Ãæ²ã
+    // æŠŠlabelæ·»åŠ åˆ°ç”»é¢å±‚
     this->addChild(labelDefenseValue1, 2);
 
-	//¹ÖÎïÄ§·¨·ÀÓùÁ¦
+	//æ€ªç‰©é­”æ³•é˜²å¾¡åŠ›
 	labelMagicDefenseValue1 = Label::createWithTTF("", "Marker Felt.ttf", 16);
-    // ÉèÖÃlabelÔÚÆÁÄ»ÖĞµÄÏÔÊ¾Î»ÖÃ
+    // è®¾ç½®labelåœ¨å±å¹•ä¸­çš„æ˜¾ç¤ºä½ç½®
     labelMagicDefenseValue1->setPosition(Vec2(visibleSize.width * 0.75, visibleSize.height * 0.30));
 	labelMagicDefenseValue1->setColor(Color3B(0,0,0));
-    // °ÑlabelÌí¼Óµ½»­Ãæ²ã
+    // æŠŠlabelæ·»åŠ åˆ°ç”»é¢å±‚
     this->addChild(labelMagicDefenseValue1, 2);
 
-	//¹ÖÎïÒÆ¶¯ËÙ¶È
+	//æ€ªç‰©ç§»åŠ¨é€Ÿåº¦
 	labelMovementSpeed1 = Label::createWithTTF("", "Marker Felt.ttf", 16);
-    // ÉèÖÃlabelÔÚÆÁÄ»ÖĞµÄÏÔÊ¾Î»ÖÃ
+    // è®¾ç½®labelåœ¨å±å¹•ä¸­çš„æ˜¾ç¤ºä½ç½®
     labelMovementSpeed1->setPosition(Vec2(visibleSize.width * 0.75, visibleSize.height * 0.25));
 	labelMovementSpeed1->setColor(Color3B(0,0,0));
-    // °ÑlabelÌí¼Óµ½»­Ãæ²ã
+    // æŠŠlabelæ·»åŠ åˆ°ç”»é¢å±‚
     this->addChild(labelMovementSpeed1, 2);
 
-	//¹ÖÎïÉúÃüÊıÁ¿
+	//æ€ªç‰©ç”Ÿå‘½æ•°é‡
 	labelLifeNumber1= Label::createWithTTF("", "Marker Felt.ttf", 16);
-    // ÉèÖÃlabelÔÚÆÁÄ»ÖĞµÄÏÔÊ¾Î»ÖÃ
+    // è®¾ç½®labelåœ¨å±å¹•ä¸­çš„æ˜¾ç¤ºä½ç½®
     labelLifeNumber1->setPosition(Vec2(visibleSize.width * 0.75, visibleSize.height * 0.20));
 	labelLifeNumber1->setColor(Color3B(0,0,0));
-    // °ÑlabelÌí¼Óµ½»­Ãæ²ã
+    // æŠŠlabelæ·»åŠ åˆ°ç”»é¢å±‚
     this->addChild(labelLifeNumber1, 2);
 
 	//////////////////////////////////
-	//Ò»´ó¶Ñlabel-½áÊø
+	//ä¸€å¤§å †label-ç»“æŸ
 	//////////////////////////////////
 
 	bigSprite->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(enemyDesc[0]->enemyDescFileName));
 	labelName->setString(enemyDesc[0]->enemyName);
-		//Æß´óÊôĞÔ
+		//ä¸ƒå¤§å±æ€§
 	labelBloodValue1->setString(enemyDesc[0]->bloodValue);
 	labelAttackValue1->setString(enemyDesc[0]->attackValue);
 	labelDefenseValue1->setString(enemyDesc[0]->defenseValue);
@@ -337,7 +337,7 @@ bool Enemy::init(){
 	return true;
 }
 
-//×ó·­Ò³
+//å·¦ç¿»é¡µ
 void Enemy::lastPage(Ref* pSender){
 	SoundManager::playClickEffect();
 	enemyId --;
@@ -347,7 +347,7 @@ void Enemy::lastPage(Ref* pSender){
 		spriteLeftButton->setEnabled(true);
 		spriteRightButton->setEnabled(true);
 	}
-	//¸ÄÒ³Êı
+	//æ”¹é¡µæ•°
 	labelPage->setString(__String::createWithFormat("%d",enemyId + 1)->getCString());
 
 	ccmenuCreep[enemyId]->setVisible(true);
@@ -356,7 +356,7 @@ void Enemy::lastPage(Ref* pSender){
 	return;
 }
 
-//ÓÒ·­Ò³
+//å³ç¿»é¡µ
 void Enemy::nextPage(Ref* pSender){
 	SoundManager::playClickEffect();
 	enemyId ++;
@@ -366,7 +366,7 @@ void Enemy::nextPage(Ref* pSender){
 	}else{
 		spriteLeftButton->setEnabled(true);
 	}
-	//¸ÄÒ³Êı
+	//æ”¹é¡µæ•°
 	labelPage->setString(__String::createWithFormat("%d",enemyId + 1)->getCString());
 
 	ccmenuCreep[enemyId]->setVisible(true);
@@ -375,7 +375,7 @@ void Enemy::nextPage(Ref* pSender){
 	creepFrame->setVisible(false);
 	return;
 }
-//¹ÖÎïÃèÊö 
+//æ€ªç‰©æè¿° 
 bool Enemy::onTouchBegan(Touch* touch, Event* event){
 
 	auto target = static_cast<EnemyDesc*>(event->getCurrentTarget());
@@ -389,7 +389,7 @@ bool Enemy::onTouchBegan(Touch* touch, Event* event){
 		SoundManager::playClickEffect();
 		bigSprite->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(target->enemyDescFileName));
 		labelName->setString(target->enemyName);
-		//Æß´óÊôĞÔ
+		//ä¸ƒå¤§å±æ€§
 		labelBloodValue1->setString(target->bloodValue);
 		labelAttackValue1->setString(target->attackValue);
 		labelDefenseValue1->setString(target->defenseValue);
@@ -398,7 +398,7 @@ bool Enemy::onTouchBegan(Touch* touch, Event* event){
 		labelLifeNumber1->setString(target->lifeNumber);
 		labelNotice->setString(target->note);
 
-		moveFrame=MoveTo::create(0.1f,target->getPosition());//ÉèÖÃÍ¼±êµÄÎ»ÒÆÊ±¼ä£¬Î»ÒÆÄ¿±êµØÖ·
+		moveFrame=MoveTo::create(0.1f,target->getPosition());//è®¾ç½®å›¾æ ‡çš„ä½ç§»æ—¶é—´ï¼Œä½ç§»ç›®æ ‡åœ°å€
 		creepFrame->runAction(moveFrame);
 		creepFrame->setVisible(true);
 

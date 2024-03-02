@@ -1,4 +1,4 @@
-#ifndef _BASE_BASEARTILLERY_TOWER_H_
+ï»¿#ifndef _BASE_BASEARTILLERY_TOWER_H_
 #define _BASE_BASEARTILLERY_TOWER_H_
 
 #include "cocos2d.h"
@@ -14,18 +14,18 @@ public:
 protected:
 	void initTower(int level);
 	void addTerrain();
-	virtual Bullet* ArtilleryTowerBullet();//´´½¨ÅÚµ¯
-	void shoot(float dt);//¹¥»÷
-	Sprite* towerBase;//ÅÚËş»ù×ù
-	Sprite* leftShooter;//×ó±ßÅÚÊÖ
-	Sprite* rightShooter;//ÓÒ±ßÅÚÊÖ
-	Sprite* c4;//Õ¨µ¯
-	Sprite* barrel;//ÅÚÍ²
-	Sprite* smoke;//ÑÌ
-	bool isReady;//ÅÚµ¯ÊÇ·ñÌî³äÍê±Ï£¨ÉÏÒ»·¢ÅÚÊÇ·ñ´òÍê£©
-	void filledAnimation();//Ìî³äÅÚµ¯¶¯»­
-	void fireAnimation();//·¢ÉäÅÚµ¯¶¯»­
-	void fire(Point firePosition);//·¢ÉäÅÚµ¯
+	virtual Bullet* ArtilleryTowerBullet();//åˆ›å»ºç‚®å¼¹
+	void shoot(float dt);//æ”»å‡»
+	Sprite* towerBase;//ç‚®å¡”åŸºåº§
+	Sprite* leftShooter;//å·¦è¾¹ç‚®æ‰‹
+	Sprite* rightShooter;//å³è¾¹ç‚®æ‰‹
+	Sprite* c4;//ç‚¸å¼¹
+	Sprite* barrel;//ç‚®ç­’
+	Sprite* smoke;//çƒŸ
+	bool isReady;//ç‚®å¼¹æ˜¯å¦å¡«å……å®Œæ¯•ï¼ˆä¸Šä¸€å‘ç‚®æ˜¯å¦æ‰“å®Œï¼‰
+	void filledAnimation();//å¡«å……ç‚®å¼¹åŠ¨ç”»
+	void fireAnimation();//å‘å°„ç‚®å¼¹åŠ¨ç”»
+	void fire(Point firePosition);//å‘å°„ç‚®å¼¹
 private:
 	void checkNearestMonster() override;
 };

@@ -1,4 +1,4 @@
-#ifndef _LEVEL_7_H_
+﻿#ifndef _LEVEL_7_H_
 #define _LEVEL_7_H_
 
 #include "Map/BaseMap.h"

@@ -1,4 +1,4 @@
-#include "UpdatePanleLayerWithFlag.h"
+ï»¿#include "UpdatePanleLayerWithFlag.h"
 #include "Data/GameManager.h"
 #include "Layer/TouchLayer.h"
 #include "Map/BaseMap.h"
@@ -118,19 +118,19 @@ bool UpdatePanleLayerWithFlag::onTouchBegan(Touch *touch, Event *event)
 	Rect rect = Rect(0-size.width/2, 0-size.height/2, size.width, size.height);
     if (rect.containsPoint(locationInNode))
     {
-		if(target->getIsSelected())//Èç¹ûÒÑ¾­Ñ¡ÖĞ£¨µÚ¶ş´Î°´ÏÂ£©
+		if(target->getIsSelected())//å¦‚æœå·²ç»é€‰ä¸­ï¼ˆç¬¬äºŒæ¬¡æŒ‰ä¸‹ï¼‰
 		{
-			if(target->getIsAble())//Èç¹ûÇ®¹»ÓÃ
+			if(target->getIsAble())//å¦‚æœé’±å¤Ÿç”¨
 			{
 				static_cast<BaseMap*>(this->getParent()->getParent())->playerState->removeTowerInfo();
 				switch (target->getTag())
 				{
-				case(1)://Éı¼¶
+				case(1)://å‡çº§
 					SoundManager::playTowerUpdate();
 					GameManager::getInstance()->MONEY = GameManager::getInstance()->MONEY-tower->getUpdateMoney();
 					tower->updateTower();
 					break;
-				case(2)://ÊÛ³ö
+				case(2)://å”®å‡º
 					SoundManager::playTowerSell();
 					GameManager::getInstance()->MONEY = GameManager::getInstance()->MONEY+ (tower->getBuildMoney()/2);
 					tower->sellTower();
@@ -139,11 +139,11 @@ bool UpdatePanleLayerWithFlag::onTouchBegan(Touch *touch, Event *event)
 				this->setVisible(false);
 				isBuilt = true;
 			}
-		}else{//µÚÒ»´Î°´ÏÂ
+		}else{//ç¬¬ä¸€æ¬¡æŒ‰ä¸‹
 			showTowerInfo();
 			updateIcon->setNotSelected();
 			sellIcon->setNotSelected();
-			target->setSelected();//ÉèÖÃÎªÑ¡ÖĞ×´Ì¬
+			target->setSelected();//è®¾ç½®ä¸ºé€‰ä¸­çŠ¶æ€
 		}
         return true;
     }

@@ -1,4 +1,4 @@
-#ifndef _BASE_Soldier_H_
+ï»¿#ifndef _BASE_Soldier_H_
 #define _BASE_Soldier_H_
 
 #include "Data/SoundManager.h"
@@ -7,11 +7,11 @@
 USING_NS_CC;
 
 typedef enum{
-    SoldierStateNone = 0, //ÎŞ×´Ì¬
-    SoldierStateRun,//ĞĞ×ß
-	SoldierStateHit, //¹¥»÷
-	SoldierStateDeath,//ËÀÍö
-	SoldierStateWait,//Ñ°ÕÒµĞÈË
+    SoldierStateNone = 0, //æ— çŠ¶æ€
+    SoldierStateRun,//è¡Œèµ°
+	SoldierStateHit, //æ”»å‡»
+	SoldierStateDeath,//æ­»äº¡
+	SoldierStateWait,//å¯»æ‰¾æ•Œäºº
 	SoldierStateSkill1,
 	SoldierStateSkill2
 }SoldierState;
@@ -45,7 +45,7 @@ protected:
 	SoldierState lastState;
 	virtual void stopSoldierAnimation();
 	void checkDirection(Point point);
-	//falseÓÒ±ßtrue×ó±ß
+	//falseå³è¾¹trueå·¦è¾¹
 	virtual bool checkDirectionForMonster();
 	float caculateTime(Point point);
 	virtual void runToMonster();

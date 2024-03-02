@@ -1,4 +1,4 @@
-#include "Level0.h"
+ï»¿#include "Level0.h"
 #include "Scene/Story/BeginAnimation.h"
 
 USING_NS_CC;
@@ -89,7 +89,7 @@ void Level0::onExit()
 void Level0::addTerrains()
 {
 	auto terrain1 = CustomTerrain::createTerrain(1);
-	terrain1->setPosition(Point(600,780));//×ó±ßÏÂ
+	terrain1->setPosition(Point(600,780));//å·¦è¾¹ä¸‹
 	terrain1->setTag(1);
 	addChild(terrain1,3);
 	
@@ -99,32 +99,32 @@ void Level0::addTerrains()
 	addChild(terrain9,4);
 
 	auto terrain4 = CustomTerrain::createTerrain(1);
-	terrain4->setPosition(Point(520,610));//×ó±ßÉÏ
+	terrain4->setPosition(Point(520,610));//å·¦è¾¹ä¸Š
 	terrain4->setTag(4);
 	addChild(terrain4,4);
 
 	auto terrain5 = CustomTerrain::createTerrain(1);
-	terrain5->setPosition(Point(675,610));//ÓÒ±ßÉÏ
+	terrain5->setPosition(Point(675,610));//å³è¾¹ä¸Š
 	terrain5->setTag(5);
 	addChild(terrain5,4);
 
 	auto terrain6 = CustomTerrain::createTerrain(1);
-	terrain6->setPosition(Point(475,530));//×ó±ß
+	terrain6->setPosition(Point(475,530));//å·¦è¾¹
 	terrain6->setTag(6);
 	addChild(terrain6,5);
 
 	auto terrain7 = CustomTerrain::createTerrain(1);
-	terrain7->setPosition(Point(720,530));//ÓÒ±ß
+	terrain7->setPosition(Point(720,530));//å³è¾¹
 	terrain7->setTag(7);
 	addChild(terrain7,5);
 
 	auto terrain2 = CustomTerrain::createTerrain(1);
-	terrain2->setPosition(Point(520,445));//×îÉÏÃæµÄ
+	terrain2->setPosition(Point(520,445));//æœ€ä¸Šé¢çš„
 	terrain2->setTag(2);
 	addChild(terrain2,6);
 
 	auto terrain3 = CustomTerrain::createTerrain(1);
-	terrain3->setPosition(Point(675,445));//ÓÒ±ßÏÂ
+	terrain3->setPosition(Point(675,445));//å³è¾¹ä¸‹
 	terrain3->setTag(3);
 	addChild(terrain3,6);
 
@@ -134,7 +134,7 @@ void Level0::addTerrains()
 	addChild(terrain10,7);
 
 	auto terrain8 = CustomTerrain::createTerrain(1);
-	terrain8->setPosition(Point(600,270));//×îÏÂÃæµÄ
+	terrain8->setPosition(Point(600,270));//æœ€ä¸‹é¢çš„
 	terrain8->setTag(8);
 	addChild(terrain8,8);
 

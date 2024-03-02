@@ -1,4 +1,4 @@
-#include "Skeleton.h"
+ï»¿#include "Skeleton.h"
 #include "Data/GameManager.h"
 
 Skeleton* Skeleton::createSkeleton(Point point)
@@ -107,14 +107,14 @@ void Skeleton::attackMonster(float dt)
 
 void Skeleton::update(float dt)
 {
-	//Èô×´Ì¬¸üÐÂ
+	//è‹¥çŠ¶æ€æ›´æ–°
 	if(lastState!=getState()){
-		//¸ù¾Ý×´Ì¬ÅÐ¶Ï
+		//æ ¹æ®çŠ¶æ€åˆ¤æ–­
 		switch (getState())
 		{
 		case(SoldierStateRun):{
 			lastState = SoldierStateRun;
-			//Í£Ö¹Ö®Ç°¶¯»­
+			//åœæ­¢ä¹‹å‰åŠ¨ç”»
 			stopSoldierAnimation();
 			auto action = RepeatForever::create(Animate::create(AnimationCache::getInstance()->getAnimation("skeleton_run")));
 			action->setTag(SoldierStateRun);
@@ -139,10 +139,10 @@ void Skeleton::update(float dt)
 void Skeleton::runToMonster()
 {
 	Point destination;
-	if (!checkDirectionForMonster()){//¹ÖÔÚÓÒ±ß
+	if (!checkDirectionForMonster()){//æ€ªåœ¨å³è¾¹
 		destination.x = nearestMonster->baseSprite->getPositionX() + nearestMonster->baseSprite->getContentSize().width/2 - this->getParent()->getPositionX()- this->baseSprite->getContentSize().width/2;
 		destination.y = nearestMonster->baseSprite->getPositionY() - this->getParent()->getPositionY() - this->baseSprite->getContentSize().height/4;
-	}else{//×ó±ß
+	}else{//å·¦è¾¹
 		destination.x = nearestMonster->baseSprite->getPositionX() - nearestMonster->baseSprite->getContentSize().width/2 - this->getParent()->getPositionX()+ this->baseSprite->getContentSize().width/2;
 		destination.y = nearestMonster->baseSprite->getPositionY() - this->getParent()->getPositionY() - this->baseSprite->getContentSize().height/4;
 	}

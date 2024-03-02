@@ -1,4 +1,4 @@
-#include "DeathKnight.h"
+ï»¿#include "DeathKnight.h"
 #include "Data/GameManager.h"
 
 DeathKnight* DeathKnight::createDeathKnight(Point point)
@@ -106,14 +106,14 @@ void DeathKnight::attackMonster(float dt)
 
 void DeathKnight::update(float dt)
 {
-	//Èô×´Ì¬¸üÐÂ
+	//è‹¥çŠ¶æ€æ›´æ–°
 	if(lastState!=getState()){
-		//¸ù¾Ý×´Ì¬ÅÐ¶Ï
+		//æ ¹æ®çŠ¶æ€åˆ¤æ–­
 		switch (getState())
 		{
 		case(SoldierStateRun):{
 			lastState = SoldierStateRun;
-			//Í£Ö¹Ö®Ç°¶¯»­
+			//åœæ­¢ä¹‹å‰åŠ¨ç”»
 			stopSoldierAnimation();
 			auto action = RepeatForever::create(Animate::create(AnimationCache::getInstance()->getAnimation("DK_run")));
 			action->setTag(SoldierStateRun);

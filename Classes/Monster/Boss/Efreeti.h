@@ -1,4 +1,4 @@
-#ifndef _EFREETI_H_
+﻿#ifndef _EFREETI_H_
 #define _EFREETI_H_
 
 #include "Monster/BaseMonster.h"

@@ -1,4 +1,4 @@
-#include "CossbowHunterTower.h"
+ï»¿#include "CossbowHunterTower.h"
 #include "Data/GameManager.h"
 #include "Bullet/Arrow.h"
 #include "Map/BaseMap.h"
@@ -77,22 +77,22 @@ void CossbowHunterTower::shoot(float dt)
 			float angleDegrees = CC_RADIANS_TO_DEGREES(rotation);
 			currBullet->setRotation(180.0f-angleDegrees);
 		
-			if(shootVector.x - currBullet->getPosition().x<=0)//Ïò×ó¹¥»÷
+			if(shootVector.x - currBullet->getPosition().x<=0)//å‘å·¦æ”»å‡»
 			{
-				if(shootTag == 1)//ÂÖµ½1ºÅ¹­¼ýÊÖ
+				if(shootTag == 1)//è½®åˆ°1å·å¼“ç®­æ‰‹
 				{
-					currBullet->setPosition(Point(0,30));//×Óµ¯ÉèÖÃÔÚ¹­¼ýÊÖËùÔÚÎ»ÖÃ	
+					currBullet->setPosition(Point(0,30));//å­å¼¹è®¾ç½®åœ¨å¼“ç®­æ‰‹æ‰€åœ¨ä½ç½®	
 					shooter_1->setFlippedX(true);
 					if(shootVector.y - currBullet->getPosition().y<=0)
 					{
-						//¹¥»÷¶¯»­
+						//æ”»å‡»åŠ¨ç”»
 						shooter_1->runAction(Animate::create(AnimationCache::getInstance()->getAnimation("CossbowHunter_shooter_down")));
 					}else{
 						shooter_1->runAction(Animate::create(AnimationCache::getInstance()->getAnimation("CossbowHunter_shooter_up")));
 					}
 					shootTag = 2;
 				}
-				else//ÂÖµ½2ºÅ¹­¼ýÊÖ
+				else//è½®åˆ°2å·å¼“ç®­æ‰‹
 				{
 					currBullet->setPosition(Point(10,30));		
 					shooter_2->setFlippedX(true);
@@ -131,33 +131,33 @@ void CossbowHunterTower::shoot(float dt)
 					shootTag = 1;
 				}
 			}
-			//»¡Ïß
+			//å¼§çº¿
 			if(shootTag == 1)
 				SoundManager::playArrowShoot1();
 			else
 				SoundManager::playArrowShoot2();
 			auto action = Spawn::create(MoveTo::create(0.3f, shootVector),NULL);
-			//¹¥»÷ÊôÐÔ¸ø¹­¼ý
+			//æ”»å‡»å±žæ€§ç»™å¼“ç®­
 			currBullet->setBulletAction(action);
 			currBullet->shoot();
 			currBullet = NULL;
 		}else{
 			Point shootVector = nearestMonster->baseSprite->getPosition() - this->getParent()->getPosition();
-			if(shootVector.x - this->getParent()->getPosition().x<=0)//Ïò×ó¹¥»÷
+			if(shootVector.x - this->getParent()->getPosition().x<=0)//å‘å·¦æ”»å‡»
 			{
-				if(shootTag == 1)//ÂÖµ½1ºÅ¹­¼ýÊÖ
+				if(shootTag == 1)//è½®åˆ°1å·å¼“ç®­æ‰‹
 				{
 					shooter_1->setFlippedX(false);
 					if(shootVector.y - this->getParent()->getPosition().y<=0)
 					{
-						//¹¥»÷¶¯»­
+						//æ”»å‡»åŠ¨ç”»
 						shooter_1->runAction(Animate::create(AnimationCache::getInstance()->getAnimation("CossbowHunter_shooter_skill_down")));
 					}else{
 						shooter_1->runAction(Animate::create(AnimationCache::getInstance()->getAnimation("CossbowHunter_shooter_skill_up")));
 					}
 					shootTag = 2;
 				}
-				else//ÂÖµ½2ºÅ¹­¼ýÊÖ
+				else//è½®åˆ°2å·å¼“ç®­æ‰‹
 				{	
 					shooter_2->setFlippedX(false);
 					if(shootVector.y - this->getParent()->getPosition().y<=0)

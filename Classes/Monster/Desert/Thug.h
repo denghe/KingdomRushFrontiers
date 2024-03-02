@@ -1,4 +1,4 @@
-#ifndef _THUG_H_
+﻿#ifndef _THUG_H_
 #define _THUG_H_
 
 #include "Monster/BaseMonster.h"

@@ -1,4 +1,4 @@
-#ifndef _ELITE_H_
+﻿#ifndef _ELITE_H_
 #define _ELITE_H_
 
 #include "Monster/BaseMonster.h"

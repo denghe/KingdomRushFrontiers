@@ -1,4 +1,4 @@
-#ifndef _NECRBOLT_H_
+﻿#ifndef _NECRBOLT_H_
 #define _NECRBOLT_H_
 
 #include "cocos2d.h"

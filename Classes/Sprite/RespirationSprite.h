@@ -1,4 +1,4 @@
-#ifndef _RESPIRATION_SPRITE_H_
+﻿#ifndef _RESPIRATION_SPRITE_H_
 #define _RESPIRATION_SPRITE_H_
 
 #include "cocos2d.h"

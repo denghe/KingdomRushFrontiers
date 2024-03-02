@@ -1,4 +1,4 @@
-#ifndef _BASE_MAP_H_
+ï»¿#ifndef _BASE_MAP_H_
 #define _BASE_MAP_H_ 
 
 #include "cocos2d.h"
@@ -12,17 +12,17 @@ class BaseMap : public Layer
 {
 public:
     CREATE_FUNC(BaseMap);
-	//µ±Ç°¹Ø¿¨
+	//å½“å‰å…³å¡
 	CC_SYNTHESIZE(int, level, Level);
-	//Íæ¼Ò×´Ì¬À¸
+	//ç©å®¶çŠ¶æ€æ 
 	PlayerStateMenu* playerState;
 	void bindPlayerStateMenu(PlayerStateMenu* playerState);
-	//µØÍ¼¾«Áé
+	//åœ°å›¾ç²¾çµ
 	Sprite* mapSprite;
 	TouchLayer* mTouchLayer;
 protected:
 	void initTouchLayer();
-	//±¾¹ØÄÑ¶È
+	//æœ¬å…³éš¾åº¦
 	int difficulty;
 	int wave;
 	int maxWave;
@@ -31,46 +31,46 @@ protected:
 	int startGold;
 	int maxLife;
 	unsigned int time;
-	//wave¹ÖÎïÈİÆ÷ÈİÆ÷
+	//waveæ€ªç‰©å®¹å™¨å®¹å™¨
 	std::vector<std::vector<Vector<GroupMonster*>>> waveVector;
-	//¼ÓÔØÂ·¾¶ºÍ¹Ø¿¨Êı¾İ
+	//åŠ è½½è·¯å¾„å’Œå…³å¡æ•°æ®
 	void loadPathFromPlist();
 	void loadAndSetLevelData();
-	//´æ´¢Â·¾¶µÄÈİÆ÷ ´ÓÄÚµ½ÍâÎªµã£¬ÏßÂ·£¬Â·Ïß
+	//å­˜å‚¨è·¯å¾„çš„å®¹å™¨ ä»å†…åˆ°å¤–ä¸ºç‚¹ï¼Œçº¿è·¯ï¼Œè·¯çº¿
 	std::vector<std::vector<std::vector<Point>>> path;
-	//ÆÁÄ»³ß´ç
+	//å±å¹•å°ºå¯¸
 	Size winSize;
 	
-	//ÏÂÒ»²¨ÌáÊ¾¾«Áé 0ÎªÂ·Ïß1,1ÎªÂ·Ïß2
+	//ä¸‹ä¸€æ³¢æç¤ºç²¾çµ 0ä¸ºè·¯çº¿1,1ä¸ºè·¯çº¿2
 	Vector<WaveFlag*> waveFlags;
 	void addWaveProgressBars(std::vector<Point> waveFlagLocations);
 	void showWaveProgressBars(float dt);
 
 	void onEnterTransitionDidFinish() override;
-	//²»Í¬¹Ø¿¨²»Í¬µÄÊÂ¼ş´¦Àí
+	//ä¸åŒå…³å¡ä¸åŒçš„äº‹ä»¶å¤„ç†
 	virtual void waveEvent();
-	//ÉèÖÃ³õÊ¼µØÍ¼Î»ÖÃ
+	//è®¾ç½®åˆå§‹åœ°å›¾ä½ç½®
 	void setMapPosition();
-	//¸üĞÂ½ğÇ®ºÍÉúÃü
+	//æ›´æ–°é‡‘é’±å’Œç”Ÿå‘½
 	void updateGoldAndLife();
 	void update(float dt) override;
-	//Ê¤Àûº¯Êı
+	//èƒœåˆ©å‡½æ•°
 	void victory();
-	//½áÊø±ê¼Ç
+	//ç»“æŸæ ‡è®°
 	bool isEnd;
-	//¿ªÊ¼±ê¼Ç
+	//å¼€å§‹æ ‡è®°
 	bool isStart;
-	//¿ªÊ¼ĞÂµÄÒ»²¨µĞÈË
+	//å¼€å§‹æ–°çš„ä¸€æ³¢æ•Œäºº
 	virtual void addWaves(float dt);
-	//Ìí¼Ó¹ÖÎï
+	//æ·»åŠ æ€ªç‰©
 	virtual void addMonsters(float dt);
-	//³õÊ¼»¯µØÍ¼
+	//åˆå§‹åŒ–åœ°å›¾
 	void initMap();
-	//Ìí¼Ó²»Í¬µØÍ¼×°ÊÎÎï
+	//æ·»åŠ ä¸åŒåœ°å›¾è£…é¥°ç‰©
 	virtual void addOrnament(){};
-	//Ìí¼Ó½¨Ëşµã
+	//æ·»åŠ å»ºå¡”ç‚¹
 	virtual void addTerrains(){};
-	//ÍË³ö
+	//é€€å‡º
 	void onExitTransitionDidStart() override;
 	void onExit() override {};
 };

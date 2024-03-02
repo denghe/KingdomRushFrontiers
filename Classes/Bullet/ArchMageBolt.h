@@ -1,4 +1,4 @@
-#ifndef _ARCHMAGEBOLT_H_
+﻿#ifndef _ARCHMAGEBOLT_H_
 #define _ARCHMAGEBOLT_H_
 
 #include "cocos2d.h"

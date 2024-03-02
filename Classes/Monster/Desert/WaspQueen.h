@@ -1,4 +1,4 @@
-#ifndef _WASPQUEEN_H_
+﻿#ifndef _WASPQUEEN_H_
 #define _WASPQUEEN_H_
 
 #include "Monster/BaseMonster.h"

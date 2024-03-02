@@ -1,4 +1,4 @@
-#ifndef __Encyclopedia_SCENE_H__
+﻿#ifndef __Encyclopedia_SCENE_H__
 #define __Encyclopedia_SCENE_H__
 #include "cocos2d.h"
 

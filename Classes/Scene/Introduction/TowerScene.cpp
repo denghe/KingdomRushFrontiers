@@ -1,4 +1,4 @@
-#include "TowerScene.h"
+ï»¿#include "TowerScene.h"
 #include "Data/SoundManager.h"
 
 USING_NS_CC;
@@ -14,19 +14,19 @@ bool Tower::init(){
     if ( !Layer::init() ){
         return false;
     }
-	//ÉùÃ÷¼àÌıÊÂ¼şÀàĞÍ²¢°ó¶¨Ö´ĞĞº¯Êı
+	//å£°æ˜ç›‘å¬äº‹ä»¶ç±»å‹å¹¶ç»‘å®šæ‰§è¡Œå‡½æ•°
 	auto touchListener = EventListenerTouchOneByOne::create();
-	//touchListener->setSwallowTouches(true);//ÖØµş¾«Áé
+	//touchListener->setSwallowTouches(true);//é‡å ç²¾çµ
 	touchListener->onTouchBegan = CC_CALLBACK_2(Tower::onTouchBegan, this);
 	touchListener->onTouchEnded = CC_CALLBACK_2(Tower::onTouchEnded, this);
 	
 
-    //È¡µÃÆÁÄ»´óĞ¡
+    //å–å¾—å±å¹•å¤§å°
 	visibleSize = Director::getInstance()->getVisibleSize();
-	//»ñÈ¡ÊÖ»ú¿ÉÊÓÆÁÔ­µãµÄ×ø±ê
+	//è·å–æ‰‹æœºå¯è§†å±åŸç‚¹çš„åæ ‡
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	// µÚ¶ş²ãÁË£¬ÏÔÊ¾Êé±¾Í¼±ê-É¾µôµ×²ã£¬Ö±½ÓÏÔÊ¾ÊéÆ¤
+	// ç¬¬äºŒå±‚äº†ï¼Œæ˜¾ç¤ºä¹¦æœ¬å›¾æ ‡-åˆ æ‰åº•å±‚ï¼Œç›´æ¥æ˜¾ç¤ºä¹¦çš®
 	for(int i = 0;i<4;i++){
 		for(int j =0;j<5;j++){
 			auto sprite = Sprite::createWithSpriteFrameName("encyclopedia_bgTile.png");
@@ -36,43 +36,43 @@ bool Tower::init(){
 		}
 	}
 
-	// ±³¾°-Êé-ÓÒ±ß
+	// èƒŒæ™¯-ä¹¦-å³è¾¹
     auto sprite1 = Sprite::createWithSpriteFrameName("encyclopedia_book_pg.png");
     sprite1->setPosition(Vec2(visibleSize.width * 3/4 + origin.x, visibleSize.height/2 + origin.y));
 
-	//Êé-×ó±ß
+	//ä¹¦-å·¦è¾¹
     auto sprite2 = Sprite::createWithSpriteFrameName("encyclopedia_book_pg.png");
     sprite2->setPosition(Vec2(visibleSize.width/4 + origin.x, visibleSize.height/2 + origin.y));
 
-	//Ğı×ª
+	//æ—‹è½¬
 	sprite2->setFlippedX(true);
     sprite2->setRotation(360);
 
-	// Ìí¼ÓÍ¼Æ¬¾«Áéµ½»­Ãæ²ã
+	// æ·»åŠ å›¾ç‰‡ç²¾çµåˆ°ç”»é¢å±‚
     this->addChild(sprite1, 1);
 	this->addChild(sprite2, 1);
 
-	//¹Ø±Õ²æ²æ
+	//å…³é—­å‰å‰
 	auto sprite3 = Sprite::createWithSpriteFrameName("encyclopedia_tow_creep_close_0001.png");
-	//Ìí¼Óµã»÷
+	//æ·»åŠ ç‚¹å‡»
 	spriteCloseButton = MenuItemSprite::create(sprite3,sprite3,sprite3,CC_CALLBACK_1(Tower::closeScene,this));  
-    auto closeEnemyScene = Menu::create(spriteCloseButton,NULL);  //ÊµÏÖÈıÕßÖ®¼äµÄË³ĞòÇĞ»»  
+    auto closeEnemyScene = Menu::create(spriteCloseButton,NULL);  //å®ç°ä¸‰è€…ä¹‹é—´çš„é¡ºåºåˆ‡æ¢  
 	closeEnemyScene->setPosition(Vec2(visibleSize.width - sprite3->getContentSize().width * 3 / 2  + origin.x, 
 								visibleSize.height + origin.y - sprite3->getContentSize().height / 2));
     this->addChild(closeEnemyScene,2); 
-	//¹ÖÎïÁĞ±í
-	//¿ò¿ò
+	//æ€ªç‰©åˆ—è¡¨
+	//æ¡†æ¡†
 	creepFrame = Sprite::createWithSpriteFrameName("encyclopedia_creep_thumbs_frame_0002.png");  
 
     creepFrame->setPosition(Point(visibleSize.width * 0.17, visibleSize.height * 0.75));
 	this->addChild(creepFrame,3); 
 
 
-	//ÎŞĞ§µÄÄ´Ö¸Í¼±ê
+	//æ— æ•ˆçš„æ‹‡æŒ‡å›¾æ ‡
 	auto spriteCreepThumbNull = Sprite::createWithSpriteFrameName("encyclopedia_tower_thumbs_0121.png");
 
-	//³õÊ¼»¯Ä´Ö¸Í¼±ê20¸ö
-	//³õÊ¼»¯Ä´Ö¸Í¼±ê20¸ö
+	//åˆå§‹åŒ–æ‹‡æŒ‡å›¾æ ‡20ä¸ª
+	//åˆå§‹åŒ–æ‹‡æŒ‡å›¾æ ‡20ä¸ª
 	for(int i = 0; i < 20; i ++)
 	{
 		auto temp1 = __String::createWithFormat("encyclopedia_tower_thumbs_01%02d.png",i+1)->getCString();
@@ -84,34 +84,34 @@ bool Tower::init(){
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener->clone(), towerDesc[i]);
 		towerDesc[i]->towerThumbFileName = temp1;
 		towerDesc[i]->towerDescFileName = temp2;
-		//³õÊ¼»¯ÓÎ±ê
+		//åˆå§‹åŒ–æ¸¸æ ‡
 		towerDesc[i]->num = i;
 		this->addChild(towerDesc[i],2);
 		
 	}
 
 
-	//³õÊ¼»¯ËµÃ÷´óÍ¼
+	//åˆå§‹åŒ–è¯´æ˜å¤§å›¾
 	bigSprite = Sprite::createWithSpriteFrameName(towerDesc[0]->towerDescFileName);
 
 	bigSprite->setPosition(Vec2(visibleSize.width * 0.7,visibleSize.height * 0.75));
 	this->addChild(bigSprite,2);
 
-	//×Ö-Ëş
+	//å­—-å¡”
     auto labelTitle = Label::createWithTTF("TOWERS", "Marker Felt.ttf", 24);
     labelTitle->setPosition(Vec2(visibleSize.width * 0.3, visibleSize.height * 6 / 7));
 	labelTitle->setColor(Color3B(0,0,0));
     this->addChild(labelTitle, 2);
 
 	////////////////////////////////////////////////
-	///Ò»´ó¶Ñlabel-¿ªÊ¼
+	///ä¸€å¤§å †label-å¼€å§‹
 	///////////////////////////////////////////////
-	//ËşÃû³Æ
+	//å¡”åç§°
 	labelName = Label::createWithTTF("", "Marker Felt.ttf", 24);
-    // ÉèÖÃlabelÔÚÆÁÄ»ÖĞµÄÏÔÊ¾Î»ÖÃ
+    // è®¾ç½®labelåœ¨å±å¹•ä¸­çš„æ˜¾ç¤ºä½ç½®
     labelName->setPosition(Vec2(visibleSize.width * 0.7, visibleSize.height * 0.60));
 	labelName->setColor(Color3B(0,0,0));
-    // °ÑlabelÌí¼Óµ½»­Ãæ²ã
+    // æŠŠlabelæ·»åŠ åˆ°ç”»é¢å±‚
     this->addChild(labelName, 2);
 
 	labelAttackSpeed = Label::createWithTTF("", "Marker Felt.ttf", 16);
@@ -129,7 +129,7 @@ bool Tower::init(){
 	labelAttackRange->setColor(Color3B(0,0,0));
     this->addChild(labelAttackRange, 2);
 	
-	//ËşÊôĞÔ²¹³ä
+	//å¡”å±æ€§è¡¥å……
     labelNotice = Label::createWithTTF("*", "Marker Felt.ttf", 16);
     labelNotice->setPosition(Vec2(visibleSize.width * 0.7, visibleSize.height * 0.15));
 	labelNotice->setColor(Color3B(0,0,0));
@@ -138,17 +138,17 @@ bool Tower::init(){
     this->addChild(labelNotice, 2);
 
 	/*****************************
-	**ÏÔÊ¾ÖĞÎÄÉè¼ÆÄ£¿é-¿ªÊ¼
+	**æ˜¾ç¤ºä¸­æ–‡è®¾è®¡æ¨¡å—-å¼€å§‹
 	******************************/
 	
-	//¶ÁÈ¡xmlÎÄµµ,·ÅÈëValueVectorÖĞ
+	//è¯»å–xmlæ–‡æ¡£,æ”¾å…¥ValueVectorä¸­
 	ValueVector txt_vec = FileUtils::getInstance()->getValueVectorFromFile("tower.xml");
 	int i = 0;
 	for( auto& e : txt_vec){
-		auto txt_map = txt_vec.at(i).asValueMap();//½«¼üÖµ×ª»¯³ÉMap¸ñÊ½£¬·ÅÈëtxt_mapÖĞ
-		int id_int = txt_map.at("id").asInt();//»ñÈ¡id
+		auto txt_map = txt_vec.at(i).asValueMap();//å°†é”®å€¼è½¬åŒ–æˆMapæ ¼å¼ï¼Œæ”¾å…¥txt_mapä¸­
+		int id_int = txt_map.at("id").asInt();//è·å–id
 		if(id_int == i){
-			//auto label_str = txt_map.at("info").asString();//»ñÈ¡infoµÄÖµ
+			//auto label_str = txt_map.at("info").asString();//è·å–infoçš„å€¼
 			towerDesc[i]->towerName = txt_map.at("TowerName").asString();
 			towerDesc[i]->attackSpeed = txt_map.at("AttackSpeed").asString();
 			towerDesc[i]->attackValue = txt_map.at("AttackValue").asString();
@@ -159,45 +159,45 @@ bool Tower::init(){
 			labelAttackValue->setString(txt_map.at("AttackValue").asString());
 			labelAttackRange->setString(txt_map.at("AttackRange").asString());
 		}
-		i ++; //ÏÂÒ»¸ö¹ÖÎï	
+		i ++; //ä¸‹ä¸€ä¸ªæ€ªç‰©	
 	}
 
 	/*****************************
-	**ÏÔÊ¾ÖĞÎÄÉè¼ÆÄ£¿é-½áÊø
+	**æ˜¾ç¤ºä¸­æ–‡è®¾è®¡æ¨¡å—-ç»“æŸ
 	*****************************/
 
-	//ÏÂÃæÊÇÊôĞÔÖµ
-	//¹ÖÎïÑªÖµ1
+	//ä¸‹é¢æ˜¯å±æ€§å€¼
+	//æ€ªç‰©è¡€å€¼1
 	labelAttackSpeed1 = Label::createWithTTF("", "Marker Felt.ttf", 16);
-    // ÉèÖÃlabelÔÚÆÁÄ»ÖĞµÄÏÔÊ¾Î»ÖÃ
+    // è®¾ç½®labelåœ¨å±å¹•ä¸­çš„æ˜¾ç¤ºä½ç½®
     labelAttackSpeed1->setPosition(Vec2(visibleSize.width * 0.75, visibleSize.height * 0.50));
 	labelAttackSpeed1->setColor(Color3B(0,0,0));
-    // °ÑlabelÌí¼Óµ½»­Ãæ²ã
+    // æŠŠlabelæ·»åŠ åˆ°ç”»é¢å±‚
     this->addChild(labelAttackSpeed1, 2);
 
-	//¹ÖÎï¹¥»÷Á¦
+	//æ€ªç‰©æ”»å‡»åŠ›
 	labelAttackValue1 = Label::createWithTTF("", "Marker Felt.ttf", 16);
-    // ÉèÖÃlabelÔÚÆÁÄ»ÖĞµÄÏÔÊ¾Î»ÖÃ
+    // è®¾ç½®labelåœ¨å±å¹•ä¸­çš„æ˜¾ç¤ºä½ç½®
     labelAttackValue1->setPosition(Vec2(visibleSize.width * 0.75, visibleSize.height * 0.45));
 	labelAttackValue1->setColor(Color3B(0,0,0));
-    // °ÑlabelÌí¼Óµ½»­Ãæ²ã
+    // æŠŠlabelæ·»åŠ åˆ°ç”»é¢å±‚
     this->addChild(labelAttackValue1, 2);
 
-	//¹ÖÎïÎïÀí·ÀÓùÁ¦
+	//æ€ªç‰©ç‰©ç†é˜²å¾¡åŠ›
 	labelAttackRange1 = Label::createWithTTF("", "Marker Felt.ttf", 16);
-    // ÉèÖÃlabelÔÚÆÁÄ»ÖĞµÄÏÔÊ¾Î»ÖÃ
+    // è®¾ç½®labelåœ¨å±å¹•ä¸­çš„æ˜¾ç¤ºä½ç½®
     labelAttackRange1->setPosition(Vec2(visibleSize.width * 0.75, visibleSize.height * 0.40));
 	labelAttackRange1->setColor(Color3B(0,0,0));
-    // °ÑlabelÌí¼Óµ½»­Ãæ²ã
+    // æŠŠlabelæ·»åŠ åˆ°ç”»é¢å±‚
     this->addChild(labelAttackRange1, 2);
 
 	//////////////////////////////////
-	//Ò»´ó¶Ñlabel-½áÊø
+	//ä¸€å¤§å †label-ç»“æŸ
 	//////////////////////////////////
 
 	bigSprite->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(towerDesc[0]->towerDescFileName));
 	labelName->setString(towerDesc[0]->towerName);
-	//Æß´óÊôĞÔ
+	//ä¸ƒå¤§å±æ€§
 	labelAttackSpeed1->setString(towerDesc[0]->attackSpeed);
 	labelAttackValue1->setString(towerDesc[0]->attackValue);
 	labelAttackRange1->setString(towerDesc[0]->attackRange);
@@ -208,7 +208,7 @@ bool Tower::init(){
 	return true;
 }
 
-//¹ÖÎïÃèÊö 
+//æ€ªç‰©æè¿° 
 bool Tower::onTouchBegan(Touch* touch, Event* event){
 
 	auto target = static_cast<TowerDesc*>(event->getCurrentTarget());
@@ -222,13 +222,13 @@ bool Tower::onTouchBegan(Touch* touch, Event* event){
 		SoundManager::playClickEffect();
 		bigSprite->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(target->towerDescFileName));
 		labelName->setString(target->towerName);
-		//Æß´óÊôĞÔ
+		//ä¸ƒå¤§å±æ€§
 		labelAttackSpeed1->setString(target->attackSpeed);
 		labelAttackValue1->setString(target->attackValue);
 		labelAttackRange1->setString(target->attackRange);
 		labelNotice->setString(target->note);
 
-		moveFrame=MoveTo::create(0.1f,target->getPosition());//ÉèÖÃÍ¼±êµÄÎ»ÒÆÊ±¼ä£¬Î»ÒÆÄ¿±êµØÖ·
+		moveFrame=MoveTo::create(0.1f,target->getPosition());//è®¾ç½®å›¾æ ‡çš„ä½ç§»æ—¶é—´ï¼Œä½ç§»ç›®æ ‡åœ°å€
 		creepFrame->runAction(moveFrame);
 		creepFrame->setVisible(true);
 
@@ -241,7 +241,7 @@ void Tower::onTouchEnded(Touch* touch, Event* event){
 	return;
 }
 
-//¹Ø±Õ³¡¾°
+//å…³é—­åœºæ™¯
 void Tower::closeScene(Ref* pSender){
 	SoundManager::playClickEffect();
 	Director::getInstance()->popScene();

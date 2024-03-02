@@ -1,4 +1,4 @@
-#ifndef _DEATH_KNIGHT_H_
+﻿#ifndef _DEATH_KNIGHT_H_
 #define _DEATH_KNIGHT_H_
 
 #include "BaseSoldier.h"

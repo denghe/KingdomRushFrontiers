@@ -1,18 +1,18 @@
-#ifndef _BASE_MONSTER_H_
+ï»¿#ifndef _BASE_MONSTER_H_
 #define _BASE_MONSTER_H_
 
 #include "cocos2d.h"
 
 USING_NS_CC;
 typedef enum{
-    stateNone = 0, //ÎŞ×´Ì¬
-    stateWalkRight, //ÏòÓÒ×ß×ß×´Ì¬
-    stateWalkLeft, //Ïò×ó×ß
-	stateWalkUp, //ÏòÉÏ×ß
-	stateWalkDown, //ÏòÏÂ×ß
+    stateNone = 0, //æ— çŠ¶æ€
+    stateWalkRight, //å‘å³èµ°èµ°çŠ¶æ€
+    stateWalkLeft, //å‘å·¦èµ°
+	stateWalkUp, //å‘ä¸Šèµ°
+	stateWalkDown, //å‘ä¸‹èµ°
 	stateAttackLeft, 
-	stateAttackRight, //¹¥»÷
-	stateDeath,//ËÀÍö
+	stateAttackRight, //æ”»å‡»
+	stateDeath,//æ­»äº¡
 	stateFrozen
 }MonsterState;
 
@@ -55,11 +55,11 @@ public:
     virtual bool init() override;
     CREATE_FUNC(BaseMonster);
 	Sprite* baseSprite;
-	//Ã°Ñª
+	//å†’è¡€
 	virtual void getHurt();
-	//ÌÉ×ÅËÀ
+	//èººç€æ­»
 	virtual void death();
-	//±»Õ¨ËÀ
+	//è¢«ç‚¸æ­»
 	virtual void explosion();
 	CC_SYNTHESIZE(std::vector<Point>, pointsVector, PointsVector);
 	CC_SYNTHESIZE(bool, attackBySoldier, AttackBySoldier);

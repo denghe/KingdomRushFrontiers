@@ -1,4 +1,4 @@
-#ifndef _VIOLET_TOTEM_H_
+﻿#ifndef _VIOLET_TOTEM_H_
 #define _VIOLET_TOTEM_H_
 
 #include "cocos2d.h"

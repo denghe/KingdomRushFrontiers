@@ -1,4 +1,4 @@
-#include "BarrackSoldier.h"
+ï»¿#include "BarrackSoldier.h"
 #include "Data/GameManager.h"
 
 bool BarrackSoldier::initSoldier(int level)
@@ -35,14 +35,14 @@ BarrackSoldier* BarrackSoldier::createSoldier(Point point,int level)
 
 void BarrackSoldier::update(float dt)
 {
-	//Èô×´Ì¬¸üÐÂ
+	//è‹¥çŠ¶æ€æ›´æ–°
 	if(lastState!=getState()){
-		//¸ù¾Ý×´Ì¬ÅÐ¶Ï
+		//æ ¹æ®çŠ¶æ€åˆ¤æ–­
 		switch (getState())
 		{
 		case(SoldierStateRun):{
 			lastState = SoldierStateRun;
-			//Í£Ö¹Ö®Ç°¶¯»­
+			//åœæ­¢ä¹‹å‰åŠ¨ç”»
 			stopSoldierAnimation();
 			auto action = RepeatForever::create(Animate::create(AnimationCache::getInstance()->getAnimation(__String::createWithFormat("level%d_barracksSoilder_run",level)->getCString())));
 			action->setTag(SoldierStateRun);

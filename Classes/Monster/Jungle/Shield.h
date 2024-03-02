@@ -1,4 +1,4 @@
-#ifndef _SHIELD_H_
+﻿#ifndef _SHIELD_H_
 #define _SHIELD_H_
 
 #include "Monster/BaseMonster.h"

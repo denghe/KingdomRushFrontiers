@@ -1,4 +1,4 @@
-#ifndef _CHOOSE_DIFFICULTY_H_
+ï»¿#ifndef _CHOOSE_DIFFICULTY_H_
 #define _CHOOSE_DIFFICULTY_H_
 #include "cocos2d.h"
 
@@ -9,8 +9,8 @@ class ChooseDifficulty : public Layer
 public:
     static Scene* createSceneWithLevel(int level);
 	bool init() override;
-	void menuCallback(Ref* pSpender);  //¹Ø±Õ°´Å¥·µ»ØÉÏÒ»³¡¾°
-	void menuCallnext(Ref* pSpender);  //¿ªÊ¼Õ½¶·°´Å¥½øÈëÏÂÒ»³¡¾°
+	void menuCallback(Ref* pSpender);  //å…³é—­æŒ‰é’®è¿”å›ä¸Šä¸€åœºæ™¯
+	void menuCallnext(Ref* pSpender);  //å¼€å§‹æˆ˜æ–—æŒ‰é’®è¿›å…¥ä¸‹ä¸€åœºæ™¯
 	void starMenuCallback1(Ref* pSpender);
 	void starMenuCallback2(Ref* pSpender);
 	void starMenuCallback3(Ref* pSpender);
@@ -21,9 +21,9 @@ public:
 
 protected:
 	 void onKeyReleased(EventKeyboard::KeyCode keycode, Event* event) override;
-	 MenuItemToggle *toggleItem1; //ÌôÕ½°´Å¥
-	 MenuItemToggle *toggleItem2; //Ó¢ĞÛÄ£Ê½°´Å¥
-	 MenuItemToggle *toggleItem3; //¸ÖÌúÄ£Ê½°´Å¥
+	 MenuItemToggle *toggleItem1; //æŒ‘æˆ˜æŒ‰é’®
+	 MenuItemToggle *toggleItem2; //è‹±é›„æ¨¡å¼æŒ‰é’®
+	 MenuItemToggle *toggleItem3; //é’¢é“æ¨¡å¼æŒ‰é’®
 	 std::string blueStrTop;
 	 Sprite* star1;
 	 Sprite* star2;
@@ -31,11 +31,11 @@ protected:
 	 Sprite* star4;
 	 Sprite* star5;
 
-	 Label *blueLabel; //À¶É«×ÖÌå±êÇ©
-	 Label *blackLabel;//ºÚÉ«×ÖÌå±êÇ©
+	 Label *blueLabel; //è“è‰²å­—ä½“æ ‡ç­¾
+	 Label *blackLabel;//é»‘è‰²å­—ä½“æ ‡ç­¾
 
-	 std::string blueStr[3]; //½«À¶É«×ÖÌåÉèÖÃÎªÒ»¸öÊı×é
-	 std::string blackStr[3]; //½«À¶É«×ÖÌåÉèÖÃÎªÒ»¸öÊı×é
+	 std::string blueStr[3]; //å°†è“è‰²å­—ä½“è®¾ç½®ä¸ºä¸€ä¸ªæ•°ç»„
+	 std::string blackStr[3]; //å°†è“è‰²å­—ä½“è®¾ç½®ä¸ºä¸€ä¸ªæ•°ç»„
 
 	 MenuItemToggle *imgItem1;
 

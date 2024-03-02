@@ -1,4 +1,4 @@
-#ifndef _MECHA_BOMB_H_
+﻿#ifndef _MECHA_BOMB_H_
 #define _MECHA_BOMB_H_
 
 #include "cocos2d.h"

@@ -1,4 +1,4 @@
-#ifndef _LEVEL_1_H_
+ï»¿#ifndef _LEVEL_1_H_
 #define _LEVEL_1_H_
 
 #include "Map/BaseMap.h"
@@ -14,7 +14,7 @@ public:
 	static Level1* createGame(int difficulty);
     virtual bool initWithDifficulty(int difficulty);
 private:
-	//Ìí¼Ó²»Í¬¹Ø¿¨µÄÌØÊâ×°ÊÎÎï
+	//æ·»åŠ ä¸åŒå…³å¡çš„ç‰¹æ®Šè£…é¥°ç‰©
 	void addOrnament() override;
 	void onExit() override;
 	//void addMonsters(float dt);

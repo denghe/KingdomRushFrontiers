@@ -1,4 +1,4 @@
-#ifndef _TOTEM_AXE_H_
+﻿#ifndef _TOTEM_AXE_H_
 #define _TOTEM_AXE_H_
 
 #include "cocos2d.h"

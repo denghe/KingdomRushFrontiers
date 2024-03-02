@@ -1,4 +1,4 @@
-#include "Level2.h"
+ï»¿#include "Level2.h"
 USING_NS_CC;
 
 Level2::Level2()
@@ -16,7 +16,7 @@ bool Level2::initWithDifficulty(int difficulty)
 	setLevel(2);
 	this->difficulty = difficulty;
 	initMap();
-	//road0ÎªÉÏ±ßµÄÂ·
+	//road0ä¸ºä¸Šè¾¹çš„è·¯
 	std::vector<Point> points;
 	points.push_back(Point(678,950));
 	points.push_back(Point(1160,270));
@@ -54,67 +54,67 @@ void Level2::onExit()
 void Level2::addTerrains()
 {
 	auto terrain14= CustomTerrain::createTerrain(1);
-	terrain14->setPosition(Point(700,730));//ÖÐÉÏÑØ±ßµÚËÄ¸ö
+	terrain14->setPosition(Point(700,730));//ä¸­ä¸Šæ²¿è¾¹ç¬¬å››ä¸ª
 	terrain14->setTag(14);
 	addChild(terrain14,3);
 
 	auto terrain12= CustomTerrain::createTerrain(1);
-	terrain12->setPosition(Point(580,660));//ÖÐÉÏÑØ±ßµÚ¶þ¸ö
+	terrain12->setPosition(Point(580,660));//ä¸­ä¸Šæ²¿è¾¹ç¬¬äºŒä¸ª
 	terrain12->setTag(12);
 	addChild(terrain12,4);
 
 	auto terrain13= CustomTerrain::createTerrain(1);
-	terrain13->setPosition(Point(700,660));//ÖÐÉÏÑØ±ßµÚÈý¸ö
+	terrain13->setPosition(Point(700,660));//ä¸­ä¸Šæ²¿è¾¹ç¬¬ä¸‰ä¸ª
 	terrain13->setTag(13);
 	addChild(terrain13,4);
 
 	auto terrain11= CustomTerrain::createTerrain(1);
-	terrain11->setPosition(Point(430,650));//ÖÐÉÏÑØ±ßµÚÒ»¸ö
+	terrain11->setPosition(Point(430,650));//ä¸­ä¸Šæ²¿è¾¹ç¬¬ä¸€ä¸ª
 	terrain11->setTag(11);
 	addChild(terrain11,4);
 
 	auto terrain2 = CustomTerrain::createTerrain(1);
-	terrain2->setPosition(Point(280,550));//ÉÏÒ»¸öÓÒ±ß
+	terrain2->setPosition(Point(280,550));//ä¸Šä¸€ä¸ªå³è¾¹
 	terrain2->setTag(2);
 	addChild(terrain2,5);
 
 	auto terrain1 = CustomTerrain::createTerrain(1);
-	terrain1->setPosition(Point(160,530));//×ó±ßÏÂ
+	terrain1->setPosition(Point(160,530));//å·¦è¾¹ä¸‹
 	terrain1->setTag(1);
 	addChild(terrain1,5);
 
 	auto terrain7= CustomTerrain::createTerrain(1);
-	terrain7->setPosition(Point(620,470));//ÖÐ¼ä×óÆðµÚÈý¸ö
+	terrain7->setPosition(Point(620,470));//ä¸­é—´å·¦èµ·ç¬¬ä¸‰ä¸ª
 	terrain7->setTag(7);
 	addChild(terrain7,6);
 
 	auto terrain8= CustomTerrain::createTerrain(1);
-	terrain8->setPosition(Point(720,470));//ÖÐ¼ä×óÆðµÚËÄ¸ö
+	terrain8->setPosition(Point(720,470));//ä¸­é—´å·¦èµ·ç¬¬å››ä¸ª
 	terrain8->setTag(8);
 	addChild(terrain8,6);
 
 	auto terrain6 = CustomTerrain::createTerrain(1);
-	terrain6->setPosition(Point(520,460));//ÖÐ¼ä×óÆðµÚ¶þ¸ö
+	terrain6->setPosition(Point(520,460));//ä¸­é—´å·¦èµ·ç¬¬äºŒä¸ª
 	terrain6->setTag(6);
 	addChild(terrain6,6);
 
 	auto terrain5 = CustomTerrain::createTerrain(1);
-	terrain5->setPosition(Point(440,420));//ÖÐ¼ä×óÆðµÚÒ»¸ö
+	terrain5->setPosition(Point(440,420));//ä¸­é—´å·¦èµ·ç¬¬ä¸€ä¸ª
 	terrain5->setTag(5);
 	addChild(terrain5,6);
 
 	auto terrain10= CustomTerrain::createTerrain(1);
-	terrain10->setPosition(Point(960,380));//ÓÒ±ß×óÆðµÚ¶þ¸ö
+	terrain10->setPosition(Point(960,380));//å³è¾¹å·¦èµ·ç¬¬äºŒä¸ª
 	terrain10->setTag(10);
 	addChild(terrain10,7);
 
 	auto terrain9= CustomTerrain::createTerrain(1);
-	terrain9->setPosition(Point(850,370));//ÓÒ±ß×óÆðµÚÒ»¸ö
+	terrain9->setPosition(Point(850,370));//å³è¾¹å·¦èµ·ç¬¬ä¸€ä¸ª
 	terrain9->setTag(9);
 	addChild(terrain9,7);
 
 	auto terrain4 = CustomTerrain::createTerrain(1);
-	terrain4->setPosition(Point(620,300));//ÉÏÒ»¸öÉÏ±ßÒ»µã
+	terrain4->setPosition(Point(620,300));//ä¸Šä¸€ä¸ªä¸Šè¾¹ä¸€ç‚¹
 	terrain4->setTag(4);
 	addChild(terrain4,7);
 

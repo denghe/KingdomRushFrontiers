@@ -1,4 +1,4 @@
-#ifndef _BASE_TOWER_
+ï»¿#ifndef _BASE_TOWER_
 #define _BASE_TOWER_
 
 #include "cocos2d.h"
@@ -10,26 +10,26 @@
 USING_NS_CC;
 
 typedef enum{
-    ARCHER_1 = 0, //¼¶¼ýËþ
-    ARCHER_2, //2¼¶¼ýËþ
-    ARCHER_3, //3¼¶¼ýËþ
-	COSSBOW, //åóËþ
-	TOTEMTOWER, //Ò°ÈË
-	ARTILLERY_1,//1¼¶ÅÚËþ
-	ARTILLERY_2,//2¼¶ÅÚËþ
-	ARTILLERY_3,//3¼¶ÅÚËþ
-	EARTHQUAKE, //µØÕð
-	MECHS, //»úÆ÷
-	BARAACKS_1,//1¼¶±øÓª
-	BARAACKS_2,//2¼¶±øÓª
-	BARAACKS_3,//3¼¶±øÓª
-	ASSASSIN,//µÁÔô
-	TEMPLAR,//Õ½Ê¿
-	MAGE_1,//1¼¶·¨Ê¦Ëþ
-	MAGE_2,//2¼¶·¨Ê¦Ëþ
-	MAGE_3,//3¼¶·¨Ê¦Ëþ
-	ARCHMAGE,//Áú¾í·ç
-	NEC,//ËÀÁé·¨
+    ARCHER_1 = 0, //çº§ç®­å¡”
+    ARCHER_2, //2çº§ç®­å¡”
+    ARCHER_3, //3çº§ç®­å¡”
+	COSSBOW, //å¼©å¡”
+	TOTEMTOWER, //é‡Žäºº
+	ARTILLERY_1,//1çº§ç‚®å¡”
+	ARTILLERY_2,//2çº§ç‚®å¡”
+	ARTILLERY_3,//3çº§ç‚®å¡”
+	EARTHQUAKE, //åœ°éœ‡
+	MECHS, //æœºå™¨
+	BARAACKS_1,//1çº§å…µè¥
+	BARAACKS_2,//2çº§å…µè¥
+	BARAACKS_3,//3çº§å…µè¥
+	ASSASSIN,//ç›—è´¼
+	TEMPLAR,//æˆ˜å£«
+	MAGE_1,//1çº§æ³•å¸ˆå¡”
+	MAGE_2,//2çº§æ³•å¸ˆå¡”
+	MAGE_3,//3çº§æ³•å¸ˆå¡”
+	ARCHMAGE,//é¾™å·é£Ž
+	NEC,//æ­»çµæ³•
 }TowerType;
 
 class BaseTower: public Sprite

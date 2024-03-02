@@ -1,4 +1,4 @@
-#ifndef _WINGRIDER_H_
+﻿#ifndef _WINGRIDER_H_
 #define _WINGRIDER_H_
 
 #include "Monster/BaseMonster.h"

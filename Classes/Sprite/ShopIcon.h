@@ -1,4 +1,4 @@
-#ifndef _SHOP_ICON_H_
+﻿#ifndef _SHOP_ICON_H_
 #define _SHOP_ICON_H_
 
 #include "cocos2d.h"

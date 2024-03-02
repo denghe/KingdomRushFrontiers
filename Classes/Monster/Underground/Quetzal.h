@@ -1,4 +1,4 @@
-#ifndef _QUETZAL_H_
+﻿#ifndef _QUETZAL_H_
 #define _QUETZAL_H_
 
 #include "Monster/BaseMonster.h"

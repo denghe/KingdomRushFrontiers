@@ -1,4 +1,4 @@
-#ifndef _BASE_MAGE_TOWER_H_
+﻿#ifndef _BASE_MAGE_TOWER_H_
 #define _BASE_MAGE_TOWER_H_
 #include "cocos2d.h"
 #include "Tower/BaseTower.h"

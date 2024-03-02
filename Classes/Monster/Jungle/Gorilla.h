@@ -1,4 +1,4 @@
-#ifndef _GORILLA_H_
+﻿#ifndef _GORILLA_H_
 #define _GORILLA_H_
 
 #include "Monster/BaseMonster.h"

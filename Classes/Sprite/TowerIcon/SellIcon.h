@@ -1,4 +1,4 @@
-#ifndef _SELL_ICON_H_
+﻿#ifndef _SELL_ICON_H_
 #define _SELL_ICON_H_
 
 #include "BaseBuildIcon.h"

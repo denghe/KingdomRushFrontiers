@@ -1,4 +1,4 @@
-#ifndef _TREMOR_H_
+﻿#ifndef _TREMOR_H_
 #define _TREMOR_H_
 
 #include "Monster/BaseMonster.h"

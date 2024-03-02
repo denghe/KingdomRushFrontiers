@@ -1,4 +1,4 @@
-#ifndef _DYNAMITE_H_
+﻿#ifndef _DYNAMITE_H_
 #define _DYNAMITE_H_
 
 #include "cocos2d.h"

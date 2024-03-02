@@ -1,4 +1,4 @@
-#include "Monster/BaseMonster.h"
+ï»¿#include "Monster/BaseMonster.h"
 #include "Data/GameManager.h"
 #include "Map/BaseMap.h"
 
@@ -148,17 +148,17 @@ void BaseMonster::runNextPoint()
 
     tempNextPoint = nextPoint();
 	setMonsterZorder(tempNextPoint.y);
-	if(fabs(tempNextPoint.y-tempCurrPoint.y)>5 && tempNextPoint.y > tempCurrPoint.y)//ÕıÔÚÏòÉÏ×ß
+	if(fabs(tempNextPoint.y-tempCurrPoint.y)>5 && tempNextPoint.y > tempCurrPoint.y)//æ­£åœ¨å‘ä¸Šèµ°
 	{
 		setState(stateWalkUp);
-	}else if(fabs(tempNextPoint.y-tempCurrPoint.y)>5 &&tempNextPoint.y <= tempCurrPoint.y)//ÕıÔÚÏòÏÂ×ß
+	}else if(fabs(tempNextPoint.y-tempCurrPoint.y)>5 &&tempNextPoint.y <= tempCurrPoint.y)//æ­£åœ¨å‘ä¸‹èµ°
 	{
 		setState(stateWalkDown);
-	}else if(tempNextPoint.x >= tempCurrPoint.x)//ÕıÔÚÏòÓÒ×ß
+	}else if(tempNextPoint.x >= tempCurrPoint.x)//æ­£åœ¨å‘å³èµ°
 	{
 		setState(stateWalkRight);
 	}
-	else if(tempNextPoint.x < tempCurrPoint.x)//ÕıÔÚÏò×ó×ß
+	else if(tempNextPoint.x < tempCurrPoint.x)//æ­£åœ¨å‘å·¦èµ°
 	{
 		setState(stateWalkLeft);
 	}
@@ -170,7 +170,7 @@ void BaseMonster::runNextPoint()
                                            , CallFuncN::create(CC_CALLBACK_0(BaseMonster::runNextPoint, this))
                                            , NULL));
     }else{
-		//×ßµ½ÖÕµã
+		//èµ°åˆ°ç»ˆç‚¹
 		GameManager::getInstance()->LIFE --;
 		GameManager::getInstance()->monsterVector.eraseObject(this);
 		unscheduleAllCallbacks();
@@ -181,14 +181,14 @@ void BaseMonster::runNextPoint()
 
 void BaseMonster::update(float dt)
 {
-	//Èô×´Ì¬¸üĞÂ
+	//è‹¥çŠ¶æ€æ›´æ–°
 	if(lastState!=getState()){
-		//¸ù¾İ×´Ì¬ÅĞ¶Ï
+		//æ ¹æ®çŠ¶æ€åˆ¤æ–­
 		switch (getState())
 		{
 		case(stateWalkRight):{
 			lastState = stateWalkRight;
-			//Í£Ö¹Ö®Ç°¶¯»­
+			//åœæ­¢ä¹‹å‰åŠ¨ç”»
 			stopMonsterAnimation();
 			baseSprite->setFlippedX(false);
 			auto action = RepeatForever::create(Animate::create(AnimationCache::getInstance()->getAnimation(getName()+"runright")));
@@ -221,7 +221,7 @@ void BaseMonster::update(float dt)
 			baseSprite->runAction(action);}
 			break;
 		case(stateAttackRight):{
-			//Ä¬ÈÏÏòÓÒ±ß¹¥»÷
+			//é»˜è®¤å‘å³è¾¹æ”»å‡»
 			lastState = stateAttackRight;
 			stopMonsterAnimation();
 			baseSprite->setFlippedX(false);

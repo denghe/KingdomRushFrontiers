@@ -1,4 +1,4 @@
-#ifndef _MAGEBOLT_H_
+﻿#ifndef _MAGEBOLT_H_
 #define _MAGEBOLT_H_
 
 #include "cocos2d.h"

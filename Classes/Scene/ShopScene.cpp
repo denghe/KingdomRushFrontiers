@@ -1,4 +1,4 @@
-#include "ShopScene.h"
+ï»¿#include "ShopScene.h"
 #include "Data/GameManager.h"
 #
 USING_NS_CC;
@@ -11,7 +11,7 @@ Scene* ShopScene::createScene()
     return scene;
 }
 
-//³õÊ¼»¯³¡¾°
+//åˆå§‹åŒ–åœºæ™¯
 bool ShopScene::init()
 {
     if ( !Layer::init() )
@@ -19,8 +19,8 @@ bool ShopScene::init()
         return false;
     }
 
-	//»ñÈ¡ÆÁÄ»³ß´ç
-	size = Director::getInstance()->getVisibleSize(); //»ñÈ¡ÆÁÄ»´óĞ¡ 
+	//è·å–å±å¹•å°ºå¯¸
+	size = Director::getInstance()->getVisibleSize(); //è·å–å±å¹•å¤§å° 
   
     str_introduction[0] = "THE BIG BAD BOY OF\n BOMBS! YOU ONLY NEED\n ONE OF THESE TO CLEAR THE\n BATTLEFIELD AND CLAIM THE\n SPOILS OF WAR! JUST TELL\n US WHERE TO DROP IT!";
 	str_introduction[1] = "FREEZE THE WORLE!\n\n THE MAGIC IN THIS ROD WILL\n FREZE ALL BADDIES AND\n PREVENT NEW ONES FROM\n APPROACHING ";
@@ -43,34 +43,34 @@ bool ShopScene::init()
 	str_gem[4] = 50;
 	str_gem[5] = 500;
 	//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	//ºÚ°åÉÏµÄÄÚÈİ
-	//´ó±êÌâ
+	//é»‘æ¿ä¸Šçš„å†…å®¹
+	//å¤§æ ‡é¢˜
 	label = Label::createWithTTF("", "SohoGothicProMedium.ttf", 24);
     label->setPosition(Point(680, 560));
     addChild(label,1);
-	//Êı×Ö 
+	//æ•°å­— 
 	label2 = Label::createWithTTF(" ", "SohoGothicProMedium.ttf", 24);
 	label2->setPosition(Point(900, 545));
 	addChild(label2,1);
-	//¼ò½é	  
+	//ç®€ä»‹	  
 	label3 = Label::createWithTTF("", "SohoGothicProMedium.ttf", 12);
     label3->setPosition(Point(900, 440));
     addChild(label3,1);
 
-	//±¦Ê¯µÄÊıÁ¿===============================================
+	//å®çŸ³çš„æ•°é‡===============================================
 	gem = UserDefault::getInstance()->getIntegerForKey(GameManager::getInstance()->SLOTX_GEM,0);
-	//³õÊ¼»¯¹ºÂòÎïÆ·µÄÊıÁ¿************************************
+	//åˆå§‹åŒ–è´­ä¹°ç‰©å“çš„æ•°é‡************************************
 	for(int i=0;i<6;i++)
 	{
 		count[i]=UserDefault::getInstance()->getIntegerForKey(__String::createWithFormat(GameManager::getInstance()->SLOTX_SHOP,i)->getCString());		
 	}
-	//==========================================================//¹ºÂòµÄÎïÆ·
+	//==========================================================//è´­ä¹°çš„ç‰©å“
 
 
 	initBackpackIcon();
 	
 
-	//=====================================================//±¦Ê¯×ÜÊı
+	//=====================================================//å®çŸ³æ€»æ•°
 
 
 	gemLabel = Label::createWithTTF(__String::createWithFormat("%d",gem)->getCString(), "SohoGothicProMedium.ttf", 30);
@@ -90,10 +90,10 @@ void ShopScene::onKeyReleased(EventKeyboard::KeyCode keycode, Event* event)
 {
     switch (keycode)
     {
-	case EventKeyboard::KeyCode::KEY_BACK:   //·µ»Ø¼üÌı
+	case EventKeyboard::KeyCode::KEY_BACK:   //è¿”å›é”®å¬
 		Director::getInstance()->popScene();
         break;
-    case EventKeyboard::KeyCode::KEY_MENU:      //²Ëµ¥¼àÌı
+    case EventKeyboard::KeyCode::KEY_MENU:      //èœå•ç›‘å¬
         break;
     case::EventKeyboard::KeyCode::KEY_HOME:
         break;
@@ -111,7 +111,7 @@ void ShopScene::initBackpackIcon()
 		addChild(backPackIcon,3);
 		if(count[i] == 0)
 			backPackIcon->setVisible(false);
-		auto countLabel =  Label::createWithTTF(__String::createWithFormat("%d",count[i])->getCString(), "SohoGothicProMedium.ttf", 24); //Ğ¡ÄĞº¢µÄÊıÁ¿
+		auto countLabel =  Label::createWithTTF(__String::createWithFormat("%d",count[i])->getCString(), "SohoGothicProMedium.ttf", 24); //å°ç”·å­©çš„æ•°é‡
 		countLabel->setPosition(Point(137, size.height*(0.70f-a[i])));
 		addChild(countLabel,3);
 		backpackIcons.pushBack(backPackIcon);
@@ -119,12 +119,12 @@ void ShopScene::initBackpackIcon()
 	}
 }
 
-//³õÊ¼»¯½çÃæ
+//åˆå§‹åŒ–ç•Œé¢
 void ShopScene::initPicture()
 {
-	auto size = Director::getInstance()->getVisibleSize(); //»ñÈ¡ÆÁÄ»´óĞ¡ 
+	auto size = Director::getInstance()->getVisibleSize(); //è·å–å±å¹•å¤§å° 
 	/*************************************************************************/
-	//±³¾°Í¼Æ¬
+	//èƒŒæ™¯å›¾ç‰‡
     auto bgSprite = Sprite::createWithSpriteFrameName("inaps_BG.png");
     bgSprite->setPosition(Point(size.width*0.5,size.height*0.5));
     addChild(bgSprite,0);
@@ -132,27 +132,27 @@ void ShopScene::initPicture()
 	borad->setPosition(Point(655,440));
 	addChild(borad);
 
-	auto shopIcon2 = ShopIcon::createIcon(2);//±ùÕÈ
+	auto shopIcon2 = ShopIcon::createIcon(2);//å†°æ–
 	shopIcon2->setPosition(Point(830,250));
 	addChild(shopIcon2);
 
-	auto shopIcon5 = ShopIcon::createIcon(5);//ÉúÃü
+	auto shopIcon5 = ShopIcon::createIcon(5);//ç”Ÿå‘½
 	shopIcon5->setPosition(Point(280,155));
 	addChild(shopIcon5);
 
-	auto shopIcon1 = ShopIcon::createIcon(1);//Ô­×Óµ¯
+	auto shopIcon1 = ShopIcon::createIcon(1);//åŸå­å¼¹
 	shopIcon1->setPosition(Point(640,170));
 	addChild(shopIcon1);
 
-	auto shopIcon4 = ShopIcon::createIcon(4);//Ò©Æ¿
+	auto shopIcon4 = ShopIcon::createIcon(4);//è¯ç“¶
 	shopIcon4->setPosition(Point(385,145));
 	addChild(shopIcon4);
 
-	auto shopIcon6 = ShopIcon::createIcon(6);//½ğ±Ò
+	auto shopIcon6 = ShopIcon::createIcon(6);//é‡‘å¸
 	shopIcon6->setPosition(Point(800,170));
 	addChild(shopIcon6);
 
-	auto shopIcon3 = ShopIcon::createIcon(3);//Õ¨µ¯
+	auto shopIcon3 = ShopIcon::createIcon(3);//ç‚¸å¼¹
 	shopIcon3->setPosition(Point(485,130));
 	addChild(shopIcon3);
 
@@ -204,7 +204,7 @@ void ShopScene::initPicture()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(buttonListener->clone(),shopIcon2);
 //---------------------------------------------------------------------------------------------------------------------------//
 //---------------------------------------------------------------------------------------------------------------------------//
-	 //È·¶¨
+	 //ç¡®å®š
 	  auto confirmButton = MenuItemSprite::create(Sprite::createWithSpriteFrameName("upgrades_buttons_0003.png"),
 		  Sprite::createWithSpriteFrameName("upgrades_buttons_0004.png")); 
 	  confirmButton->setPosition(Point(size.width*0.90,size.height*0.10));
@@ -228,7 +228,7 @@ void ShopScene::initPicture()
 		  }
 		
 	  });
-      auto menu = Menu::create(confirmButton,buyButton,NULL);  //ÊµÏÖÇĞ»»  
+      auto menu = Menu::create(confirmButton,buyButton,NULL);  //å®ç°åˆ‡æ¢  
 	  menu->setPosition(Vec2::ZERO);
       addChild(menu,1);
 	
@@ -236,7 +236,7 @@ void ShopScene::initPicture()
 
  void ShopScene::buySth(int i)
  {
-	 if(gem < str_gem[i]){//±¦Ê¯²»¹»
+	 if(gem < str_gem[i]){//å®çŸ³ä¸å¤Ÿ
 		auto bubbleNeedMore = Sprite::createWithSpriteFrameName("inaps_bubble_needMore.png");
 		bubbleNeedMore->setVisible(true);
 		bubbleNeedMore->setPosition(650,430);

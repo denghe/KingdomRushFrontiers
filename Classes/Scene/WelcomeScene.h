@@ -1,4 +1,4 @@
-#ifndef __WELCOME_SCENE_H__
+ï»¿#ifndef __WELCOME_SCENE_H__
 #define __WELCOME_SCENE_H__
 
 #include "cocos2d.h"
@@ -15,46 +15,46 @@ public:
 
     // implement the "static create()" method manually
     CREATE_FUNC(WelcomeScene);
-	//Éú³É±³¾°Í¼
+	//ç”ŸæˆèƒŒæ™¯å›¾
 	void initBackGround();
-	//Éú³ÉLogoÍ¼
+	//ç”ŸæˆLogoå›¾
 	void initLogo();
-	//Éú³Éstart°´Å¥
+	//ç”ŸæˆstartæŒ‰é’®
 	void initButton_start();
-	//Éú³É&²¥·ÅLogo¶¯»­
+	//ç”Ÿæˆ&æ’­æ”¾LogoåŠ¨ç”»
 	void initLogoAnimation();
-	//Éú³É&²¥·Åstart°´¼ü¶¯»­
+	//ç”Ÿæˆ&æ’­æ”¾startæŒ‰é”®åŠ¨ç”»
 	void initButton_startAnimation();
-	//Éú³É¼ÇÂ¼À¸menu
+	//ç”Ÿæˆè®°å½•æ menu
 	void initMenu_save();
-	//²Ëµ¥¹Ø±Õ°´¼ü¼àÌı
+	//èœå•å…³é—­æŒ‰é”®ç›‘å¬
 	void savemenuCloseCallback(cocos2d::Ref* pSender);
-	//save_menu¶¯»­
+	//save_menuåŠ¨ç”»
 	void setSaveMenuInVisible();
 	void setSaveMenuVisible();
-	//Éú³É3¸ö¼ÇÂ¼´æµµ
-	//³ÉÔ±°´¼ü
+	//ç”Ÿæˆ3ä¸ªè®°å½•å­˜æ¡£
+	//æˆå‘˜æŒ‰é”®
 	void init_creditBtn();
 	void initSoundButton();
 	void init_creditBtn_startAnimation();
 	void onKeyReleased(EventKeyboard::KeyCode keycode, Event* event) override;
 private:
 	Size visibleSize;
-	//ÓÎÏ·logoÍ¼Î»ÖÃ
+	//æ¸¸æˆlogoå›¾ä½ç½®
 	Point point_Logo;
 	//logo
 	Sprite *sprite_Logo;
-	//ÓÃsprite×Ô¶¨Òåstart°´¼ü
+	//ç”¨spriteè‡ªå®šä¹‰startæŒ‰é”®
 	Sprite *button_Start;
 	//credit
 	Sprite *button_credit;
-	//¼ÇÂ¼menu
+	//è®°å½•menu
 	Sprite *menu_Save;
-	//menu_SaveÆğÊ¼Î»ÖÃ
+	//menu_Saveèµ·å§‹ä½ç½®
 	Point point_Menu_Save;
-	//menuµÄ¹Ø±Õ°´¼ü
+	//menuçš„å…³é—­æŒ‰é”®
 	MenuItemSprite *button_Menu_Save_Close;
-	//menuµÄ¹Ø±Õ°´¼üÎ»ÖÃ
+	//menuçš„å…³é—­æŒ‰é”®ä½ç½®
 	Point point_Button_Menu_Save_Close;
 	void onEnterTransitionDidFinish() override;
 };

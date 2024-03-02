@@ -1,4 +1,4 @@
-#include "Layer/Menu/SimplePanleLayer.h"
+ï»¿#include "Layer/Menu/SimplePanleLayer.h"
 #include "Data/GameManager.h"
 
 USING_NS_CC;
@@ -54,9 +54,9 @@ bool SimplePanleLayer::onTouchBegan(Touch *touch, Event *event)
 	Rect rect = Rect(0-size.width/2, 0-size.height/2, size.width, size.height);
     if (rect.containsPoint(locationInNode))
     {
-		if(target->getIsSelected())//Èç¹ûÒÑ¾­Ñ¡ÖĞ£¨µÚ¶ş´Î°´ÏÂ£©
+		if(target->getIsSelected())//å¦‚æœå·²ç»é€‰ä¸­ï¼ˆç¬¬äºŒæ¬¡æŒ‰ä¸‹ï¼‰
 		{
-			if(target->getIsAble())//Èç¹ûÇ®¹»ÓÃ
+			if(target->getIsAble())//å¦‚æœé’±å¤Ÿç”¨
 			{
 				SoundManager::playTowerSell();
 				GameManager::getInstance()->MONEY = GameManager::getInstance()->MONEY+ (tower->getBuildMoney()/2);
@@ -64,8 +64,8 @@ bool SimplePanleLayer::onTouchBegan(Touch *touch, Event *event)
 				this->setVisible(false);
 				isBuilt = true;
 			}
-		}else{//µÚÒ»´Î°´ÏÂ
-			target->setSelected();//ÉèÖÃÎªÑ¡ÖĞ×´Ì¬
+		}else{//ç¬¬ä¸€æ¬¡æŒ‰ä¸‹
+			target->setSelected();//è®¾ç½®ä¸ºé€‰ä¸­çŠ¶æ€
 		}
         return true;
     }

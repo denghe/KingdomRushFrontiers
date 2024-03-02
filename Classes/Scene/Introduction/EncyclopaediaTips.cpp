@@ -1,4 +1,4 @@
-#include "cocos2d.h"
+ï»¿#include "cocos2d.h"
 #include "EncyclopaediaTips.h"
 #include "EncyclopediaScene.h"
 #include "Data/SoundManager.h"
@@ -22,13 +22,13 @@ bool EncyclopaediaTips::init()
         return false;
     }
 
-    //»ñÈ¡Õû¸öÊÖ»ú¿ÉÊÓÆÁÄ»³ß´ç
+    //èŽ·å–æ•´ä¸ªæ‰‹æœºå¯è§†å±å¹•å°ºå¯¸
     Size visibleSize = Director::getInstance()->getVisibleSize();
-	//µ¼Èëplist
+	//å¯¼å…¥plist
 
 /*****************************************************************************************************************/
-	//µÚÒ»²ãÍ¼Æ¬Ìí¼Ó
-   //// Í¼Æ¬µÄÆ½ÆÌ
+	//ç¬¬ä¸€å±‚å›¾ç‰‡æ·»åŠ 
+   //// å›¾ç‰‡çš„å¹³é“º
 	for(int h = 0;h<4;h++){
 		for(int k =0;k<5;k++){
 			auto sprite = Sprite::createWithSpriteFrameName("encyclopedia_bgTile.png");
@@ -40,7 +40,7 @@ bool EncyclopaediaTips::init()
 	i = 1;
 
 /*===================================================================================================================*/
-	//µÚ¶þ²ãÍ¼Æ¬Ìí¼Ó
+	//ç¬¬äºŒå±‚å›¾ç‰‡æ·»åŠ 
 	auto sprite11 = Sprite::createWithSpriteFrameName("encyclopedia_tips_left.png");
 	sprite11->setPosition(Point(visibleSize.width*0.21,visibleSize.height*0.5));
 	this->addChild(sprite11,1);
@@ -52,61 +52,61 @@ bool EncyclopaediaTips::init()
 
 	auto sprite27 = Sprite::createWithSpriteFrameName("encyclopedia_tips_left.png");
 	sprite27->setPosition(Point(visibleSize.width*0.79,visibleSize.height*0.5));
-	 //¿ÉÒÔÊÖ¶¯ÉèÖÃÍ¼ÐÎÐý×ªºÍ¾µÏñ
+	 //å¯ä»¥æ‰‹åŠ¨è®¾ç½®å›¾å½¢æ—‹è½¬å’Œé•œåƒ
 	sprite27->setFlippedX(true);
-    sprite27->setRotation(360);//Í¼Æ¬·­×ªµÄ½Ç¶È
+    sprite27->setRotation(360);//å›¾ç‰‡ç¿»è½¬çš„è§’åº¦
 	this->addChild(sprite27,1);
 
 /*===========================================================================================================*/
-	//µÚÈý²ãÍ¼Æ¬Ìí¼Ó 
-	//Í¼Æ¬µÄÇÐ»»
+	//ç¬¬ä¸‰å±‚å›¾ç‰‡æ·»åŠ  
+	//å›¾ç‰‡çš„åˆ‡æ¢
 /***************************************************************************************************************/
-	//¹Ø±Õ·ûºÅ
+	//å…³é—­ç¬¦å·
 
 	auto sprite28 =MenuItemSprite::create(Sprite::createWithSpriteFrameName("LevelSelect_Back_0001.png"),
 	Sprite::createWithSpriteFrameName("LevelSelect_Back_0002.png"),CC_CALLBACK_1(EncyclopaediaTips::menuCallback,this));  
-    auto ccmenuu = Menu::create(sprite28,NULL);  //ÊµÏÖÈýÕßÖ®¼äµÄË³ÐòÇÐ»»  
+    auto ccmenuu = Menu::create(sprite28,NULL);  //å®žçŽ°ä¸‰è€…ä¹‹é—´çš„é¡ºåºåˆ‡æ¢  
     sprite28->setPosition(Point(visibleSize.width*0.8,visibleSize.height*0.81));  
 	ccmenuu->setPosition(Vec2::ZERO);
     this->addChild(ccmenuu,2);  
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-	//×ó±ß¼ýÍ·°´Å¥
-	//»ÒÉ«¼ýÍ· ±íÊ¾²»¿Éµã»÷
+	//å·¦è¾¹ç®­å¤´æŒ‰é’®
+	//ç°è‰²ç®­å¤´ è¡¨ç¤ºä¸å¯ç‚¹å‡»
 	auto sprite0 = Sprite::createWithSpriteFrameName("encyclopedia_tow_creep_arrow_0001.png");
 	sprite0->setFlippedX(true);
     sprite0->setRotation(360);
 	/*sprite0->setPosition(Point(visibleSize.width*0.4,visibleSize.height*0.3));
 	this->addChild(sprite0,2);*/
 
-	//Ð¡¼ýÍ·
+	//å°ç®­å¤´
 	auto sprite01 = Sprite::createWithSpriteFrameName("encyclopedia_tow_creep_arrow_0002.png");
 	sprite01->setFlippedX(true);
-    sprite01->setRotation(360);//(Ïò×ó)
+    sprite01->setRotation(360);//(å‘å·¦)
 
-	//Ð¡¼ýÍ· £¨ÏòÓÒ£©
+	//å°ç®­å¤´ ï¼ˆå‘å³ï¼‰
 	auto sprite03 =  Sprite::createWithSpriteFrameName("encyclopedia_tow_creep_arrow_0002.png");
 
-	//´ó¼ýÍ·(ÏòÓÒ)
+	//å¤§ç®­å¤´(å‘å³)
 	auto sprite02 = Sprite::createWithSpriteFrameName("encyclopedia_tow_creep_arrow_0003.png");
-	//´ó¼ýÍ·
+	//å¤§ç®­å¤´
 	auto sprite04= Sprite::createWithSpriteFrameName("encyclopedia_tow_creep_arrow_0003.png");
 	sprite04->setFlippedX(true);
-    sprite04->setRotation(360);//(Ïò×ó)
+    sprite04->setRotation(360);//(å‘å·¦)
 
-	//»ÒÉ«¼ýÍ· ±íÊ¾²»¿Éµã»÷
+	//ç°è‰²ç®­å¤´ è¡¨ç¤ºä¸å¯ç‚¹å‡»
 	auto sprite05 = Sprite::createWithSpriteFrameName("encyclopedia_tow_creep_arrow_0001.png");
 	
 	sprite0->cleanup();
 	sprite29 = MenuItemSprite::create(sprite04,sprite01,sprite0,CC_CALLBACK_1(EncyclopaediaTips::starMenuCallback2,this));
 	sprite29->setPosition(Point(visibleSize.width*0.4,visibleSize.height*0.3));
 	
-	auto ccmenuu1 = Menu::create(sprite29,NULL);  //ÊµÏÖÈýÕßÖ®¼äµÄË³ÐòÇÐ»»  
+	auto ccmenuu1 = Menu::create(sprite29,NULL);  //å®žçŽ°ä¸‰è€…ä¹‹é—´çš„é¡ºåºåˆ‡æ¢  
 	ccmenuu1->setPosition(Vec2::ZERO);
     this->addChild(ccmenuu1,2);  
 	sprite29 ->setEnabled(false);
 	
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-     //Êý×Ö
+     //æ•°å­—
    
 	lb = Label::createWithTTF("1", "arial.ttf", 24);
     lb->setPosition(Point(visibleSize.width*0.47, visibleSize.height*0.30));
@@ -143,23 +143,23 @@ bool EncyclopaediaTips::init()
 	string[26] = " SAND WRAITHS CAN'T RAISE COFFINS\n                 WHILE BLOCKED.";
 	string[27] ="       POISON FROM ENEMIES IS NOT\n     LETHAL.RETREAT YOUR  POISONED\n            SOLDIERS TO SAVE THEM.";
 	string[28] ="THE EXECUTIIONER CANNOT EXECUTE\n                        HEROES.";
-	string[29] = "      COMBINED SHAMAN AURAS CAN\n     MAKE SAVAGES NEARLY INVINCIBLE.";   //  /n¿ÉÒÔÊ¹×Ö·û´®»»ÐÐ
+	string[29] = "      COMBINED SHAMAN AURAS CAN\n     MAKE SAVAGES NEARLY INVINCIBLE.";   //  /nå¯ä»¥ä½¿å­—ç¬¦ä¸²æ¢è¡Œ
 /********************************************************************************************************************************************/
 
      ch = Label::createWithTTF(string[0], "arial.ttf",26);
      ch->setPosition(Point(visibleSize.width*0.55, visibleSize.height*0.4));
 	 ch->setColor(Color3B(0,0,0));
-	 ch->setLineBreakWithoutSpace(true); //À´Ö§³Ö×Ô¶¯»»ÐÐ¹¦ÄÜ
-	 ch->setDimensions(visibleSize.width*0.55,visibleSize.height*0.4); //À´¿ØÖÆ×Ô¶¯»»ÐÐ
+	 ch->setLineBreakWithoutSpace(true); //æ¥æ”¯æŒè‡ªåŠ¨æ¢è¡ŒåŠŸèƒ½
+	 ch->setDimensions(visibleSize.width*0.55,visibleSize.height*0.4); //æ¥æŽ§åˆ¶è‡ªåŠ¨æ¢è¡Œ
      this->addChild(ch, 2);
 	 
 	
 
-	//ÓÒ±ß¼ýÍ·°´Å¥
-	//Sprite::createWithSpriteFrameName("encyclopedia_tow_creep_arrow_0003.png"±íÊ¾´Ó´óÍ¼ÖÐ»ñÈ¡Ð¡Í¼
+	//å³è¾¹ç®­å¤´æŒ‰é’®
+	//Sprite::createWithSpriteFrameName("encyclopedia_tow_creep_arrow_0003.png"è¡¨ç¤ºä»Žå¤§å›¾ä¸­èŽ·å–å°å›¾
     sprite30 = MenuItemSprite::create(sprite02,sprite03,sprite05,CC_CALLBACK_1(EncyclopaediaTips::starMenuCallback1,this));
 	sprite30->setPosition(Point(visibleSize.width*0.6,visibleSize.height*0.3));
-	auto ccmenuu2 = Menu::create(sprite30,NULL);  //ÊµÏÖÇÐ»»  
+	auto ccmenuu2 = Menu::create(sprite30,NULL);  //å®žçŽ°åˆ‡æ¢  
 	ccmenuu2->setPosition(Vec2::ZERO);
     this->addChild(ccmenuu2,2);  
 	
@@ -180,14 +180,14 @@ bool EncyclopaediaTips::init()
     return true;
 }
 
-//¹Ø±Õ°´Å¥£¬·µ»ØÇ°Ò»´ÎµÄ³¡¾° 
+//å…³é—­æŒ‰é’®ï¼Œè¿”å›žå‰ä¸€æ¬¡çš„åœºæ™¯ 
 void EncyclopaediaTips::menuCallback(Ref *pSender)  
 {  
 	SoundManager::playClickEffect();
 	Director::getInstance()->popScene();
 }  
 
-//°´Å¥¿ØÖÆÊý×ÖµÄÇÐ»» Êý×ÖµÝÔö £¨ÓÒ²à¼ýÍ·£©
+//æŒ‰é’®æŽ§åˆ¶æ•°å­—çš„åˆ‡æ¢ æ•°å­—é€’å¢ž ï¼ˆå³ä¾§ç®­å¤´ï¼‰
 void EncyclopaediaTips::starMenuCallback1(Ref* pSender)
 {  
 	SoundManager::playClickEffect();
@@ -195,8 +195,8 @@ void EncyclopaediaTips::starMenuCallback1(Ref* pSender)
 		i++;
 	    if (i==1)
 		{
-			sprite29 ->setEnabled(false); //°´Å¥²»¿ÉÓÃ
-			sprite30 ->setEnabled(true);  //°´Å¥¿ÉÓÃ
+			sprite29 ->setEnabled(false); //æŒ‰é’®ä¸å¯ç”¨
+			sprite30 ->setEnabled(true);  //æŒ‰é’®å¯ç”¨
 		}
 		else if(i==30)
 		{
@@ -209,17 +209,17 @@ void EncyclopaediaTips::starMenuCallback1(Ref* pSender)
 			sprite30 ->setEnabled(true);
 		}
 
-	//ÏÔÊ¾Êý×Ö±ä»¯
+	//æ˜¾ç¤ºæ•°å­—å˜åŒ–
 		lb->setString(__String::createWithFormat("%d",i)->getCString());
 
-	//ÏÔÊ¾ÄÚÈÝ±ä»¯	
+	//æ˜¾ç¤ºå†…å®¹å˜åŒ–	
 		ch->setString(string[i-1]);
 		
 	}
 
 }
 
-//°´Å¥¿ØÖÆÊý×ÖµÄÇÐ»» Êý×ÖµÝ¼õ £¨×ó²à¼ýÍ·£©
+//æŒ‰é’®æŽ§åˆ¶æ•°å­—çš„åˆ‡æ¢ æ•°å­—é€’å‡ ï¼ˆå·¦ä¾§ç®­å¤´ï¼‰
 void EncyclopaediaTips::starMenuCallback2(Ref* pSender){
 	
 	SoundManager::playClickEffect();
@@ -241,7 +241,7 @@ void EncyclopaediaTips::starMenuCallback2(Ref* pSender){
 			sprite30 ->setEnabled(true);
 		}
 
-		//×Ö·û´®×ª»¯ÎªÊý×Ö
+		//å­—ç¬¦ä¸²è½¬åŒ–ä¸ºæ•°å­—
 		lb->setString(__String::createWithFormat("%d",i)->getCString());
 
 		

@@ -1,4 +1,4 @@
-#ifndef _FIREBALL_H_
+﻿#ifndef _FIREBALL_H_
 #define _FIREBALL_H_
 
 #include "cocos2d.h"

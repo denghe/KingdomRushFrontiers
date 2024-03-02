@@ -1,4 +1,4 @@
-#include "Level4.h"
+ï»¿#include "Level4.h"
 USING_NS_CC;
 
 Level4::Level4()
@@ -51,7 +51,7 @@ void Level4::addOrnament()
 	doorSprite->setPosition(Point(730,820));
 	mapSprite->addChild(doorSprite,0);
 
-		//Ê÷ÏÂ·½µÄÖ²±»¼ÓÈëµØÍ¼
+		//æ ‘ä¸‹æ–¹çš„æ¤è¢«åŠ å…¥åœ°å›¾
 	for(int i=0;i<4;i++)
 	{
 		treeTerrains[i]=Sprite::createWithSpriteFrameName(__String::createWithFormat("Stage4_Trees_Terrains_000%d.png",i+1)->getCString());
@@ -59,7 +59,7 @@ void Level4::addOrnament()
 	}
 	for(int i=3;i>=0;i--)
 		mapSprite->addChild(treeTerrains[i],0);
-	//½«Ê÷¼ÓÈëµØÍ¼
+	//å°†æ ‘åŠ å…¥åœ°å›¾
 	for(int i=0;i<4;i++)
 		for(int j=0;j<3;j++)
 			TreeSprite[i][j]=NULL;

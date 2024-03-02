@@ -1,4 +1,4 @@
-#ifndef _ROAD_H_
+﻿#ifndef _ROAD_H_
 #define _ROAD_H_
 #include "cocos2d.h"
 

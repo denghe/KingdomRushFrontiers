@@ -1,4 +1,4 @@
-#ifndef _GROUP_MONSTER_H_
+ï»¿#ifndef _GROUP_MONSTER_H_
 #define _GROUP_MONSTER_H_
 
 #include "cocos2d.h"
@@ -11,11 +11,11 @@ public:
    // virtual bool init();
     static GroupMonster* initGroupEnemy(int type, int road, int path);
     CREATE_FUNC(GroupMonster);  
-	//±£´æ¹ÖÎïÀàĞÍ
+	//ä¿å­˜æ€ªç‰©ç±»å‹
 	CC_SYNTHESIZE(int, type, Type);
-	//²»Í¬³ö¿Ú
+	//ä¸åŒå‡ºå£
 	CC_SYNTHESIZE(int, road, Road);
-	//²»Í¬Â·Ïß
+	//ä¸åŒè·¯çº¿
 	CC_SYNTHESIZE(int, path, Path);
 };
 

@@ -1,4 +1,4 @@
-#ifndef __ICONS_H__
+ï»¿#ifndef __ICONS_H__
 #define __ICONS_H__
 
 #include "cocos2d.h"
@@ -7,35 +7,35 @@ USING_NS_CC;
 class Icons: public Sprite
 {
 public :
-	//ÉèÖÃÈıÖÖ×´Ì¬£º²»¿ÉÉı¼¶£¬¿ÉÉı¼¶£¬ÒÑÉı¼¶
+	//è®¾ç½®ä¸‰ç§çŠ¶æ€ï¼šä¸å¯å‡çº§ï¼Œå¯å‡çº§ï¼Œå·²å‡çº§
 	enum IconsStatus{eIconOff,eIconOn,eIconOK};
-	//³õÊ¼»¯·½·¨
+	//åˆå§‹åŒ–æ–¹æ³•
     virtual bool initNewIcons(std::string picture,std::string off_picture,std::string iconName,
 		std::string iconIntroduction,int startNum,Icons::IconsStatus iconSta,int row,int column);
 
 
-	//´´½¨×Ô¶¨Òå¾«ÁéµÄ·½·¨
+	//åˆ›å»ºè‡ªå®šä¹‰ç²¾çµçš„æ–¹æ³•
 	static Icons* createNewIcons(std::string picture,std::string off_picture,std::string iconName,
 		std::string iconIntroduction,int startNum,Icons::IconsStatus iconSta,int row,int column);
     CREATE_FUNC(Icons);
 
 
-	//¸ù¾İiconStaĞŞ¸Ä¾«Áé×´Ì¬
+	//æ ¹æ®iconStaä¿®æ”¹ç²¾çµçŠ¶æ€
 	void showIcon(Icons::IconsStatus iconSta);
-	//¸Ã¾«ÁéÉı¼¶ËùĞèÒªĞÇĞÇÊı
+	//è¯¥ç²¾çµå‡çº§æ‰€éœ€è¦æ˜Ÿæ˜Ÿæ•°
 	int priceTag;
-	//ÄÚ²ãÏÔÊ¾µÄÍ¼±ê£»
+	//å†…å±‚æ˜¾ç¤ºçš„å›¾æ ‡ï¼›
 	Sprite* icon;
-	//×îÍâ²ã¿òÍ¼
+	//æœ€å¤–å±‚æ¡†å›¾
 	Sprite* iconSelected;
-	//ÅĞ¶ÏÊÇ·ñ±»Ñ¡ÖĞ
+	//åˆ¤æ–­æ˜¯å¦è¢«é€‰ä¸­
 	void iconIsSelect(bool select);
 	
-	//¿Ø¼şÃû³Æ
+	//æ§ä»¶åç§°
 	std::string iconName;
-	//¿Ø¼ş½éÉÜ
+	//æ§ä»¶ä»‹ç»
 	std::string iconIntroduction;
-	//´¢´æĞĞÁĞÎ»ÖÃ
+	//å‚¨å­˜è¡Œåˆ—ä½ç½®
 	int iconRow;
 	int	iconColumn;
 

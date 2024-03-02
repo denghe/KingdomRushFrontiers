@@ -1,4 +1,4 @@
-#ifndef _TOWER_PANLE_LAYER_H_
+ï»¿#ifndef _TOWER_PANLE_LAYER_H_
 #define _TOWER_PANLE_LAYER_H_
 
 #include "cocos2d.h"
@@ -13,7 +13,7 @@ class TowerPanleLayer: public Sprite
 public:
     virtual bool init() override;
     CREATE_FUNC(TowerPanleLayer);
-    // ÖØÔØ´¥Ãş»Øµ÷º¯Êı
+    // é‡è½½è§¦æ‘¸å›è°ƒå‡½æ•°
     bool onTouchBegan(Touch *touch, Event *event);
     void onTouchEnded(Touch* touch, Event* event);
     CC_SYNTHESIZE(CustomTerrain*, terrain, MyTerrain); 

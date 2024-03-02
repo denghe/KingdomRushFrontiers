@@ -1,4 +1,4 @@
-#ifndef __Tower_SCENE_H__
+ï»¿#ifndef __Tower_SCENE_H__
 #define __Tower_SCENE_H__
 
 #include "cocos2d.h"
@@ -22,21 +22,21 @@ class Tower : public cocos2d::Layer
 		MenuItemSprite* spriteCloseButton;
 
 		Label* labelName;
-		//3¸öÊôÐÔ
+		//3ä¸ªå±žæ€§
 		Label* labelAttackSpeed;
 		Label* labelAttackValue;
 		Label* labelAttackRange;
 		
 		Label* labelNotice;
 
-		//3¸öÖµ
+		//3ä¸ªå€¼
 		Label* labelAttackSpeed1;
 		Label* labelAttackValue1;
 		Label* labelAttackRange1;
 
 		Label* labelNotice1;
 
-		//¸¡¶¯¿ò¿ò
+		//æµ®åŠ¨æ¡†æ¡†
 		Sprite* creepFrame;
 		MoveTo *moveFrame;
 		Size visibleSize;

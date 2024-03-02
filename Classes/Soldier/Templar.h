@@ -1,4 +1,4 @@
-#ifndef _TEMPLAR_H_
+﻿#ifndef _TEMPLAR_H_
 #define _TEMPLAR_H_
 
 #include "BaseSoldier.h"

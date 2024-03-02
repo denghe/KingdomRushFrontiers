@@ -1,4 +1,4 @@
-#ifndef _FREEZE_H_
+﻿#ifndef _FREEZE_H_
 #define _FREEZE_H_
 
 #include "cocos2d.h"

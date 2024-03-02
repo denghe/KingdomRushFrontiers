@@ -1,4 +1,4 @@
-#include "Assassin.h"
+ï»¿#include "Assassin.h"
 #include "Data/GameManager.h"
 
 Assassin* Assassin::createAssassin(Point point)
@@ -32,14 +32,14 @@ void Assassin::cheakState()
 
 void Assassin::update(float dt)
 {
-	//Èô×´Ì¬¸üÐÂ
+	//è‹¥çŠ¶æ€æ›´æ–°
 	if(lastState!=getState()){
-		//¸ù¾Ý×´Ì¬ÅÐ¶Ï
+		//æ ¹æ®çŠ¶æ€åˆ¤æ–­
 		switch (getState())
 		{
 		case(SoldierStateRun):{
 			lastState = SoldierStateRun;
-			//Í£Ö¹Ö®Ç°¶¯»­
+			//åœæ­¢ä¹‹å‰åŠ¨ç”»
 			stopSoldierAnimation();
 			auto action = RepeatForever::create(Animate::create(AnimationCache::getInstance()->getAnimation("Assassin_run")));
 			action->setTag(SoldierStateRun);
@@ -57,14 +57,14 @@ void Assassin::update(float dt)
 			stopSoldierAnimation();
 			baseSprite->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("Soldier_Assassin_0001.png"));}
 			break;
-		case(SoldierStateSkill1):{//ÖÂÃüÒ»»÷
+		case(SoldierStateSkill1):{//è‡´å‘½ä¸€å‡»
 			lastState = SoldierStateSkill1;
 			stopSoldierAnimation();
 			auto action = RepeatForever::create(Animate::create(AnimationCache::getInstance()->getAnimation("Assassin_skill1")));
 			action->setTag(SoldierStateSkill1);
 			baseSprite->runAction(action);}
 			break;
-		case(SoldierStateSkill2):{//ÉÁ±Ü
+		case(SoldierStateSkill2):{//é—ªé¿
 			lastState = SoldierStateSkill2;
 			stopSoldierAnimation();
 			auto action = RepeatForever::create(Animate::create(AnimationCache::getInstance()->getAnimation("Assassin_skill2")));

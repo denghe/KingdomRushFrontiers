@@ -1,4 +1,4 @@
-#include "WelcomeScene.h"
+ï»¿#include "WelcomeScene.h"
 #include "Scene/GameView.h"
 #include "Scene/TransitionGame.h"
 #include "Data/SoundManager.h"
@@ -29,20 +29,20 @@ bool WelcomeScene::init()
     {
         return false;
     }
-	//Éè¼Æ·Ö±æÂÊ¿ÉÊÓÇøÓò´óĞ¡ 
+	//è®¾è®¡åˆ†è¾¨ç‡å¯è§†åŒºåŸŸå¤§å° 
 	visibleSize = Director::getInstance()->getVisibleSize();
 
-	//Éú³É±³¾°Í¼
+	//ç”ŸæˆèƒŒæ™¯å›¾
 	initBackGround();
-	//Éú³Élogo
+	//ç”Ÿæˆlogo
 	initLogo();
-	//Éú³É¼ÇÂ¼²Ëµ¥
+	//ç”Ÿæˆè®°å½•èœå•
 	initMenu_save();
-	//Éú³Ébutton_start
+	//ç”Ÿæˆbutton_start
 	initButton_start();
 	init_creditBtn();
 	initSoundButton();
-	//ĞÂ½¨ĞòÁĞ¶¯»­
+	//æ–°å»ºåºåˆ—åŠ¨ç”»
 	
 
 	auto listenerkeyPad = EventListenerKeyboard::create();  
@@ -65,23 +65,23 @@ void WelcomeScene::onEnterTransitionDidFinish()
 
 void WelcomeScene::initBackGround()
 {
-	//´ÓSpriteFrameCacheÖĞ¼ÓÔØÍ¼Æ¬
+	//ä»SpriteFrameCacheä¸­åŠ è½½å›¾ç‰‡
 	auto sprite_background = Sprite::createWithSpriteFrameName("mainmenu_bg.png");
 	sprite_background->setPosition(Point(visibleSize.width/2,visibleSize.height/2));
-	//Ìí¼Ó±³¾°£¬ZorderÉèÖÃÎª-1
+	//æ·»åŠ èƒŒæ™¯ï¼ŒZorderè®¾ç½®ä¸º-1
 	addChild(sprite_background,-1);
 }
 
 void WelcomeScene::initLogo()
 {
-	//´ÓSpriteFrameCacheÖĞ¼ÓÔØÍ¼Æ¬
+	//ä»SpriteFrameCacheä¸­åŠ è½½å›¾ç‰‡
 	sprite_Logo = Sprite::createWithSpriteFrameName("logo.png");
-	//ÉèÖÃÃªµãÎªÍ¼Æ¬ÖĞÑë
+	//è®¾ç½®é”šç‚¹ä¸ºå›¾ç‰‡ä¸­å¤®
 	sprite_Logo->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-	//¼ÆËãLogoÍ¼Ó¦¸ÃÔÚµÄÎ»ÖÃ
+	//è®¡ç®—Logoå›¾åº”è¯¥åœ¨çš„ä½ç½®
 	point_Logo.x = visibleSize.width/2;
 	point_Logo.y = visibleSize.height-(sprite_Logo->getContentSize().height/2);
-	//ÉèÖÃÎ»ÖÃ,³õÊ¼´óĞ¡
+	//è®¾ç½®ä½ç½®,åˆå§‹å¤§å°
 	sprite_Logo->setScale(0.2f);
 	sprite_Logo->setPosition(point_Logo);
 	addChild(sprite_Logo,9);
@@ -89,15 +89,15 @@ void WelcomeScene::initLogo()
 
 void WelcomeScene::initButton_start()
 {
-	//´Ó×ÊÔ´ÖĞ¼ÓÔØÍ¼Æ¬
+	//ä»èµ„æºä¸­åŠ è½½å›¾ç‰‡
 	button_Start = Sprite::createWithSpriteFrameName("menu_startchain_0001.png");
-	//ÉèÖÃÃªµãÎªÍ¼Æ¬ÖĞÑë
+	//è®¾ç½®é”šç‚¹ä¸ºå›¾ç‰‡ä¸­å¤®
 	button_Start->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-	//³õÊ¼ÉèÖÃÎª²»¿É¼û
+	//åˆå§‹è®¾ç½®ä¸ºä¸å¯è§
 	button_Start->setVisible(false);
-	//ÉèÖÃÎ»ÖÃ
+	//è®¾ç½®ä½ç½®
 	button_Start->setPosition(point_Logo.x,point_Logo.y);
-	//Ìí¼Ó
+	//æ·»åŠ 
 	addChild(button_Start,1);
 
 	auto button_Start_listener = EventListenerTouchOneByOne::create();
@@ -112,7 +112,7 @@ void WelcomeScene::initButton_start()
 		if (rect.containsPoint(locationInNode)&&target->isVisible())
 		{  
 			SoundManager::playClickEffect();
-			//¸Ä±äButtonÊ½Ñù´ïµ½µã»÷Ğ§¹û
+			//æ”¹å˜Buttonå¼æ ·è¾¾åˆ°ç‚¹å‡»æ•ˆæœ
 			target->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("menu_startchain_0002.png"));			
 			return true;  
 		}  
@@ -134,10 +134,10 @@ void WelcomeScene::initButton_start()
 
 void WelcomeScene::initLogoAnimation()
 {
-	//´Ó×ÊÔ´ÖĞ¼ÓÍ¼Æ¬£¬ÉèÖÃÃªµãºÍÎ»ÖÃ
+	//ä»èµ„æºä¸­åŠ å›¾ç‰‡ï¼Œè®¾ç½®é”šç‚¹å’Œä½ç½®
 	auto sprite = Sprite::createWithSpriteFrameName("logo_brillo_0001.png");
 	sprite->setPosition(point_Logo);
-	//Éú³ÉÖ¡¶¯»­
+	//ç”Ÿæˆå¸§åŠ¨ç”»
 	SpriteFrame* frame = NULL;
 	Vector<SpriteFrame*> aFrames(20);
 
@@ -149,15 +149,15 @@ void WelcomeScene::initLogoAnimation()
 	}
 	addChild(sprite,10);
 	auto animation = Animation::createWithSpriteFrames(aFrames,0.1f);
-	//²¥·Å¶¯»­
+	//æ’­æ”¾åŠ¨ç”»
 	sprite->runAction(RepeatForever::create(Animate::create(animation)));
 }
 
 void WelcomeScene::initButton_startAnimation()
 {
-	//ÉèÖÃ¿É¼û
+	//è®¾ç½®å¯è§
 	button_Start->setVisible(true);
-	//Ö´ĞĞÆ½ÒÆ¶¯»­
+	//æ‰§è¡Œå¹³ç§»åŠ¨ç”»
 	button_Start->runAction(MoveTo::create(0.3f, Point(point_Logo.x,point_Logo.y-180)));	
 }
 
@@ -165,9 +165,9 @@ void WelcomeScene::init_creditBtn()
 {
 	button_credit = Sprite::createWithSpriteFrameName("menu_creditschain_0001.png");
 	button_credit->setVisible(false);
-	//ÉèÖÃÎ»ÖÃ
+	//è®¾ç½®ä½ç½®
 	button_credit->setPosition(point_Logo.x,point_Logo.y - 180);
-	//Ìí¼Ó
+	//æ·»åŠ 
 	addChild(button_credit,0);
 
 	auto button_credit_listener = EventListenerTouchOneByOne::create();
@@ -182,7 +182,7 @@ void WelcomeScene::init_creditBtn()
 		if (rect.containsPoint(locationInNode)&&target->isVisible())
 		{  
 			SoundManager::playClickEffect();
-			//¸Ä±äButtonÊ½Ñù´ïµ½µã»÷Ğ§¹û
+			//æ”¹å˜Buttonå¼æ ·è¾¾åˆ°ç‚¹å‡»æ•ˆæœ
 			target->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("menu_creditschain_0002.png"));			
 			return true;  
 		}  
@@ -197,7 +197,7 @@ void WelcomeScene::init_creditBtn()
 
 void WelcomeScene::init_creditBtn_startAnimation()
 {
-	//Ö´ĞĞÆ½ÒÆ¶¯»­
+	//æ‰§è¡Œå¹³ç§»åŠ¨ç”»
 	button_credit->runAction(Sequence::create(
 		DelayTime::create(0.3f),
 		CallFuncN::create(CC_CALLBACK_0(Sprite::setVisible, button_credit,true)),
@@ -206,14 +206,14 @@ void WelcomeScene::init_creditBtn_startAnimation()
 
 void WelcomeScene::initMenu_save()
 {
-	//¼ÓÔØÍ¼Æ¬
+	//åŠ è½½å›¾ç‰‡
 	menu_Save = Sprite::createWithSpriteFrameName("mainmenu_saveslot_bg.png");
-	//¼ÆËãÎ»ÖÃ
+	//è®¡ç®—ä½ç½®
 	point_Menu_Save.x = point_Logo.x;
 	point_Menu_Save.y = point_Logo.y - sprite_Logo->getContentSize().height*1.4/2;
-	//ÆğÊ¼Î»ÖÃÔÚÆÁÄ»Íâ
+	//èµ·å§‹ä½ç½®åœ¨å±å¹•å¤–
 	menu_Save->setPosition(Point(point_Menu_Save.x,point_Menu_Save.y-500));
-	//Ìí¼Ó
+	//æ·»åŠ 
 
 	auto slot_0 = SlotMenu::createMenu(2);
 	slot_0->setPosition(Point(menu_Save->getContentSize().width/2,menu_Save->getContentSize().height/2));
@@ -228,15 +228,15 @@ void WelcomeScene::initMenu_save()
 	menu_Save->addChild(slot_2);
 	
 	addChild(menu_Save,0);
-	//¹Ø±Õ°´¼üÀàĞÍÎªMenuItemSprite
+	//å…³é—­æŒ‰é”®ç±»å‹ä¸ºMenuItemSprite
 	button_Menu_Save_Close = MenuItemSprite::create(Sprite::createWithSpriteFrameName("mainmenu_saveslot_close_0001.png"),
 		Sprite::createWithSpriteFrameName("mainmenu_saveslot_close_0002.png"),
 		CC_CALLBACK_1(WelcomeScene::savemenuCloseCallback, this));
-	//¼ÆËãÎ»ÖÃ
+	//è®¡ç®—ä½ç½®
 	point_Button_Menu_Save_Close.x = point_Logo.x;
 	point_Button_Menu_Save_Close.y = point_Menu_Save.y - menu_Save->getContentSize().height/2 + button_Menu_Save_Close->getContentSize().height+2;
 	button_Menu_Save_Close->setPosition(Point(point_Button_Menu_Save_Close.x,point_Button_Menu_Save_Close.y-500));
-	//²Î¼ûMenuItemÓÃ·¨
+	//å‚è§MenuItemç”¨æ³•
 	auto menu = Menu::create(button_Menu_Save_Close,NULL);
 	menu->setPosition(Vec2::ZERO);
 	addChild(menu,0);
@@ -252,14 +252,14 @@ void WelcomeScene::savemenuCloseCallback(cocos2d::Ref* pSender)
 
 void WelcomeScene::setSaveMenuInVisible()
 {
-	//ÒÆ³öÆÁÄ»Íâ
+	//ç§»å‡ºå±å¹•å¤–
 	menu_Save->runAction(MoveBy::create(0.3f,Point(0,-500)));
 	button_Menu_Save_Close->runAction(MoveBy::create(0.3f,Point(0,-500)));
 }
 
 void WelcomeScene::setSaveMenuVisible()
 {
-	//ÒÆµ½ÆÁÄ»ÄÚ
+	//ç§»åˆ°å±å¹•å†…
 	menu_Save->runAction(MoveTo::create(0.3f,point_Menu_Save));
 	button_Menu_Save_Close->runAction(MoveTo::create(0.3f,point_Button_Menu_Save_Close));
 }
@@ -268,7 +268,7 @@ void WelcomeScene::onKeyReleased(EventKeyboard::KeyCode keycode, Event* event)
 {
     switch (keycode)
     {
-	case EventKeyboard::KeyCode::KEY_BACK:   //·µ»Ø¼üÌı
+	case EventKeyboard::KeyCode::KEY_BACK:   //è¿”å›é”®å¬
 		if(button_Start->isVisible()){
 			SimpleAudioEngine::getInstance()->end();
 			Director::getInstance()->end();
@@ -281,7 +281,7 @@ void WelcomeScene::onKeyReleased(EventKeyboard::KeyCode keycode, Event* event)
 			initButton_startAnimation();
 		}
         break;
-    case EventKeyboard::KeyCode::KEY_MENU:      //²Ëµ¥¼àÌı
+    case EventKeyboard::KeyCode::KEY_MENU:      //èœå•ç›‘å¬
         break;
     case::EventKeyboard::KeyCode::KEY_HOME:
         break;
@@ -295,7 +295,7 @@ void WelcomeScene::initSoundButton()
 	auto winSize = Director::getInstance()->getWinSize();
 	Sprite* backMusic;
 	SoundManager::playWelcomeBackMusic();
-	if(UserDefault::getInstance()->getIntegerForKey("backmusic",1)==1){//0±íÊ¾½ûÖ¹BGM£¬1±íÊ¾¿ªÆô
+	if(UserDefault::getInstance()->getIntegerForKey("backmusic",1)==1){//0è¡¨ç¤ºç¦æ­¢BGMï¼Œ1è¡¨ç¤ºå¼€å¯
 		backMusic = Sprite::createWithSpriteFrameName("options_overlay_buttons_0001.png");		
 	}else{
 		backMusic = Sprite::createWithSpriteFrameName("options_overlay_buttons_0002.png");				
@@ -313,7 +313,7 @@ void WelcomeScene::initSoundButton()
 		Rect rect = Rect(0, 0, size.width, size.height);
 		if (rect.containsPoint(locationInNode))
 		{  
-			if(UserDefault::getInstance()->getIntegerForKey("backmusic",1)==1){//0±íÊ¾½ûÖ¹BGM£¬1±íÊ¾¿ªÆô
+			if(UserDefault::getInstance()->getIntegerForKey("backmusic",1)==1){//0è¡¨ç¤ºç¦æ­¢BGMï¼Œ1è¡¨ç¤ºå¼€å¯
 				UserDefault::getInstance()->setIntegerForKey("backmusic",0);
 			}else{
 				UserDefault::getInstance()->setIntegerForKey("backmusic",1);
@@ -326,7 +326,7 @@ void WelcomeScene::initSoundButton()
 	button_backMusic_listener->onTouchEnded = [&](Touch* touch, Event* event){
 		auto target = static_cast<Sprite*>(event->getCurrentTarget());
 		target->setScale(1.0f);
-		if(UserDefault::getInstance()->getIntegerForKey("backmusic",1)==1){//0±íÊ¾½ûÖ¹BGM£¬1±íÊ¾¿ªÆô
+		if(UserDefault::getInstance()->getIntegerForKey("backmusic",1)==1){//0è¡¨ç¤ºç¦æ­¢BGMï¼Œ1è¡¨ç¤ºå¼€å¯
 			SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 			target->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("options_overlay_buttons_0001.png"));	
 		}else{
@@ -337,7 +337,7 @@ void WelcomeScene::initSoundButton()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(button_backMusic_listener,backMusic);
 
 	Sprite* backEffect;
-	if(UserDefault::getInstance()->getIntegerForKey("backeffect",1)==1){//0±íÊ¾½ûÖ¹BGM£¬1±íÊ¾¿ªÆô
+	if(UserDefault::getInstance()->getIntegerForKey("backeffect",1)==1){//0è¡¨ç¤ºç¦æ­¢BGMï¼Œ1è¡¨ç¤ºå¼€å¯
 		backEffect = Sprite::createWithSpriteFrameName("options_overlay_buttons_0003.png");		
 	}else{
 		backEffect = Sprite::createWithSpriteFrameName("options_overlay_buttons_0004.png");				
@@ -355,7 +355,7 @@ void WelcomeScene::initSoundButton()
 		Rect rect = Rect(0, 0, size.width, size.height);
 		if (rect.containsPoint(locationInNode))
 		{  
-			if(UserDefault::getInstance()->getIntegerForKey("backeffect",1)==1){//0±íÊ¾½ûÖ¹BGM£¬1±íÊ¾¿ªÆô
+			if(UserDefault::getInstance()->getIntegerForKey("backeffect",1)==1){//0è¡¨ç¤ºç¦æ­¢BGMï¼Œ1è¡¨ç¤ºå¼€å¯
 				UserDefault::getInstance()->setIntegerForKey("backeffect",0);
 			}else{
 				UserDefault::getInstance()->setIntegerForKey("backeffect",1);
@@ -368,7 +368,7 @@ void WelcomeScene::initSoundButton()
 	button_backEffect_listener->onTouchEnded = [&](Touch* touch, Event* event){
 		auto target = static_cast<Sprite*>(event->getCurrentTarget());
 		target->setScale(1.0f);
-		if(UserDefault::getInstance()->getIntegerForKey("backeffect",1)==1){//0±íÊ¾½ûÖ¹BGM£¬1±íÊ¾¿ªÆô
+		if(UserDefault::getInstance()->getIntegerForKey("backeffect",1)==1){//0è¡¨ç¤ºç¦æ­¢BGMï¼Œ1è¡¨ç¤ºå¼€å¯
 			target->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("options_overlay_buttons_0003.png"));	
 		}else{
 			target->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("options_overlay_buttons_0004.png"));	

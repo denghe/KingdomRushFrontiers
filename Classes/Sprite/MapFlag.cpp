@@ -1,4 +1,4 @@
-#include "Sprite/MapFlag.h"
+ï»¿#include "Sprite/MapFlag.h"
 #include "Scene/GameView.h"
 #include "Scene/TransitionGame.h"
 #include "Data/GameManager.h"
@@ -25,15 +25,15 @@ bool MapFlag::initWithLevel(int level)
 	switch (UserDefault::getInstance()->getIntegerForKey(
 		__String::createWithFormat(instance->LEVELX_STARNUM, getLevel())->getCString(), 0))
 	{
-	case(0): //µÃÐÇ¸öÊýÎª0£¬ÎªÍê³É
+	case(0): //å¾—æ˜Ÿä¸ªæ•°ä¸º0ï¼Œä¸ºå®Œæˆ
 		setType(0);
 		flag = createWithSpriteFrameName("mapFlag_0022.png");
 		break;
-	case(4): //µÃÐÇ¸öÊýÎª4
+	case(4): //å¾—æ˜Ÿä¸ªæ•°ä¸º4
 		setType(2);
 		flag = createWithSpriteFrameName("mapFlag_0112.png");
 		break;
-	case(5): //µÃÐÇ¸öÊýÎª5
+	case(5): //å¾—æ˜Ÿä¸ªæ•°ä¸º5
 		setType(3);
 		wings = createWithSpriteFrameName("mapFlag_wings_0015.png");
 		addChild(wings);
@@ -66,10 +66,10 @@ void MapFlag::onTouchEnded(Touch* touch, Event* event)
 	case(0):
 		flag->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("mapFlag_0022.png"));
 		break;
-	case(2): //µÃÐÇ¸öÊýÎª4
+	case(2): //å¾—æ˜Ÿä¸ªæ•°ä¸º4
 		flag->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("mapFlag_0112.png"));
 		break;
-	case(3): //µÃÐÇ¸öÊýÎª5
+	case(3): //å¾—æ˜Ÿä¸ªæ•°ä¸º5
 		flag->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("mapFlag_0112.png"));
 
 		break;
@@ -97,10 +97,10 @@ bool MapFlag::onTouchBegan(Touch* touch, Event* event)
 		case(0):
 			flag->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("mapFlag_0023.png"));
 			break;
-		case(2): //µÃÐÇ¸öÊýÎª4
+		case(2): //å¾—æ˜Ÿä¸ªæ•°ä¸º4
 			flag->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("mapFlag_0117.png"));
 			break;
-		case(3): //µÃÐÇ¸öÊýÎª5
+		case(3): //å¾—æ˜Ÿä¸ªæ•°ä¸º5
 			flag->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("mapFlag_0117.png"));
 
 			break;
@@ -216,7 +216,7 @@ void MapFlag::startSuccessAnimation()
 		if(frame!=nullptr)
 			aFrames.pushBack(frame);
 	}*/
-	//²¥·Å¶¯»­
+	//æ’­æ”¾åŠ¨ç”»
 	flag->runAction(Sequence::create(Animate::create(AnimationCache::getInstance()->getAnimation("succeed")),
 	                                 CallFunc::create(std::bind(&MapFlag::starAnimation, this)),NULL));
 	setType(1);

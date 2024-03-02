@@ -1,4 +1,4 @@
-#ifndef _BULLET_H_
+﻿#ifndef _BULLET_H_
 #define _BULLET_H_
 
 #include "Data/SoundManager.h"
@@ -17,7 +17,7 @@ public:
 
 protected:
 	CC_SYNTHESIZE(int, maxForce, MaxForce);
-	CC_SYNTHESIZE(int, bulletScope, BulletScope);//�����ӵ�������Χ
+	CC_SYNTHESIZE(int, bulletScope, BulletScope);//锟斤拷锟斤拷锟接碉拷锟斤拷锟斤拷锟斤拷围
 	CC_SYNTHESIZE(int, bulletType, BulletType);
 	CC_SYNTHESIZE(Spawn*, bulletAction, BulletAction);
 	Sprite* sprite;

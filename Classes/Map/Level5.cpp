@@ -1,4 +1,4 @@
-#include "Level5.h"
+ï»¿#include "Level5.h"
 #include "Data/MyAnimation.h"
 
 USING_NS_CC;
@@ -21,7 +21,7 @@ bool Level5::initWithDifficulty(int difficulty)
 	setLevel(5);
 	this->difficulty = difficulty;
 	initMap();
-	//OÎª×óÉÏ1 1ÎªÓÒ£¬2Îª×øÉÏ2,3ÎªÉÏ
+	//Oä¸ºå·¦ä¸Š1 1ä¸ºå³ï¼Œ2ä¸ºåä¸Š2,3ä¸ºä¸Š
 	std::vector<Point> points;
 	points.push_back(Point(40,637));
 	points.push_back(Point(1140,490));

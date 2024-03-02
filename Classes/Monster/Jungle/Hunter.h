@@ -1,4 +1,4 @@
-#ifndef _HUNTER_H_
+﻿#ifndef _HUNTER_H_
 #define _HUNTER_H_
 
 #include "Monster/BaseMonster.h"

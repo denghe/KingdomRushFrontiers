@@ -1,4 +1,4 @@
-#include "Scene/GameView.h"
+ï»¿#include "Scene/GameView.h"
 #include "Scene/TransitionGame.h"
 #include "WelcomeScene.h"
 #include "Sprite/MapFlag.h"
@@ -32,7 +32,7 @@ bool GameView::init()
     }
 	instance = GameManager::getInstance();
 
-	//ÏÂÐÐ²âÊÔÓÃ
+	//ä¸‹è¡Œæµ‹è¯•ç”¨
 	//UserDefault::getInstance()->setIntegerForKey(instance->LEVELX_DOWNCOUNT,0);
 
 	winSize = Director::getInstance()->getWinSize();
@@ -56,9 +56,9 @@ bool GameView::init()
 	mapFlagPointVector.push_back(Point(1015,770));
 
 	addChild(bgSprite);
-	//Ìí¼ÓµÀÂ·
+	//æ·»åŠ é“è·¯
 	addRoad();
-	//Ìí¼ÓÆìÖÄ
+	//æ·»åŠ æ——å¸œ
 	addMapFlag();
 	
 
@@ -79,10 +79,10 @@ bool GameView::init()
 	
 
 	auto listener = EventListenerTouchAllAtOnce::create();
-	// 2 °ó¶¨´¥ÃþÊÂ¼þ
-	listener->onTouchesBegan = CC_CALLBACK_2(GameView::onTouchesBegan, this);// ´¥Ãþ¿ªÊ¼Ê±´¥·¢
-	listener->onTouchesMoved = CC_CALLBACK_2(GameView::onTouchesMoved, this);// ´¥ÃþÒÆ¶¯Ê±´¥·¢
-	// 3 Ìí¼Ó¼àÌýÆ÷
+	// 2 ç»‘å®šè§¦æ‘¸äº‹ä»¶
+	listener->onTouchesBegan = CC_CALLBACK_2(GameView::onTouchesBegan, this);// è§¦æ‘¸å¼€å§‹æ—¶è§¦å‘
+	listener->onTouchesMoved = CC_CALLBACK_2(GameView::onTouchesMoved, this);// è§¦æ‘¸ç§»åŠ¨æ—¶è§¦å‘
+	// 3 æ·»åŠ ç›‘å¬å™¨
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, bgSprite);
 
 	auto listenerkeyPad = EventListenerKeyboard::create();  
@@ -95,7 +95,7 @@ bool GameView::init()
 void GameView::onEnterTransitionDidFinish()
 {
 	int newReady = UserDefault::getInstance()->getIntegerForKey(instance->LEVELX_NEWDOWN,0);
-	if(newReady<=12){//×î¶à13¹Ø
+	if(newReady<=12){//æœ€å¤š13å…³
 		if(UserDefault::getInstance()->getIntegerForKey(instance->SLOTX_DOWNCOUNT,0)!=newReady){
 			UserDefault::getInstance()->setIntegerForKey(instance->SLOTX_DOWNCOUNT,newReady);
 			mapFlagVector.at(newReady-1)->changeType(0);
@@ -128,20 +128,20 @@ void GameView::addRoad()
 
 void GameView::onTouchesMoved(const std::vector<Touch*>& touches, Event  *event)
 {
-	if(touches.size() == 1)        // µ¥µã½øÐÐÒÆ¶¯
+	if(touches.size() == 1)        // å•ç‚¹è¿›è¡Œç§»åŠ¨
     {
-        // µ¥µãÊ±£¬touchesÖÐÖ»ÓÐÒ»¸öTouch¶ÔÏó£¬ËùÒÔÍ¨¹ýtouches[0]¾Í¿ÉÒÔµÃµ½´¥Ãþ¶ÔÏó
+        // å•ç‚¹æ—¶ï¼Œtouchesä¸­åªæœ‰ä¸€ä¸ªTouchå¯¹è±¡ï¼Œæ‰€ä»¥é€šè¿‡touches[0]å°±å¯ä»¥å¾—åˆ°è§¦æ‘¸å¯¹è±¡
         auto touch = touches[0];
-        // ¼ÆËã»¬¶¯¹ý³ÌÖÐµÄ»¬¶¯ÔöÁ¿
+        // è®¡ç®—æ»‘åŠ¨è¿‡ç¨‹ä¸­çš„æ»‘åŠ¨å¢žé‡
         auto diff = touch->getDelta();       
-        // µÃµ½µ±Ç°bgSpriteµÄÎ»ÖÃ
+        // å¾—åˆ°å½“å‰bgSpriteçš„ä½ç½®
         auto currentPos = this->getPosition();
-        // µÃµ½»¬¶¯ºóbgSpriteÓ¦¸ÃËùÔÚµÄÎ»ÖÃ
+        // å¾—åˆ°æ»‘åŠ¨åŽbgSpriteåº”è¯¥æ‰€åœ¨çš„ä½ç½®
         auto pos = currentPos + diff;
-        // µÃµ½´Ë¿ÌbgSpriteµÄ³ß´ç
+        // å¾—åˆ°æ­¤åˆ»bgSpriteçš„å°ºå¯¸
         auto bgSpriteCurrSize = bgSprite->getBoundingBox().size;
  
-        //±ß½ç¿ØÖÆ£¬Ô¼ÊøposµÄÎ»ÖÃ
+        //è¾¹ç•ŒæŽ§åˆ¶ï¼Œçº¦æŸposçš„ä½ç½®
         pos.x = MIN(pos.x, bgSpriteCurrSize.width * bgSprite->getAnchorPoint().x);
         pos.x = MAX(pos.x, -bgSpriteCurrSize.width + winSize.width + bgSpriteCurrSize.width * bgSprite->getAnchorPoint().x);
         pos.y = MIN(pos.y, bgSpriteCurrSize.height * bgSprite->getAnchorPoint().y);

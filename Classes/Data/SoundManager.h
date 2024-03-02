@@ -1,4 +1,4 @@
-#ifndef _SOUND_MANAGER_H_
+ï»¿#ifndef _SOUND_MANAGER_H_
 #define _SOUND_MANAGER_H_
 
 class SoundManager
@@ -8,47 +8,47 @@ public:
 	static void playIncomingWave();
 	static void playNextWaveReady();
 	
-	//ÒôĞ§
+	//éŸ³æ•ˆ
 	static void playTowerMenu();
 	static void playShipOpen();
 	static void playWinStars();
-	//·ÀÓùËş
+	//é˜²å¾¡å¡”
 	static void playTowerBuilding();
 	static void playTowerUpdate();
 	static void playTowerSell();
-	//Ò°ÈËËş
+	//é‡äººå¡”
 	static void playTotemReady();
 	static void playTotemShot();
 	static void playTotemSpirits();
 	static void playTotemWeakness();
-	//¼ıËş
+	//ç®­å¡”
 	static void playArrowShoot1();
 	static void playArrowShoot2();
 	static void playArrowRelease();
 	static void playArcherReady();
 	static void playArcher2Ready();
 	static void playArcher3Ready();
-	//åóËş
+	//å¼©å¡”
 	static void playCrossbowReady();
 	static void playCrossbowMultishot();
 	static void playCrossbowEagle();
-	//µØÕğËş
+	//åœ°éœ‡å¡”
 	static void playEarthquakeReady();
 	static void playEarthquakeHit();
 	static void playEarthquakeDrillin();
 	static void playEarthquakeDrillOut();
 	static void playEarthquakeLava();
-	//»úÆ÷ÈË
+	//æœºå™¨äºº
 	static void playMechReady();
 	static void playMechWalk();
 	static void playMechShit();
 	static void playMechLoading();
-	//ÅÚËş
+	//ç‚®å¡”
 	static void playArtilleryReady();
 	static void playArtillery2Ready();
 	static void playArtillery3Ready();
 	static void playBomb();
-	//±øÓªËş
+	//å…µè¥å¡”
 	static void playRallyPointPlaced();
 	static void playBarrackReady();
 	static void playBarrack2Ready();
@@ -56,12 +56,12 @@ public:
 	static void playBarrackOpendoor();
 	static void playBarrackMove();
 	static void playAssassinMove();
-	//Áú¾í·çËş
+	//é¾™å·é£å¡”
 	static void playArchmageReady();
 	static void playArchmageShot();
 	static void playArchmageTwister();
 	static void playArchmagePrecharge();
-	//»ù´¡Ä§·¨Ëş
+	//åŸºç¡€é­”æ³•å¡”
 	static void playMageTowerReady();
 	static void playMageTower2Ready();
 	static void playMageTower3Ready();
@@ -71,18 +71,18 @@ public:
 	static void playDKReady();
 	static void playNecShot();
 	static void playDKTaunt();
-	//ÔÉÊ¯
+	//é™¨çŸ³
 	static void playFireballHit();
 	static void playFireballUnleash();
-	//¹Ø¿¨½áÊø
+	//å…³å¡ç»“æŸ
 	static void playQuestCompleted();
 	static void playQuestFailed();
-	//¼¼ÄÜ
+	//æŠ€èƒ½
 	static void playReinforcement();
 	static void playCash();
 	static void playFreeze();
 	static void playHearts();
-	//ĞÉĞÉBOSS
+	//çŒ©çŒ©BOSS
 	static void playChestdrum();
 	static void playChimps_1();
 	static void playChimps_2();

@@ -1,4 +1,4 @@
-#include "Failure.h"
+ï»¿#include "Failure.h"
 #include "Scene/TransitionGame.h"
 #include "Scene/GameView.h"
 #include "Scene/GameScene.h"
@@ -136,7 +136,7 @@ bool Failure::init()
 		return false;
 	}
 	initOption();
-	auto size = Director::getInstance()->getVisibleSize(); //»ñÈ¡ÆÁÄ»´óÐ¡ 
+	auto size = Director::getInstance()->getVisibleSize(); //èŽ·å–å±å¹•å¤§å° 
     auto color = LayerColor::create(Color4B(0, 0, 0, 60), size.width, size.height);
     addChild(color);
 	auto listener = EventListenerTouchOneByOne::create();
@@ -157,8 +157,8 @@ bool Failure::init()
 void Failure::initMap()
 {
 	auto size = Director::getInstance()->getVisibleSize();
-//------------µÚÒ»²ã ----------------------------------------------------------------------------------------//
-	 //default×ÖÌå
+//------------ç¬¬ä¸€å±‚ ----------------------------------------------------------------------------------------//
+	 //defaultå­—ä½“
 
 	auto str ="  USE GEMS TO GET\n  SPECIAL ITEMS TO BLAST\n  YOUR EMENIES!";
 
@@ -167,13 +167,13 @@ void Failure::initMap()
 	defeatLabel->setColor(Color3B(255,255,255));
     option->addChild(defeatLabel,1);
 
-//-----------------------µÚÈý²ã-----------------------------------------------------------------------------------//
-	//Í¼Æ¬±¦Ê¯¡¢Ð¡ÄÐº¢..
+//-----------------------ç¬¬ä¸‰å±‚-----------------------------------------------------------------------------------//
+	//å›¾ç‰‡å®çŸ³ã€å°ç”·å­©..
 	auto items = Sprite::createWithSpriteFrameName("defeat_items.png");
     items->setPosition(Point(140,60));
     option->addChild(items,2);
 
-    //À¶É«×ÖÌåÏÂÃæµÄ×ÖÌå
+    //è“è‰²å­—ä½“ä¸‹é¢çš„å­—ä½“
 	auto downLabel = Label::createWithTTF(str, "ObelixPro.ttf", 30);
     downLabel->setPosition(Point(-150,60));
 	downLabel->setColor(Color3B(255,255,255));
@@ -205,11 +205,11 @@ void Failure::onTouchEnded(Touch* touch, Event* event)
 	target->setScale(1.0f);
 	switch (target->getTag())
 	{
-	case(0)://ÖØÐÂ¿ªÊ¼
+	case(0)://é‡æ–°å¼€å§‹
 		Director::getInstance()->resume();
 		Director::getInstance()->replaceScene(TransitionGame::create(1.0f, GameScene::playGame(level,difficulty)));
 		break;
-	case(1)://ÍË³ö
+	case(1)://é€€å‡º
 		Director::getInstance()->resume();
 		Director::getInstance()->replaceScene(TransitionGame::create(1.0f, GameView::createScene()));
 		break;

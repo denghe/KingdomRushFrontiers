@@ -1,4 +1,4 @@
-#ifndef _SHAMAN_H_
+﻿#ifndef _SHAMAN_H_
 #define _SHAMAN_H_
 
 #include "Monster/BaseMonster.h"

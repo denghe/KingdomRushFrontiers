@@ -1,4 +1,4 @@
-#ifndef _BROODGUARD_H_
+﻿#ifndef _BROODGUARD_H_
 #define _BROODGUARD_H_
 
 #include "Monster/BaseMonster.h"

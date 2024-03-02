@@ -1,4 +1,4 @@
-#ifndef _MISSILE_H_
+﻿#ifndef _MISSILE_H_
 #define _MISSILE_H_
 
 #include "cocos2d.h"

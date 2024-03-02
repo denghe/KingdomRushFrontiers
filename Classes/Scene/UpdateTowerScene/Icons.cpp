@@ -1,4 +1,4 @@
-#include "Icons.h"
+ï»¿#include "Icons.h"
 USING_NS_CC;
 
 
@@ -24,7 +24,7 @@ bool Icons::initNewIcons(std::string onPicture,std::string offPicture,std::strin
 			icon=Sprite::createWithSpriteFrameName(onPicture);
 		break;
 	}
-	//³õÊ¼»¯ÈıÖÖÀàĞÍµÄ×´Ì¬
+	//åˆå§‹åŒ–ä¸‰ç§ç±»å‹çš„çŠ¶æ€
 	
 	iconOKBack=Sprite::createWithSpriteFrameName("upgrades_icons_0032.png");
 	iconSelected=Sprite::createWithSpriteFrameName("upgrades_icons_0031.png");

@@ -1,4 +1,4 @@
-#include "Map/BaseMap.h"
+ï»¿#include "Map/BaseMap.h"
 #include "Data/GameManager.h"
 #include "Data/SoundManager.h"
 #include "Monster/Desert/Immortal.h"
@@ -123,7 +123,7 @@ void BaseMap::onEnterTransitionDidFinish()
 
 void BaseMap::loadAndSetLevelData()
 {
-	//¼ÓÔØ³õÊ¼ÑªÁ¿½ğÇ®µÈ
+	//åŠ è½½åˆå§‹è¡€é‡é‡‘é’±ç­‰
 	auto dataDic = Dictionary::createWithContentsOfFile(
 		__String::createWithFormat("level%d_%d_monsters.plist", getLevel(), difficulty)->getCString());
 	auto data_array = dynamic_cast<__Array*>(dataDic->objectForKey("data"));
@@ -131,7 +131,7 @@ void BaseMap::loadAndSetLevelData()
 	startGold = dynamic_cast<__String*>(data_tempDic->objectForKey("gold"))->intValue();
 	maxLife = dynamic_cast<__String*>(data_tempDic->objectForKey("life"))->intValue();
 	maxWave = dynamic_cast<__String*>(data_tempDic->objectForKey("wave"))->intValue();
-	//¼ÓÔØ¹ÖÎïÊı¾İ
+	//åŠ è½½æ€ªç‰©æ•°æ®
 	auto monsters_array = dynamic_cast<__Array*>(dataDic->objectForKey("monsters"));
 
 	for (int i = 0; i < monsters_array->count(); i++)
@@ -214,7 +214,7 @@ void BaseMap::onExitTransitionDidStart()
 
 void BaseMap::initTouchLayer()
 {
-	//ÉèÖÃ·ÀÓùËşÉı¼¶²Ëµ¥²ã
+	//è®¾ç½®é˜²å¾¡å¡”å‡çº§èœå•å±‚
 	mTouchLayer = TouchLayer::create();
 	mTouchLayer->setContentSize(mapSprite->getContentSize());
 	mTouchLayer->setAnchorPoint(Point(0, 0));
@@ -304,19 +304,19 @@ void BaseMap::initMap()
 
 void BaseMap::victory()
 {
-	//Í£Ö¹¼ÆÊ±Æ÷
+	//åœæ­¢è®¡æ—¶å™¨
 	auto instance = GameManager::getInstance();
 	auto dataInstance = UserDefault::getInstance();
 	unscheduleUpdate();
 	unschedule(schedule_selector(BaseMap::addWaves));
 	unschedule(schedule_selector(BaseMap::addMonsters));
-	//Èô´Ë¹Ø¿¨µÃĞÇÊıÎª0£¬Ôò±íÊ¾µÚÒ»´ÎÍê³É
+	//è‹¥æ­¤å…³å¡å¾—æ˜Ÿæ•°ä¸º0ï¼Œåˆ™è¡¨ç¤ºç¬¬ä¸€æ¬¡å®Œæˆ
 	if (UserDefault::getInstance()->getIntegerForKey(
 		__String::createWithFormat(GameManager::getInstance()->LEVELX_STARNUM, getLevel())->getCString(), 0) == 0)
 	{
 		UserDefault::getInstance()->setIntegerForKey(GameManager::getInstance()->LEVELX_NEWDOWN, getLevel() + 1);
 	}
-	//ÅĞ¶ÏÍê³ÉµÈ¼¶¸øĞÇ
+	//åˆ¤æ–­å®Œæˆç­‰çº§ç»™æ˜Ÿ
 	int gotStar = 0;
 	switch (difficulty)
 	{
@@ -341,27 +341,27 @@ void BaseMap::victory()
 		gotStar = 5;
 		break;
 	}
-	//Èô´Ë´ÎµÃµ½µÄĞÇĞÇ´óÓÚÖ®Ç°¼ÇÂ¼£¬¸üĞÂ
+	//è‹¥æ­¤æ¬¡å¾—åˆ°çš„æ˜Ÿæ˜Ÿå¤§äºä¹‹å‰è®°å½•ï¼Œæ›´æ–°
 	int oldStar = dataInstance->getIntegerForKey(
 		__String::createWithFormat(instance->LEVELX_STARNUM, getLevel())->getCString(), 0);
 	if (gotStar > oldStar)
 	{
-		//Ö®Ç°ĞÇĞÇ¸öÊı
+		//ä¹‹å‰æ˜Ÿæ˜Ÿä¸ªæ•°
 		int starCount = dataInstance->getIntegerForKey(instance->SLOTX_STAR);
-		//¼ÓÉÏµÃµ½µÄĞÇĞÇ
+		//åŠ ä¸Šå¾—åˆ°çš„æ˜Ÿæ˜Ÿ
 		dataInstance->setIntegerForKey(instance->SLOTX_STAR, starCount + gotStar - oldStar);
-		//¸üĞÂ±¾¹ØĞÇĞÇ
+		//æ›´æ–°æœ¬å…³æ˜Ÿæ˜Ÿ
 		dataInstance->setIntegerForKey(__String::createWithFormat(instance->LEVELX_STARNUM, getLevel())->getCString(),
 		                               gotStar);
-		//¸üĞÂÊ£ÓàĞÇĞÇ¸öÊı
+		//æ›´æ–°å‰©ä½™æ˜Ÿæ˜Ÿä¸ªæ•°
 		dataInstance->setIntegerForKey(instance->SLOTX_STARLEFT,
 		                               dataInstance->getIntegerForKey(instance->SLOTX_STARLEFT) + gotStar - oldStar);
 	}
-	//¸üĞÂµÃµ½µÄ×êÊ¯×êÊ¯
+	//æ›´æ–°å¾—åˆ°çš„é’»çŸ³é’»çŸ³
 	int gem = gotStar * 10 * (level + 1) / 2;
 	int oldGem = dataInstance->getIntegerForKey(instance->SLOTX_GEM);
 	dataInstance->setIntegerForKey(instance->SLOTX_GEM, gem + oldGem);
-	//¸ù¾İÄÑ¶È£¬ĞÇ£¬×ê£¬ÏÔÊ¾Ê¤Àû»­Ãæ
+	//æ ¹æ®éš¾åº¦ï¼Œæ˜Ÿï¼Œé’»ï¼Œæ˜¾ç¤ºèƒœåˆ©ç”»é¢
 	auto victory = Victory::createVictory(gotStar, gem);
 	mTouchLayer->removeAllChildren();
 	victory->level = getLevel();
@@ -371,9 +371,9 @@ void BaseMap::victory()
 
 void BaseMap::addMonsters(float dt)
 {
-	//waveVector.size£¨£©Îª²¨Êø
-	//waveVector.at()±£´æ¸Ãwave¹ÖÎï£¬sizeÎª¹ÖÎï¸öÊı
-	//waveVector.at().at()±£´æ¸Ã0.5sÄÚĞèÒª´´½¨µÄ¹ÖÎï,.sizeÎª¹ÖÎï¸öÊı
+	//waveVector.sizeï¼ˆï¼‰ä¸ºæ³¢æŸ
+	//waveVector.at()ä¿å­˜è¯¥waveæ€ªç‰©ï¼Œsizeä¸ºæ€ªç‰©ä¸ªæ•°
+	//waveVector.at().at()ä¿å­˜è¯¥0.5så†…éœ€è¦åˆ›å»ºçš„æ€ªç‰©,.sizeä¸ºæ€ªç‰©ä¸ªæ•°
 	if (time < waveVector.at(wave).size())
 	{
 		for (int i = 0; i < waveVector.at(wave).at(time).size(); i++)
@@ -582,7 +582,7 @@ void BaseMap::addMonsters(float dt)
 	{
 		time = 0;
 		if (wave != maxWave - 1)
-			//15ÃëºóÏÔÊ¾WaveProgressBar
+			//15ç§’åæ˜¾ç¤ºWaveProgressBar
 		{
 			SoundManager::playNextWaveReady();
 			scheduleOnce(schedule_selector(BaseMap::showWaveProgressBars), 15.0f);

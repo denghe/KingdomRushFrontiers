@@ -1,4 +1,4 @@
-#include "Templar.h"
+ï»¿#include "Templar.h"
 #include "Data/GameManager.h"
 
 Templar* Templar::createTemplar(Point point)
@@ -32,14 +32,14 @@ void Templar::cheakState()
 
 void Templar::update(float dt)
 {
-	//Èô×´Ì¬¸üÐÂ
+	//è‹¥çŠ¶æ€æ›´æ–°
 	if(lastState!=getState()){
-		//¸ù¾Ý×´Ì¬ÅÐ¶Ï
+		//æ ¹æ®çŠ¶æ€åˆ¤æ–­
 		switch (getState())
 		{
 		case(SoldierStateRun):{
 			lastState = SoldierStateRun;
-			//Í£Ö¹Ö®Ç°¶¯»­
+			//åœæ­¢ä¹‹å‰åŠ¨ç”»
 			stopSoldierAnimation();
 			auto action = RepeatForever::create(Animate::create(AnimationCache::getInstance()->getAnimation("Templar_run")));
 			action->setTag(SoldierStateRun);
@@ -57,14 +57,14 @@ void Templar::update(float dt)
 			stopSoldierAnimation();
 			baseSprite->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("Templar_0001.png"));}
 			break;
-		case(SoldierStateSkill1):{//ÎÒ¿³
+		case(SoldierStateSkill1):{//æˆ‘ç 
 			lastState = SoldierStateSkill1;
 			stopSoldierAnimation();
 			auto action = RepeatForever::create(Animate::create(AnimationCache::getInstance()->getAnimation("Templar_skill1")));
 			action->setTag(SoldierStateSkill1);
 			baseSprite->runAction(action);}
 			break;
-		case(SoldierStateSkill2):{//ÖÎÁÆ
+		case(SoldierStateSkill2):{//æ²»ç–—
 			lastState = SoldierStateSkill2;
 			stopSoldierAnimation();
 			auto action = RepeatForever::create(Animate::create(AnimationCache::getInstance()->getAnimation("Templar_skill2")));

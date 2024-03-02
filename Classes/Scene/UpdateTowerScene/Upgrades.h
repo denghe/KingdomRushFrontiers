@@ -1,4 +1,4 @@
-#ifndef __UPGRADES_H__
+ï»¿#ifndef __UPGRADES_H__
 #define __UPGRADES_H__
 
 #include "cocos2d.h"
@@ -13,44 +13,44 @@ public:
 	static Scene* createScene();
 	bool init() override;
 	CREATE_FUNC(Upgrades);
-	/*³õÊ¼»¯×´Ì¬*/
+	/*åˆå§‹åŒ–çŠ¶æ€*/
 	void initalState();
 
-	//¶¨ÒåÔ­Ê¼×´Ì¬
+	//å®šä¹‰åŸå§‹çŠ¶æ€
 	void initalOriginalSta();
 
-	/*Éú³ÉÉı¼¶¾ØÕó*/
+	/*ç”Ÿæˆå‡çº§çŸ©é˜µ*/
 protected:
-	/*´¢´æÏÖÓĞ×´Ì¬*/
+	/*å‚¨å­˜ç°æœ‰çŠ¶æ€*/
 	Icons::IconsStatus iconSta[5][6];
-	/*´¢´æÔ­Ê¼×´Ì¬*/
+	/*å‚¨å­˜åŸå§‹çŠ¶æ€*/
 	Icons::IconsStatus iconInitSta[5][6];
-	/*´¢´æ¶¯Ì¬¿ÉÉı¼¶Í¼±êµÄ¾«Áé¾ØÕó*/
+	/*å‚¨å­˜åŠ¨æ€å¯å‡çº§å›¾æ ‡çš„ç²¾çµçŸ©é˜µ*/
 	Icons* icons[5][6];
-	/*ÉÏÒ»´Îµã»÷µÄÍ¼±ê*/
+	/*ä¸Šä¸€æ¬¡ç‚¹å‡»çš„å›¾æ ‡*/
 	Icons* lastSelectedIcon;
 	Icons* selectedIcon;
 
 
-	/*ËùÓĞĞÇĞÇ*/
+	/*æ‰€æœ‰æ˜Ÿæ˜Ÿ*/
 	int startAll;
-	/*Ê£ÓàĞÇĞÇ*/
+	/*å‰©ä½™æ˜Ÿæ˜Ÿ*/
 	int startLeft;
 	Label* lastStartLabel;
 	
-	/*Éı¼¶ËùĞèĞÇĞÇ*/
+	/*å‡çº§æ‰€éœ€æ˜Ÿæ˜Ÿ*/
 	Label* upNeedStartLabel;
 	
 
-	//ÏÔÊ¾Ñ¡ÖĞiconÃû³Æ
+	//æ˜¾ç¤ºé€‰ä¸­iconåç§°
 	Label* iconNameLabel;
-	//ÏÔÊ¾icon½éÉÜĞÅÏ¢
+	//æ˜¾ç¤ºiconä»‹ç»ä¿¡æ¯
 	Label* iconIntroductionLabel;
 
-	/*ÏÔÊ¾µã»÷µÄÍ¼±ê*/
+	/*æ˜¾ç¤ºç‚¹å‡»çš„å›¾æ ‡*/
 	Sprite* iconDisplay;
 
-	/*ÏÔÊ¾¹ºÂò°´Å¥*/
+	/*æ˜¾ç¤ºè´­ä¹°æŒ‰é’®*/
 	Sprite* buyButten;
 	void showStart();
 	void showTips();
@@ -63,7 +63,7 @@ protected:
 	bool onBuyButTouchBegan(Touch* , Event* );
 	void onBuyButTouchEnded(Touch* , Event* );
 
-	//ÖØÖÃÎªÔ­Ê¼Î´Éı¼¶×´Ì¬
+	//é‡ç½®ä¸ºåŸå§‹æœªå‡çº§çŠ¶æ€
 	bool resetSta(Touch* touch , Event* event);
 	void resetStaEnded(Touch* , Event* );
 	void onKeyReleased(EventKeyboard::KeyCode keycode, Event* event) override;

@@ -1,4 +1,4 @@
-#ifndef _CANIBAL_OFF_SPRING_H_
+﻿#ifndef _CANIBAL_OFF_SPRING_H_
 #define _CANIBAL_OFF_SPRING_H_
 
 #include "Monster/BaseMonster.h"

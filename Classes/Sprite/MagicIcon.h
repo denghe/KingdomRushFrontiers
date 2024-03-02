@@ -1,4 +1,4 @@
-#ifndef _MAGIC_ICON_H_
+﻿#ifndef _MAGIC_ICON_H_
 #define _MAGIC_ICON_H_
 
 #include "cocos2d.h"

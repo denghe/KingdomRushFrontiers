@@ -1,4 +1,4 @@
-#ifndef _EARTHQUAKE_SMOKE_H_
+﻿#ifndef _EARTHQUAKE_SMOKE_H_
 #define _EARTHQUAKE_SMOKE_H_
 
 #include "cocos2d.h"

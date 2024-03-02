@@ -1,4 +1,4 @@
-#ifndef _BARRACK_Soldier_H_
+﻿#ifndef _BARRACK_Soldier_H_
 #define _BARRACK_Soldier_H_
 
 #include "BaseSoldier.h"
